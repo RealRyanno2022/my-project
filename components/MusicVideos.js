@@ -1,41 +1,47 @@
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
-const MusicVideos = ({ searchText }) => {
-    const [responseData, setResponseData] = useState({ data: [], searchText: '' });
+const MusicVideos = ({ searchText, navigation }) => {
+  const [responseData, setResponseData] = useState({ data: [], searchText: '' });
 
-    useEffect(() => {
-        searchVideos(searchText);
-      }, [searchText]);
+  useEffect(() => {
+    if (searchText) {
+      searchVideos(searchText);
+    }
+  }, [searchText]);
     
-      const searchVideos = async (artistName) => {
-        try {
-          const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
-            params: {
-              q: `${artistName} music videos`,
-              part: 'snippet',
-              maxResults: 10,
-              key: 'AIzaSyCW6dJXm7xlVlDSsc3t-G9jXIQ7Z5l4SXg',
-              type: 'video',
-            },
-          });
-    
-          const simplifiedData = response.data.items.map(item => ({
-            id: item.id.videoId,
-            title: item.snippet.title,
-            thumbnail: item.snippet.thumbnails.medium.url,
-          }));
-          setResponseData({ data: simplifiedData, searchText: artistName });
-        } catch (error) {
-          console.error(error);
-          setResponseData([{ error: error.message }]);
-        }
-      };
+  const searchVideos = async (artistName) => {
+    try {
+      const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
+        params: {
+          q: `${artistName} music videos`,
+          part: 'snippet',
+          maxResults: 10,
+          key: 'YOUR_YOUTUBE_API_KEY',
+          type: 'video',
+        },
+      });
+
+      const simplifiedData = response.data.items.map(item => ({
+        id: item.id.videoId,
+        title: item.snippet.title,
+        thumbnail: item.snippet.thumbnails.medium.url,
+      }));
+      setResponseData({ data: simplifiedData, searchText: artistName });
+    } catch (error) {
+      console.error(error);
+      setResponseData([{ error: error.message }]);
+    }
+  };
 
   return (
     <ScrollView>
+      <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('ProjectInfo')}>
+          <Text style={styles.nextText}>NEXT</Text>
+        </TouchableOpacity>
+      {searchText ? (
         <View style={styles.container}>
           <Text>Showing results for "{responseData.searchText}"</Text>
           {responseData.data.length > 0 ? (
@@ -48,11 +54,11 @@ const MusicVideos = ({ searchText }) => {
           ) : (
             <Text>No data found</Text>
           )}
-          
         </View>
-        <StatusBar style="auto" />
+      ) : null}
+      <StatusBar style="auto" />
     </ScrollView>
-    );
+  );
 }
 
 const styles = StyleSheet.create({
@@ -65,6 +71,7 @@ const styles = StyleSheet.create({
     thumbnail: {
       width: 320,
       height: 180,
+      marginBottom: 10,
     },
   });
 
