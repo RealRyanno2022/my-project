@@ -22,9 +22,12 @@ export default function AccountInfo({ navigation }) {
         style={styles.button}
         onPress={() => navigation.navigate('ProjectInfo')}
       >
-        <Text style={styles.buttonText}>View Project Info</Text>
+        <Text style={styles.buttonText}>Project Info</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleSignOut}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('UserInfo')}>
+        <Text style={styles.buttonText}>User Info</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LoginScreen')}>
         <Text style={styles.buttonText}>Sign Out</Text>
       </TouchableOpacity>
     </View>

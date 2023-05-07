@@ -1,37 +1,49 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 
-export default function LoginScreen({ navigation }) {
+function LoginScreen({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLoginPress = () => {
-    // Validate username and password
-    if (username === 'myusername' && password === 'mypassword') {
-      // Navigate to the home screen
-      console.log('Login successful!');
-    } else {
-      console.log('Invalid username or password');
+  const handleLoginPress = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          password
+        })
+      });
+      const data = await response.json();
+  
+      if (data.error === 'noSuchUser') {
+        alert('No such user exists');
+      } else if (data.error === 'wrongPassword') {
+        alert('Invalid username or password');
+      } else {
+        console.log('Login successful!');
+        // Navigate to the home screen
+        navigation.navigate('MusicVideos');
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
-
   const handleSignUpPress = () => {
-
-  }
+    navigation.navigate('SignUp');
+  };
 
   const handleForgotPasswordPress = () => {
-
-  }
-
-
-
-
-
+    navigation.navigate('ForgotPassword');
+  };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('MusicVideos')}>
+      <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('SearchVideos')}>
         <Text style={styles.nextText}>NEXT</Text>
       </TouchableOpacity>
       <Text style={styles.logo}>Rhythmly</Text>
@@ -58,14 +70,13 @@ export default function LoginScreen({ navigation }) {
       <TouchableOpacity style={styles.loginBtn} onPress={handleLoginPress}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('SignUp')}>
+      <TouchableOpacity style={styles.loginBtn} onPress={handleSignUpPress}>
         <Text style={styles.loginText}>SIGN UP</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('ForgotPassword')}>
+      <TouchableOpacity style={styles.loginBtn} onPress={handleForgotPasswordPress}>
         <Text style={styles.loginText}>FORGOT PASSWORD?</Text>
       </TouchableOpacity>
     </View>
-    
   );
 }
 
@@ -128,3 +139,5 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
+
+export default LoginScreen;

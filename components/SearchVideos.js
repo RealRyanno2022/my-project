@@ -44,36 +44,62 @@ export default function SearchVideos({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('SignUp')}>
-          <Text style={styles.nextText}>NEXT</Text>
-        </TouchableOpacity>
-      <Text>Search for music videos:</Text>
-      <TextInput
-        style={styles.textInput}
-        onChangeText={handleTextChange}
-        value={searchText}
-      />
-      <Button title="Search" onPress={handleSearchPress} />
+      <Text style={styles.smallText}>Search for music videos:</Text>
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.inputText}
+          onChangeText={handleTextChange}
+          value={searchText}
+          placeholder="Enter search text"
+          placeholderTextColor="#ffffff"
+        />
+      </View>
+      <TouchableOpacity style={styles.loginBtn} onPress={handleSearchPress}>
+        <Text style={styles.loginText}>SEARCH</Text>
+      </TouchableOpacity>
       <MusicVideos videos={videos.data} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: 20,
-    },
-    textInput: {
-      height: 40,
-      borderColor: '#bbb',
-      borderWidth: 1,
-      marginVertical: 10,
-      paddingHorizontal: 10,
-      width: '100%',
-      borderRadius: 5,
-    },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: '#003f5c',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  smallText: {
+    fontWeight: 'bold',
+    fontSize: 25,
+    color: '#fb5b5a',
+    marginBottom: 40,
+  },
+  inputView: {
+    width: '80%',
+    backgroundColor: '#465881',
+    borderRadius: 25,
+    height: 50,
+    marginBottom: 20,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  inputText: {
+    height: 50,
+    color: 'white',
+  },
+  loginBtn: {
+    width: '80%',
+    backgroundColor: '#fb5b5a',
+    borderRadius: 25,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 40,
+    marginBottom: 10,
+  },
+  loginText: {
+    color: 'white',
+  },
+});

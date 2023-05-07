@@ -8,6 +8,8 @@ import SignUp from './components/SignUp';
 import ForgotPassword from './components/ForgotPassword';
 import VerifyEmail from './components/VerifyEmail';
 import AccountInfo from './components/AccountInfo';
+import UserInfo from './components/UserInfo'
+import NewPassword from './components/NewPassword'
 
 export default function App() {
 
@@ -17,7 +19,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LoginScreen">
+      <Stack.Navigator initialRouteName="AccountInfo">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="SearchVideos" component={SearchVideos} />
         <Stack.Screen name="MusicVideos" component={MusicVideos} /> 
@@ -26,6 +28,8 @@ export default function App() {
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} /> 
         <Stack.Screen name="VerifyEmail" component={VerifyEmail} /> 
         <Stack.Screen name="AccountInfo" component={AccountInfo} />
+        <Stack.Screen name="UserInfo" component={UserInfo} />
+        <Stack.Screen name="NewPassword" component={NewPassword} />
       </Stack.Navigator>
     </NavigationContainer>
   );

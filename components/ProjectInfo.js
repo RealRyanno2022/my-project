@@ -10,9 +10,9 @@ const ProjectInfo = ({ navigation }) => {
       <Text style={styles.title}>Project Info</Text>
       <Text style={styles.infoText}>Developed in React Native by Daniel Ryan, 2023</Text>
       <Text style={styles.subtitle}>Features:</Text>
-      <Text style={styles.featuresText}>- Youtube API-based search for music videos by your favorite artist</Text>
-      <Text style={styles.featuresText}>- Authentication</Text>
-      <Text style={styles.featuresText}>- Embedded videos</Text>
+      <Text style={styles.featuresText}>- Youtube API-based music video search app made with React Native </Text>
+      <Text style={styles.featuresText}>- Full account creation system with PostgreSQL</Text>
+      <Text style={styles.featuresText}>- Node and Express backend</Text>
     </View>
   )
 }
@@ -20,40 +20,56 @@ const ProjectInfo = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#003f5c',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
   },
+  nextBtn: {
+    width: '80%',
+    backgroundColor: '#fb5b5a',
+    borderRadius: 25,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 40,
+    marginBottom: 10,
+  },
+  nextText: {
+    color: 'white',
+  },
   title: {
-    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#333333',
+    fontSize: 50,
+    color: '#fb5b5a',
+    marginBottom: 40,
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 20,
-    marginBottom: 10,
-    color: '#333333',
+    fontSize: 25,
+    color: '#fb5b5a',
+    marginBottom: 20,
     textAlign: 'left',
     alignSelf: 'stretch',
   },
   infoText: {
-    fontSize: 18,
+
     marginVertical: 5,
-    color: '#333333',
     textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 25,
+    color: '#fb5b5a',
+    marginBottom: 40,
   },
   featuresText: {
     fontSize: 16,
     marginVertical: 5,
     marginLeft: 10,
-    color: '#333333',
     textAlign: 'left',
     alignSelf: 'stretch',
+    fontWeight: 'bold',
+    color: '#fb5b5a',
   },
 });
 

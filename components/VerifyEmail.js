@@ -1,21 +1,35 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 
 export default function VerifyEmail({ navigation }) {
   const [code, setCode] = useState('');
   const [generatedCode, setGeneratedCode] = useState(null);
 
-  const handleSendCode = () => {
-    const randomCode = Math.floor(Math.random() * 900000000000) + 100000000000;
-    setGeneratedCode(randomCode);
-    console.log(`Generated code: ${randomCode}`);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('Sending...');
+
+    try {
+      await axios.post('http://localhost:5000/send-email', { name, email, message });
+      setStatus('Email sent successfully');
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setStatus('Email sending failed');
+    }
   };
+
+  const generateCode = () => {
+    const code = Math.floor(Math.random() * 1000000000000);
+    return code.toString().padStart(12, '0');
+  };
+
 
   const handleVerifyCode = () => {
     if (code === generatedCode.toString()) {
-      console.log('Email verified successfully!');
+      Alert.alert('Success', 'Email verified successfully!');
+      navigation.navigate('SearchVideos');
     } else {
-      console.log('Invalid code');
+      Alert.alert('Error', 'Invalid code');
     }
   };
 
