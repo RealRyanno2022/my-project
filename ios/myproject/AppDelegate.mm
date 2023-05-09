@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
-
+#import "RCTBraintreeDropIn.h"
+#import <React/RCTLinkingManager.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTLinkingManager.h>
 
@@ -29,7 +30,7 @@
 ///
 /// @see: https://reactjs.org/blog/2022/03/29/react-v18.html
 /// @note: This requires to be rendering on Fabric (i.e. on the New Architecture).
-/// @return: `true` if the `concurrentRoot` feature is enabled. Otherwise, it returns `false`.
+/// @return: `true` if the `concurrentRoot` feature is enabled; otherwise, it returns `false`.
 - (BOOL)concurrentRootEnabled
 {
   return true;
@@ -37,6 +38,9 @@
 
 // Linking API
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  if ([RCTBraintreeDropIn handleOpenURL:url]) {
+    return YES;
+  }
   return [super application:application openURL:url options:options] || [RCTLinkingManager application:application openURL:url options:options];
 }
 

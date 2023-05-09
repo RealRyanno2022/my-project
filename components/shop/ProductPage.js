@@ -5,6 +5,7 @@ import Slider from '@react-native-community/slider';
 
 const ProductPage = () => {
     // dummy product
+    
     const product = {
         name: 'Cool Headphones',
         images: [
