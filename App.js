@@ -24,20 +24,21 @@ import ProjectInfo from './components/account/ProjectInfo';
 import CustomerBasket from './components/account/CustomerBasket';
 import Queries from './components/account/Queries';
 import FAQItem from './components/acc/FAQItem';
+import NotFoundScreen from './components/NotFoundScreen';
 
 
 export default function App() {
 
 
-  // ShopFront -> BrandScreen -> BrandVarieties -> ProductPage -> LoginScreen -> PaymentPage -> ConfirmationPage
-  //         |_>AccountInfo                                       |_> SignUp -> Verify Email   
+  //  ShopFront -> BrandScreen -> BrandVarieties -> ProductPage -> LoginScreen -> PaymentPage -> ConfirmationPage
+  //        |_>AccountInfo                                       |_> SignUp -> Verify Email   
   //            |_> UserInfo                                      |_>ForgotPassword -> NewPassword
   //            |_> ProjectInfo
   //         |_>CustomerBasket                                     
   //         |_>Queries
   //            |_> FAQItem
   //
-  //
+  // ? -> NotFoundScreen
 
 
   const Stack = createStackNavigator();
@@ -64,6 +65,7 @@ export default function App() {
         <Stack.Screen name="PaymentPage" component={PaymentPage} />
         <Stack.Screen name="ConfirmationPage" component={ConfirmationPage} />
         <Stack.Screen name="Queries" component={Queries} />
+        <Stack.Screen name="NotFoundScreen" component={NotFoundScreen} />
 
         
       </Stack.Navigator>
