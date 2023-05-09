@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
+import BrandBox from './BrandBox';
+
+// ... brandData and product schema ...
 
 const brandData = {
   Elfbar: [
@@ -44,7 +47,7 @@ const brandData = {
   ],
 };
 
-const BrandVarieties = ({ route }) => {
+const BrandVarieties = ({ route, navigation }) => {
   const { brand } = route.params;
   const [varieties, setVarieties] = useState(brandData[brand]);
 
@@ -52,13 +55,10 @@ const BrandVarieties = ({ route }) => {
     <View style={styles.container}>
       <Text style={styles.title}>{brand} Varieties</Text>
       <FlatList
+        contentContainerStyle={styles.listContainer}
         data={varieties}
         renderItem={({ item }) => (
-          <View style={styles.varietyContainer}>
-            <Text style={styles.varietyName}>{item.name}</Text>
-            <Text style={styles.varietyPrice}>${item.price.toFixed(2)}</Text>
-            <Image style={styles.varietyImage} source={{ uri: item.image }} />
-          </View>
+          <BrandBox product={item} navigation={navigation} />
         )}
         keyExtractor={(item) => item.id}
       />
@@ -69,41 +69,21 @@ const BrandVarieties = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
-  },
-  header: {
     backgroundColor: '#fff',
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 25,
+    color: '#fb5b5a',
     paddingHorizontal: 20,
     paddingVertical: 10,
     marginBottom: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
   },
-  headerTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  productContainer: {
-    backgroundColor: '#fff',
-    marginBottom: 10,
-    padding: 10,
-    borderRadius: 5,
-  },
-  productName: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  productDescription: {
-    fontSize: 14,
-    color: '#666',
-    marginVertical: 5,
-  },
-  productPrice: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
+  listContainer: {
+    paddingHorizontal: 20,
+    paddingBottom: 20,
   },
 });
 

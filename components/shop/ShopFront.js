@@ -1,17 +1,15 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const ShopFront = ({ navigation }) => {
   const handleBrandPress = (brandName) => {
-    navigation.navigate('BrandScreen', { brandName });
+    navigation.navigate('BrandVarieties', { brandName });
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.logo}>Candii</Text>
       <Text style={styles.smallText}>The Vape app</Text>
-      <View style={styles.inputView}></View>
-      <View style={styles.inputView}>
         <TouchableOpacity
           id="lost_mary"
           style={styles.loginBtn}
@@ -26,12 +24,17 @@ const ShopFront = ({ navigation }) => {
         >
           <Text style={styles.loginText}>Elfbar</Text>
         </TouchableOpacity>
-      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#003f5c',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   logo: {
     fontWeight: 'bold',
     fontSize: 50,
@@ -43,6 +46,28 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#fb5b5a',
     marginBottom: 40,
+  },
+  inputView: {
+    width: '80%',
+    backgroundColor: '#465881',
+    borderRadius: 25,
+    height: 50,
+    marginBottom: 20,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  loginBtn: {
+    width: '80%',
+    backgroundColor: '#fb5b5a',
+    borderRadius: 25,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 40,
+    marginBottom: 10,
+  },
+  loginText: {
+    color: 'white',
   },
 });
 

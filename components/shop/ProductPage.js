@@ -9,9 +9,9 @@ const ProductPage = () => {
     const product = {
         name: 'Cool Headphones',
         images: [
-          'https://example.com/images/cool-headphones-1.jpg',
-          'https://example.com/images/cool-headphones-2.jpg',
-          'https://example.com/images/cool-headphones-3.jpg',
+          // 'https://example.com/images/cool-headphones-1.jpg',
+          // 'https://example.com/images/cool-headphones-2.jpg',
+          // 'https://example.com/images/cool-headphones-3.jpg',
         ],
         price: 150.99,
         description:
@@ -26,28 +26,29 @@ const ProductPage = () => {
   const totalPrice = product.price * quantity + product.deliveryCharge;
 
   const renderStarRating = (rating) => {
-    const fullStar = require('./path/to/full_star_image.png');
-    const halfStar = require('./path/to/half_star_image.png');
-    const emptyStar = require('./path/to/empty_star_image.png');
+    // const fullStar = require('./path/to/full_star_image.png');
+    // const halfStar = require('./path/to/half_star_image.png');
+    // const emptyStar = require('./path/to/empty_star_image.png');
 
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
     return (
-      <View style={styles.starRating}>
-        {Array(fullStars)
-          .fill(null)
-          .map((_, index) => (
-            <Image key={`full_star_${index}`} source={fullStar} />
-          ))}
-        {hasHalfStar && <Image source={halfStar} />}
-        {Array(emptyStars)
-          .fill(null)
-          .map((_, index) => (
-            <Image key={`empty_star_${index}`} source={emptyStar} />
-          ))}
-      </View>
+      <div>Wop</div>
+      // <View style={styles.starRating}>
+      //   {Array(fullStars)
+      //     .fill(null)
+      //     .map((_, index) => (
+      //       <Image key={`full_star_${index}`} source={fullStar} />
+      //     ))}
+      //   {hasHalfStar && <Image source={halfStar} />}
+      //   {Array(emptyStars)
+      //     .fill(null)
+      //     .map((_, index) => (
+      //       <Image key={`empty_star_${index}`} source={emptyStar} />
+      //     ))}
+      // </View>
     );
   };
 

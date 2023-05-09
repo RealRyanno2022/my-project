@@ -9,21 +9,20 @@ import ForgotPassword from './components/register/ForgotPassword';
 import SignUp from './components/register/SignUp';
 import VerifyEmail from './components/register/VerifyEmail';
 import NewPassword from './components/register/NewPassword'
-import NewPassword from './components/register/NewPassword';
 
 import ProductPage from './components/shop/ProductPage';
 import PaymentPage from './components/shop/PaymentPage';
 import ConfirmationPage from './components/shop/ConfirmationPage';
 import ShopFront from './components/shop/ShopFront';
-import BrandScreen from './components/shop/BrandScreen';
 import BrandVarieties from './components/shop/BrandVarieties';
+import BrandBox from './components/shop/BrandBox';
 
 import AccountInfo from './components/account/AccountInfo';
 import UserInfo from './components/account/UserInfo'
 import ProjectInfo from './components/account/ProjectInfo';
 import CustomerBasket from './components/account/CustomerBasket';
 import Queries from './components/account/Queries';
-import FAQItem from './components/acc/FAQItem';
+import FAQItem from './components/account/FAQItem';
 import NotFoundScreen from './components/NotFoundScreen';
 
 
@@ -60,7 +59,6 @@ export default function App() {
         <Stack.Screen name="UserInfo" component={UserInfo} />
         <Stack.Screen name="NewPassword" component={NewPassword} />
         <Stack.Screen name="ShopFront" component={ShopFront} />
-        <Stack.Screen name="BrandScreen" component={BrandScreen} />
         <Stack.Screen name="BrandVarieties" component={BrandVarieties} />
         <Stack.Screen name="ProductPage" component={ProductPage} />
         <Stack.Screen name="CustomerBasket" component={CustomerBasket} />
@@ -69,6 +67,7 @@ export default function App() {
         <Stack.Screen name="Queries" component={Queries} />
         <Stack.Screen name="NotFoundScreen" component={NotFoundScreen} />
         <Stack.Screen name="FAQItem" component={FAQItem} />
+        <Stack.Screen name="BrandBox" component={BrandBox} />
 
 
         
