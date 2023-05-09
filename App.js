@@ -23,6 +23,7 @@ import UserInfo from './components/account/UserInfo'
 import ProjectInfo from './components/account/ProjectInfo';
 import CustomerBasket from './components/account/CustomerBasket';
 import Queries from './components/account/Queries';
+import FAQItem from './components/acc/FAQItem';
 
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
   //            |_> ProjectInfo
   //         |_>CustomerBasket                                     
   //         |_>Queries
+  //            |_> FAQItem
   //
   //
 

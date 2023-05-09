@@ -9,10 +9,12 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-community/slider": "^4.4.2",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/stack": "^6.3.16",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
+    "braintree-web": "^3.93.0",
     "cors": "^2.8.5",
     "emailjs-com": "^3.2.0",
     "experss": "^0.0.1-security",
@@ -23,7 +25,10 @@
     "jsonwebtoken": "^9.0.0",
     "pg": "^8.10.0",
     "react": "18.2.0",
-    "react-native": "0.71.7"
+    "react-native": "0.71.7",
+    "react-native-braintree-payments-drop-in": "^1.2.0",
+    "react-native-collapsible": "^1.6.1",
+    "react-native-paper": "^5.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
