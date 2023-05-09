@@ -5,14 +5,6 @@ const NewPassword = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-
-
-
-
-
-
-
-
     return (
         <View style={styles.container}>
           <Text style={styles.logo}>Reset Password</Text>

@@ -1,17 +1,41 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import MusicVideos from './components/MusicVideos';
-import SearchVideos from './components/SearchVideos';
-import LoginScreen from './components/LoginScreen'
-import ProjectInfo from './components/ProjectInfo';
-import SignUp from './components/SignUp';
-import ForgotPassword from './components/ForgotPassword';
-import VerifyEmail from './components/VerifyEmail';
-import AccountInfo from './components/AccountInfo';
-import UserInfo from './components/UserInfo'
-import NewPassword from './components/NewPassword'
+
+// import MusicVideos from './components/MusicVideos';
+// import SearchVideos from './components/SearchVideos';
+
+import LoginScreen from './components/register/LoginScreen'
+import ForgotPassword from './components/register/ForgotPassword';
+import SignUp from './components/register/SignUp';
+import VerifyEmail from './components/register/VerifyEmail';
+import NewPassword from './components/register/NewPassword'
+import NewPassword from './components/register/NewPassword';
+
+import ProductPage from './components/shop/ProductPage';
+import PaymentPage from './components/shop/PaymentPage';
+import ConfirmationPage from './components/shop/ConfirmationPage';
+import ShopFront from './components/shop/ShopFront';
+import BrandScreen from './components/shop/BrandScreen';
+import BrandVarieties from './components/shop/BrandVarieties';
+
+import AccountInfo from './components/account/AccountInfo';
+import UserInfo from './components/account/UserInfo'
+import ProjectInfo from './components/account/ProjectInfo';
+import CustomerBasket from './components/account/CustomerBasket';
+import Queries from './components/account/Queries';
+
 
 export default function App() {
+
+
+  // ShopFront -> BrandScreen -> BrandVarieties -> ProductPage -> LoginScreen -> PaymentPage -> ConfirmationPage
+  //         |_>AccountInfo                                       |_> SignUp -> Verify Email   
+  //            |_> UserInfo                                      |_>ForgotPassword -> NewPassword
+  //            |_> ProjectInfo
+  //         |_>CustomerBasket                                     
+  //         |_>Queries
+  //
+  //
 
 
   const Stack = createStackNavigator();
@@ -19,10 +43,10 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="AccountInfo">
+      <Stack.Navigator initialRouteName="ShopFront">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
-        <Stack.Screen name="SearchVideos" component={SearchVideos} />
-        <Stack.Screen name="MusicVideos" component={MusicVideos} /> 
+        {/* <Stack.Screen name="SearchVideos" component={SearchVideos} />
+        <Stack.Screen name="MusicVideos" component={MusicVideos} />  */}
         <Stack.Screen name="ProjectInfo" component={ProjectInfo} /> 
         <Stack.Screen name="SignUp" component={SignUp} /> 
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} /> 
@@ -30,6 +54,16 @@ export default function App() {
         <Stack.Screen name="AccountInfo" component={AccountInfo} />
         <Stack.Screen name="UserInfo" component={UserInfo} />
         <Stack.Screen name="NewPassword" component={NewPassword} />
+        <Stack.Screen name="ShopFront" component={ShopFront} />
+        <Stack.Screen name="BrandScreen" component={BrandScreen} />
+        <Stack.Screen name="BrandVarieties" component={BrandVarieties} />
+        <Stack.Screen name="ProductPage" component={ProductPage} />
+        <Stack.Screen name="CustomerBasket" component={CustomerBasket} />
+        <Stack.Screen name="PaymentPage" component={PaymentPage} />
+        <Stack.Screen name="ConfirmationPage" component={ConfirmationPage} />
+        <Stack.Screen name="Queries" component={Queries} />
+
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

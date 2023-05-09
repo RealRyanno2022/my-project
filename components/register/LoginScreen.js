@@ -43,7 +43,7 @@ function LoginScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('SearchVideos')}>
+      <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('NewPassword')}>
         <Text style={styles.nextText}>NEXT</Text>
       </TouchableOpacity>
       <Text style={styles.logo}>Rhythmly</Text>

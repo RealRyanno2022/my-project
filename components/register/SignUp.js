@@ -23,6 +23,7 @@ const SignUp = ({ navigation }) => {
   const [isConfirmedPasswordInvalid, setIsConfirmedPasswordInvalid] = useState(false);
   let [isPasswordRequirementsVisible, setIsPasswordRequirementsVisible] = useState(false);
 
+  // MIGHT NEED TO ADD PHONE NUMBER AND ADDRESS FIELDS
 
 
   const apiUrl =
