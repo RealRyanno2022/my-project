@@ -30,12 +30,14 @@ import NotFoundScreen from './components/NotFoundScreen';
 export default function App() {
 
 
-  //  ShopFront -> BrandScreen -> BrandVarieties -> ProductPage -> LoginScreen -> PaymentPage -> ConfirmationPage
-  //        |_>AccountInfo                                       |_> SignUp -> Verify Email   
-  //            |_> UserInfo                                      |_>ForgotPassword -> NewPassword
+  //  ShopFront -> BrandVarieties -> ProductPage -> LoginScreen -> PaymentPage -> ConfirmationPage
+  //        |_>AccountInfo                          |_> SignUp -> Verify Email   
+  //            |_> UserInfo                        |_>ForgotPassword -> NewPassword
+  //               |_> RecentPurchases
   //            |_> ProjectInfo
-  //         |_>CustomerBasket                                     
-  //         |_>Queries
+  
+  //        |_>CustomerBasket                                     
+  //        |_>Queries
   //            |_> FAQItem
   //
   // ? -> NotFoundScreen
@@ -66,6 +68,8 @@ export default function App() {
         <Stack.Screen name="ConfirmationPage" component={ConfirmationPage} />
         <Stack.Screen name="Queries" component={Queries} />
         <Stack.Screen name="NotFoundScreen" component={NotFoundScreen} />
+        <Stack.Screen name="FAQItem" component={FAQItem} />
+
 
         
       </Stack.Navigator>
