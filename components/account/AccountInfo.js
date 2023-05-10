@@ -14,9 +14,9 @@ export default function AccountInfo({ navigation }) {
         </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('ShopFront')}
+        onPress={() => navigation.navigate('SearchVideos')}
       >
-        <Text style={styles.buttonText}>Back to Shopfront</Text>
+        <Text style={styles.buttonText}>Back to Search</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}

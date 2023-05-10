@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import RecentPurchases from '../shop/RecentPurchases';
 
-export default function UserInfo({ navigation }) {
+export default function AccountInfo({ navigation }) {
   const handleSignOut = () => {
     // Handle sign out logic here
     console.log('Signing out...');
@@ -13,8 +12,7 @@ export default function UserInfo({ navigation }) {
         <Text style={styles.title}>User Info</Text>
         <Text style={styles.infoText}>Your username is USERNAME.</Text>
         <Text style={styles.infoText}>Your email address is EMAIL.</Text>
-        <Text style={styles.infoText}>Here are some of your recent purchases: </Text>
-        <RecentPurchases />
+        <Text style={styles.infoText}>You have used search SEARCH_COUNT times! / You haven't searched yet. Get searching!</Text>
         <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('AccountInfo')}>
             <Text style={styles.nextText}>Go Back</Text>
         </TouchableOpacity>

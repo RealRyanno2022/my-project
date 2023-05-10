@@ -32,14 +32,12 @@ import NotFoundScreen from './components/NotFoundScreen';
 export default function App() {
 
 
-  //  ShopFront -> BrandVarieties -> ProductPage -> LoginScreen -> PaymentPage -> ConfirmationPage
-  //        |_>AccountInfo                          |_> SignUp -> Verify Email   
-  //            |_> UserInfo                        |_>ForgotPassword -> NewPassword
-  //               |_> RecentPurchases
+  //  ShopFront -> BrandScreen -> BrandVarieties -> ProductPage -> LoginScreen -> PaymentPage -> ConfirmationPage
+  //        |_>AccountInfo                                       |_> SignUp -> Verify Email   
+  //            |_> UserInfo                                      |_>ForgotPassword -> NewPassword
   //            |_> ProjectInfo
-  
-  //        |_>CustomerBasket                                     
-  //        |_>Queries
+  //         |_>CustomerBasket                                     
+  //         |_>Queries
   //            |_> FAQItem
   //
   // ? -> NotFoundScreen
