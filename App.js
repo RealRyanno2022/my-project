@@ -4,6 +4,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 // import MusicVideos from './components/MusicVideos';
 // import SearchVideos from './components/SearchVideos';
 
+
+
+
+
+
 import LoginScreen from './components/register/LoginScreen'
 import ForgotPassword from './components/register/ForgotPassword';
 import SignUp from './components/register/SignUp';
@@ -14,15 +19,13 @@ import ProductPage from './components/shop/ProductPage';
 import PaymentPage from './components/shop/PaymentPage';
 import ConfirmationPage from './components/shop/ConfirmationPage';
 import ShopFront from './components/shop/ShopFront';
-import BrandVarieties from './components/shop/BrandVarieties';
-import BrandBox from './components/shop/BrandBox';
+// import BrandVarieties from './components/shop/BrandVarieties';
 
 import AccountInfo from './components/account/AccountInfo';
 import UserInfo from './components/account/UserInfo'
 import ProjectInfo from './components/account/ProjectInfo';
 import CustomerBasket from './components/account/CustomerBasket';
 import Queries from './components/account/Queries';
-import FAQItem from './components/account/FAQItem';
 import NotFoundScreen from './components/NotFoundScreen';
 
 
@@ -47,7 +50,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="ShopFront">
+      <Stack.Navigator initialRouteName="ProductPage">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         {/* <Stack.Screen name="SearchVideos" component={SearchVideos} />
         <Stack.Screen name="MusicVideos" component={MusicVideos} />  */}
@@ -59,18 +62,13 @@ export default function App() {
         <Stack.Screen name="UserInfo" component={UserInfo} />
         <Stack.Screen name="NewPassword" component={NewPassword} />
         <Stack.Screen name="ShopFront" component={ShopFront} />
-        <Stack.Screen name="BrandVarieties" component={BrandVarieties} />
+        {/* <Stack.Screen name="BrandVarieties" component={BrandVarieties} /> */}
         <Stack.Screen name="ProductPage" component={ProductPage} />
         <Stack.Screen name="CustomerBasket" component={CustomerBasket} />
         <Stack.Screen name="PaymentPage" component={PaymentPage} />
         <Stack.Screen name="ConfirmationPage" component={ConfirmationPage} />
         <Stack.Screen name="Queries" component={Queries} />
-        <Stack.Screen name="NotFoundScreen" component={NotFoundScreen} />
-        <Stack.Screen name="FAQItem" component={FAQItem} />
-        <Stack.Screen name="BrandBox" component={BrandBox} />
-
-
-        
+        <Stack.Screen name="NotFoundScreen" component={NotFoundScreen} />        
       </Stack.Navigator>
     </NavigationContainer>
   );
