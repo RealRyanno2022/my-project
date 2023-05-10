@@ -12,6 +12,7 @@ const ProductPage = () => {
           // 'https://example.com/images/cool-headphones-1.jpg',
           // 'https://example.com/images/cool-headphones-2.jpg',
           // 'https://example.com/images/cool-headphones-3.jpg',
+          require('../pictures/react.png'),
         ],
         price: 150.99,
         description:
