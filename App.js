@@ -19,7 +19,7 @@ import ProductPage from './components/shop/ProductPage';
 import PaymentPage from './components/shop/PaymentPage';
 import ConfirmationPage from './components/shop/ConfirmationPage';
 import ShopFront from './components/shop/ShopFront';
-// import BrandVarieties from './components/shop/BrandVarieties';
+import BrandVarieties from './components/shop/BrandVarieties';
 
 import AccountInfo from './components/account/AccountInfo';
 import ProjectInfo from './components/account/ProjectInfo';
@@ -64,7 +64,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="PaymentPage">
+      <Stack.Navigator initialRouteName="BrandVarieties">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="ProjectInfo" component={ProjectInfo} /> 
         <Stack.Screen name="SignUp" component={SignUp} /> 

@@ -46,9 +46,9 @@ const JuiceProductPage = () => {
 
 
   const renderStarRating = (rating) => {
-    const fullStar = require('./components/pictures/star1-removebg-preview.png');
-    const halfStar = require('./components/pictures/star2-removebg-preview.png');
-    const emptyStar = require('./components/pictures/star3-removebg-preview.png');
+    const emptyStar = '../pictures/star1-removebg-preview.png';
+    const halfStar = '../pictures/star2-removebg-preview.png';
+    const fullStar = '../pictures/star3-removebg-preview.png';
 
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;

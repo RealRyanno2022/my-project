@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const ShopFront = ({ navigation }) => {
+
   const handleBrandPress = (brandName) => {
-    navigation.navigate('BrandVarieties', { brandName });
+    navigation.navigate('BrandVarieties', { brandMame });
   };
 
   return (

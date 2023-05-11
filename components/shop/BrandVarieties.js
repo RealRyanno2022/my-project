@@ -113,12 +113,12 @@ const brandData = {
   };
 
   const BrandVarieties = ({ route, navigation }) => {
-    const { brand } = route.params;
-    const [varieties, setVarieties] = useState(brandData[brand] || []);
+    const brandName = route.params?.brandName;
+    const [varieties, setVarieties] = useState(brandData[brandName] || []);
   
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>{brand} Varieties</Text>
+        <Text style={styles.title}>{brandName} Varieties</Text>
         <View style={styles.listContainer}>
           {varieties.map((product) => (
             <BrandBox key={product.id} product={product} navigation={navigation} />
