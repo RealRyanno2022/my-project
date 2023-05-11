@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
-import { View, Image, StyleSheet, ScrollView } from 'react-native';
-import { Text, TextInput, Button } from 'react-native-paper';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+} from 'react-native';
 import Slider from '@react-native-community/slider';
+import { Picker } from '@react-native-picker/picker';
 
 const ProductPage = () => {
     // dummy product
@@ -9,14 +17,14 @@ const ProductPage = () => {
     const product = {
         name: 'Cool Headphones',
         images: [
-          // 'https://example.com/images/cool-headphones-1.jpg',
-          // 'https://example.com/images/cool-headphones-2.jpg',
-          // 'https://example.com/images/cool-headphones-3.jpg',
-          require('../pictures/react.png'),
+          'https://example.com/images/cool-headphones-1.jpg',
+          'https://example.com/images/cool-headphones-2.jpg',
+          'https://example.com/images/cool-headphones-3.jpg',
+          '../pictures/react.png',
         ],
         price: 150.99,
         description:
-          'Our Cool Headphones offer an amazing audio experience, featuring high-quality sound and comfortable, stylish design. They are wireless, lightweight, and provide up to 24 hours of battery life on a single charge. With active noise cancellation and a built-in microphone, these headphones are perfect for music enthusiasts, travelers, and professionals.',
+          '',
         reviewCount: 185,
         rating: 4.5,
         deliveryCharge: 5.95,
@@ -26,39 +34,62 @@ const ProductPage = () => {
   const [sliderValue, setSliderValue] = useState(0);
   const totalPrice = product.price * quantity + product.deliveryCharge;
 
-  const renderStarRating = (rating) => {
-    // const fullStar = require('./path/to/full_star_image.png');
-    // const halfStar = require('./path/to/half_star_image.png');
-    // const emptyStar = require('./path/to/empty_star_image.png');
+  const [shippingOption, setShippingOption] = useState('standard');
+  const shippingCost = shippingOption === 'standard' ? 5.95 : 15.95;
 
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+  const handleShippingButtonPress = (option) => {
+    setShippingOption(option);
+  };
 
-    return (
-      <div>Wop</div>
-      // <View style={styles.starRating}>
-      //   {Array(fullStars)
-      //     .fill(null)
-      //     .map((_, index) => (
-      //       <Image key={`full_star_${index}`} source={fullStar} />
-      //     ))}
-      //   {hasHalfStar && <Image source={halfStar} />}
-      //   {Array(emptyStars)
-      //     .fill(null)
-      //     .map((_, index) => (
-      //       <Image key={`empty_star_${index}`} source={emptyStar} />
-      //     ))}
-      // </View>
-    );
+  const isStandardShipping = shippingOption === 'standard';
+  const isExpressShipping = shippingOption === 'express';
+
+
+//   const renderStarRating = (rating) => {
+//     // const fullStar = require('./path/to/full_star_image.png');
+//     // const halfStar = require('./path/to/half_star_image.png');
+//     // const emptyStar = require('./path/to/empty_star_image.png');
+
+//     const fullStars = Math.floor(rating);
+//     const hasHalfStar = rating % 1 >= 0.5;
+//     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+//     return (
+//       <View>Wop</View>
+//       // <View style={styles.starRating}>
+//       //   {Array(fullStars)
+//       //     .fill(null)
+//       //     .map((_, index) => (
+//       //       <Image key={`full_star_${index}`} source={fullStar} />
+//       //     ))}
+//       //   {hasHalfStar && <Image source={halfStar} />}
+//       //   {Array(emptyStars)
+//       //     .fill(null)
+//       //     .map((_, index) => (
+//       //       <Image key={`empty_star_${index}`} source={emptyStar} />
+//       //     ))}
+//       // </View>
+//     );
+//   };
+
+  
+const incrementQuantity = () => {
+    if(quantity < 18) { 
+    setQuantity(quantity + 1);
+    } else {
+        return;
+    }
+    
+  };
+
+  const decrementQuantity = () => {
+    setQuantity(Math.max(1, quantity - 1));
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{ uri: product.images[sliderValue] }}
-      />
+    <ScrollView style={styles.scrollView}>
+    <View style={styles.container}>
+      <Image style={styles.image} source={{ uri: product.images[sliderValue] }} />
       <Slider
         style={styles.slider}
         value={sliderValue}
@@ -69,33 +100,92 @@ const ProductPage = () => {
       />
       <Text style={styles.name}>{product.name}</Text>
       <Text style={styles.price}>${product.price.toFixed(2)}</Text>
-      <Text>Quantity:</Text>
-      <TextInput
-        keyboardType="number-pad"
-        value={quantity.toString()}
-        onChangeText={(value) => setQuantity(Math.max(1, parseInt(value)))}
-        style={styles.quantityInput}
-      />
-      <Text style={styles.description}>{product.description}</Text>
-      <Text style={styles.reviewCounter}>
-        {product.reviewCount} Reviews - {renderStarRating(product.rating)}
-      </Text>
-      <Text>Delivery Charge: ${product.deliveryCharge.toFixed(2)}</Text>
-      <Text style={styles.totalPrice}>Total Price: ${totalPrice.toFixed(2)}</Text>
-      <Button>Add to Cart</Button>
-    </ScrollView>
+      <View style={styles.quantityContainer}>
+        <TouchableOpacity onPress={decrementQuantity}>
+          <Text style={styles.arrow}>-</Text>
+        </TouchableOpacity>
+        <Text style={styles.quantityText}>{quantity}</Text>
+        <TouchableOpacity onPress={incrementQuantity}>
+          <Text style={styles.arrow}>+</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.shippingContainer}>
+      <TouchableOpacity
+          onPress={() => handleShippingButtonPress('standard')}
+          style={[
+            styles.shippingButton,
+            isStandardShipping && styles.shippingButtonActive,
+          ]}
+        >
+          <Text
+            style={[
+              styles.shippingButtonText,
+              isStandardShipping && styles.shippingButtonTextActive,
+            ]}
+          >
+            Standard Shipping
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => handleShippingButtonPress('express')}
+          style={[
+            styles.shippingButton,
+            isExpressShipping && styles.shippingButtonActive,
+          ]}
+        >
+          <Text
+            style={[
+              styles.shippingButtonText,
+              isExpressShipping && styles.shippingButtonTextActive,
+            ]}
+          >
+            Express Shipping
+          </Text>
+        </TouchableOpacity>
+      </View>
+      </View>
+      <View style={styles.priceInfoContainer}>
+        <Text style={styles.totalPrice}>
+          Delivery Charge: ${shippingCost.toFixed(2)}
+        </Text>
+        <Text style={styles.totalPrice}>
+          Total Price: ${(totalPrice + shippingCost).toFixed(2)}
+        </Text>
+      </View>
+  </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+    scrollView: {
+        backgroundColor: '#003f5c',
+    },
     container: {
-      flex: 1,
-      padding: 10,
+        flexGrow: 1,
+        backgroundColor: '#003f5c',
+        alignItems: 'center',
+        padding: 10,
+    },
+    reviewCounter: {
+        fontSize: 14,
+        color: 'white',
+        marginBottom: 10,
+    },
+    priceInfoContainer: {
+    marginBottom: 20,
     },
     image: {
       width: '100%',
       height: 300,
       resizeMode: 'contain',
+    },
+    navyBox: {
+    borderWidth: 2,
+    borderColor: 'navy',
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 10,
+    height: 150,
     },
     slider: {
       width: '100%',
@@ -104,35 +194,97 @@ const styles = StyleSheet.create({
     name: {
       fontSize: 24,
       fontWeight: 'bold',
+      color: '#fb5b5a',
       marginTop: 10,
       marginBottom: 5,
     },
+    shippingContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 10,
+        justifyContent: 'space-around',
+    },
+    shippingButton: {
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        backgroundColor: '#fb5b5a',
+        borderRadius: 5,
+      },
+      shippingButtonActive: {
+        backgroundColor: '#d64947',
+      },
+      shippingButtonText: {
+        fontSize: 16,
+        color: 'white',
+      },
+      shippingButtonTextActive: {
+        fontWeight: 'bold',
+      },
+
+      shippingText: {
+        fontSize: 18,
+        color: 'white',
+      },
+      shippingPicker: {
+        height: 50,
+        width: 250,
+        color: 'white',
+      },
     price: {
       fontSize: 20,
       fontWeight: 'bold',
       color: '#fb5b5a',
       marginBottom: 10,
     },
+    quantityContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    arrow: {
+        fontSize: 60,
+        paddingHorizontal: 10,
+        color: '#fb5b5a',
+    },
+    quantityText: {
+        fontSize: 32,
+        color: 'white',
+        marginHorizontal: 5,
+      },
     quantityInput: {
-      width: 100,
-      marginBottom: 10,
+    width: 50,
+    textAlign: 'center',
+    marginBottom: 10,
+    color: 'white',
     },
     description: {
-      fontSize: 16,
-      marginBottom: 10,
-    },
-    reviewCounter: {
-      fontSize: 14,
-      marginBottom: 10,
-    },
-    starRating: {
-      flexDirection: 'row',
-    },
-    totalPrice: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      marginBottom: 10,
-    },
-  });
+        fontSize: 16,
+        color: 'white',
+        marginBottom: 10,
+      },
+      reviewCounter: {
+        fontSize: 14,
+        color: 'white',
+        marginBottom: 10,
+      },
+      totalPrice: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#fb5b5a',
+        marginBottom: 10,
+      },
+      button: {
+        width: '80%',
+        backgroundColor: '#fb5b5a',
+        borderRadius: 25,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 40,
+        marginBottom: 10,
+      },
+      buttonText: {
+        color: 'white',
+      },
+});
 
 export default ProductPage;
