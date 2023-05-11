@@ -24,6 +24,20 @@ const ShopFront = ({ navigation }) => {
         >
           <Text style={styles.loginText}>Elfbar</Text>
         </TouchableOpacity>
+          <TouchableOpacity
+          id="elf_bar"
+          style={styles.loginBtn}
+          onPress={() => handleBrandPress('ElfaBar')}
+        >
+          <Text style={styles.loginText}>Elfabar</Text>
+          </TouchableOpacity>
+        <TouchableOpacity
+          id="elf_bar"
+          style={styles.loginBtn}
+          onPress={() => handleBrandPress('Mini Vape')}
+        >
+          <Text style={styles.loginText}>Vape Mini</Text>
+        </TouchableOpacity>
     </View>
   );
 };

@@ -11,7 +11,7 @@ import {
 import Slider from '@react-native-community/slider';
 // import { Picker } from '@react-native-picker/picker';
 
-const ProductPage = () => {
+const JuiceProductPage = () => {
     // dummy product
     
     const product = {
@@ -73,6 +73,17 @@ const ProductPage = () => {
     );
   };
 
+  const [mgOption, setMgOption] = useState('6mg'); // new state
+
+  const handleMgOptionButtonPress = (option) => {
+    setMgOption(option);
+  };
+
+  const is6mg = mgOption === '6mg';
+  const is12mg = mgOption === '12mg';
+  const is18mg = mgOption === '18mg';
+
+
   
 const incrementQuantity = () => {
     if(quantity < 18) { 
@@ -105,7 +116,14 @@ const incrementQuantity = () => {
         <TouchableOpacity onPress={decrementQuantity}>
           <Text style={styles.arrow}>-</Text>
         </TouchableOpacity>
+
+
+
         <Text style={styles.quantityText}>{quantity}</Text>
+
+
+
+
         <TouchableOpacity onPress={incrementQuantity}>
           <Text style={styles.arrow}>+</Text>
         </TouchableOpacity>
@@ -145,6 +163,65 @@ const incrementQuantity = () => {
         </TouchableOpacity>
       </View>
       </View>
+
+      <View style={styles.mgOptionContainer}>
+          <TouchableOpacity
+            onPress={() => handleMgOptionButtonPress('6mg')}
+            style={[
+              styles.mgOptionButton,
+              is6mg && styles.mgOptionButtonActive,
+            ]}
+          >
+            <Text
+              style={[
+                styles.mgOptionButtonText,
+                is6mg && styles.mgOptionButtonTextActive,
+              ]}
+            >
+              6mg
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => handleMgOptionButtonPress('12mg')}
+            style={[
+              styles.mgOptionButton,
+              is12mg && styles.mgOptionButtonActive,
+            ]}
+          >
+            <Text
+              style={[
+                styles.mgOptionButtonText,
+                is12mg && styles.mgOptionButtonTextActive,
+              ]}
+            >
+              12mg
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => handleMgOptionButtonPress('18mg')}
+            style={[
+              styles.mgOptionButton,
+              is18mg && styles.mgOptionButtonActive,
+            ]}
+          >
+            <Text
+              style={[
+                styles.mgOptionButtonText,
+                is18mg && styles.mgOptionButtonTextActive,
+              ]}
+            >
+              18mg
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+
+
+
+
+
+
+
       <View style={styles.priceInfoContainer}>
         <Text style={styles.totalPrice}>
           Delivery Charge: ${shippingCost.toFixed(2)}
@@ -261,6 +338,7 @@ const styles = StyleSheet.create({
         fontSize: 32,
         color: 'white',
         marginHorizontal: 5,
+        readonly:"true",
       },
     quantityInput: {
     width: 50,
@@ -299,4 +377,4 @@ const styles = StyleSheet.create({
       },
 });
 
-export default ProductPage;
+export default JuiceProductPage;

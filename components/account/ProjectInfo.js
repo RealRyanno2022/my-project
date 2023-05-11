@@ -10,9 +10,10 @@ const ProjectInfo = ({ navigation }) => {
       <Text style={styles.title}>Project Info</Text>
       <Text style={styles.infoText}>Developed in React Native by Daniel Ryan, 2023</Text>
       <Text style={styles.subtitle}>Features:</Text>
-      <Text style={styles.featuresText}>- Youtube API-based music video search app made with React Native </Text>
+      <Text style={styles.featuresText}>- Braintree SDK for payments </Text>
       <Text style={styles.featuresText}>- Full account creation system with PostgreSQL</Text>
       <Text style={styles.featuresText}>- Node and Express backend</Text>
+      <Text style={styles.featuresText}>- Full E-Commerce UI</Text>
     </View>
   )
 }

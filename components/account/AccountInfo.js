@@ -12,6 +12,8 @@ export default function AccountInfo({ navigation }) {
         <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('ForgotPassword')}>
             <Text style={styles.nextText}>NEXT</Text>
         </TouchableOpacity>
+      <Text>Your username is USERNAME.</Text>
+      <Text>Your email address is EMAIL.</Text>
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('SearchVideos')}
@@ -24,11 +26,11 @@ export default function AccountInfo({ navigation }) {
       >
         <Text style={styles.buttonText}>Project Info</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('UserInfo')}>
-        <Text style={styles.buttonText}>User Info</Text>
-      </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LoginScreen')}>
         <Text style={styles.buttonText}>Sign Out</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('DeleteAccount')}>
+        <Text style={styles.buttonText}>Delete Account</Text>
       </TouchableOpacity>
     </View>
   );

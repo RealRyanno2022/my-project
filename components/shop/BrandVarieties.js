@@ -45,6 +45,71 @@ const brandData = {
         price: 29.99,
       },
     ],
+    IVGBar: [
+      {
+        id: '7',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    IVGSalt: [
+      {
+        id: '8',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    HaleSalt: [
+      {
+        id: '9',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    BillionaireSalt: [
+      {
+        id: '10',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    SlushieSalt: [
+      {
+        id: '11',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    ChuffBar: [
+      {
+        id: '12',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    ElfaBar: [
+      {
+        id: '13',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    MiniVape: [
+      {
+        id: '14',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+
   };
 
   const BrandVarieties = ({ route, navigation }) => {
