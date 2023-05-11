@@ -14,6 +14,37 @@ const createPost = async (req, res) => {
       res.status(500).json({ error: 'Server error' });
     }
   };
+
+  const getClientToken = async (req, res) => {
+    try {
+      const response = await gateway.clientToken.generate({});
+      res.json({clientToken: response.clientToken});
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ error: 'Server error' });
+    }
+  };
+  
+  const processPayment = async (req, res) => {
+    const { paymentMethodNonce, amount } = req.body;
+    try {
+      const result = await gateway.transaction.sale({
+        amount: amount,
+        paymentMethodNonce: paymentMethodNonce,
+        options: {
+          submitForSettlement: true
+        }
+      });
+      if (result.success) {
+        res.json({message: 'Transaction successful'});
+      } else {
+        res.status(500).json({ error: 'Transaction failed' });
+      }
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ error: 'Server error' });
+    }
+  };
   
   const getAllPosts = async (req, res) => {
     try {
@@ -86,4 +117,6 @@ const createPost = async (req, res) => {
     getPostById,
     updatePost,
     deletePost,
+    getClientToken,
+    processPayment,
   };

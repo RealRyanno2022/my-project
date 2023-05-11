@@ -4,11 +4,9 @@ const router = require('./routes');
 const app = express();
 const port = 5000;
 
-// Middleware
-app.use(express.json());
+app.use(express.json());  // you only need one body-parsing middleware
 app.use(router);
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

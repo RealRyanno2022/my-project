@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@react-native-community/slider": "^4.4.2",
+    "@react-native-picker/picker": "^2.4.10",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/stack": "^6.3.16",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "braintree": "^3.15.0",
     "braintree-web": "^3.93.0",
     "cors": "^2.8.5",
     "emailjs-com": "^3.2.0",
@@ -31,7 +34,8 @@
     "react-native-paper": "^5.7.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@types/braintree": "^3.3.7"
   },
   "private": true,
   "keywords": [],

@@ -48,7 +48,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Queriesd">
+      <Stack.Navigator initialRouteName="PaymentPage">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         {/* <Stack.Screen name="SearchVideos" component={SearchVideos} />
         <Stack.Screen name="MusicVideos" component={MusicVideos} />  */}

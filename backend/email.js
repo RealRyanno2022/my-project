@@ -4,7 +4,7 @@ const sendEmail = (req, res) => {
   const { name, email, message } = req.body;
 
   const emailContent = {
-    to: 'your-email@example.com',
+    to: 'ddddddddddddrrrrrrrr@gmail.com',
     from: email,
     subject: `New message from ${name}`,
     text: message,
