@@ -64,7 +64,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="BrandVarieties">
+      <Stack.Navigator initialRouteName="VerifyEmail">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="ProjectInfo" component={ProjectInfo} /> 
         <Stack.Screen name="SignUp" component={SignUp} /> 

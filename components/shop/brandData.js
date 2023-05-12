@@ -1,0 +1,109 @@
+const brandData = {
+    Elfbar: [
+      {
+        id: '1',
+        name: 'Elfbar RF350',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=Elfbar+RF350',
+        price: 24.99,
+      },
+      {
+        id: '2',
+        name: 'Elfbar RF550',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=Elfbar+RF550',
+        price: 29.99,
+      },
+      {
+        id: '3',
+        name: 'Elfbar RF800',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=Elfbar+RF800',
+        price: 34.99,
+      },
+    ],
+    LostMary: [
+      {
+        id: '4',
+        name: 'LostMary AIR Plus',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+AIR+Plus',
+        price: 19.99,
+      },
+      {
+        id: '5',
+        name: 'LostMary DISC Mini',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+DISC+Mini',
+        price: 24.99,
+      },
+      {
+        id: '6',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    IVGBar: [
+      {
+        id: '7',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    IVGSalt: [
+      {
+        id: '8',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    HaleSalt: [
+      {
+        id: '9',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    BillionaireSalt: [
+      {
+        id: '10',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    SlushieSalt: [
+      {
+        id: '11',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    ChuffBar: [
+      {
+        id: '12',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    ElfaBar: [
+      {
+        id: '13',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+    MiniVape: [
+      {
+        id: '14',
+        name: 'LostMary GEM Pen',
+        image: 'https://dummyimage.com/300x200/000/fff.png&text=LostMary+GEM+Pen',
+        price: 29.99,
+      },
+    ],
+
+  };
+
+  export default brandData;

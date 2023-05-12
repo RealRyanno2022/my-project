@@ -1,33 +1,43 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import axios from 'axios'; // import axios
 
 export default function VerifyEmail({ navigation }) {
   const [code, setCode] = useState('');
   const [generatedCode, setGeneratedCode] = useState(null);
+  const [email, setEmail] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('Sending...');
+  const handleSendCode = async () => {
+    const generatedCode = generateCode();
+    setGeneratedCode(generatedCode);
 
     try {
-      await axios.post('http://localhost:5000/send-email', { name, email, message });
-      setStatus('Email sent successfully');
+        const response = await axios.post('http://localhost:5000/send-email', {
+            name: 'Candii',
+            email: email,
+            message: `Your verification code is: ${generatedCode}`
+        });
+
+        if (response.data === 'Email sent successfully') {
+            Alert.alert('Success', 'Code sent successfully!');
+        } else {
+            throw new Error('Failed to send email');
+        }
     } catch (error) {
-      console.error('Error sending email:', error);
-      setStatus('Email sending failed');
+        console.error('Error sending code:', error);
+        Alert.alert('Error', 'Code sending failed');
     }
-  };
+};
 
   const generateCode = () => {
     const code = Math.floor(Math.random() * 1000000000000);
     return code.toString().padStart(12, '0');
   };
 
-
   const handleVerifyCode = () => {
-    if (code === generatedCode.toString()) {
+    if (code === generatedCode) {
       Alert.alert('Success', 'Email verified successfully!');
-      navigation.navigate('SearchVideos');
+      navigation.navigate('ProductPage');
     } else {
       Alert.alert('Error', 'Invalid code');
     }
@@ -36,14 +46,21 @@ export default function VerifyEmail({ navigation }) {
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('AccountInfo')}>
-          <Text style={styles.nextText}>NEXT</Text>
-        </TouchableOpacity>
+        <Text style={styles.nextText}>NEXT</Text>
+      </TouchableOpacity>
       <View style={styles.container}>
         <Text style={styles.info}>
           A 12-digit code has been sent to your email address. Type it in to verify
           your email here:
         </Text>
         <View style={styles.inputView}>
+          <TextInput
+            style={styles.inputText}
+            placeholder="Your Email"
+            placeholderTextColor="#003f5c"
+            onChangeText={setEmail}
+            value={email}
+          />
           <TextInput
             style={styles.inputText}
             placeholder="12-digit code"
@@ -63,46 +80,3 @@ export default function VerifyEmail({ navigation }) {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    backgroundColor: '#003f5c',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 20,
-  },
-  info: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 30,
-    color: '#fb5b5a',
-    textAlign: 'center',
-  },
-  inputView: {
-    width: '80%',
-    backgroundColor: '#465881',
-    borderRadius: 25,
-    height: 50,
-    marginBottom: 30,
-    justifyContent: 'center',
-    padding: 20,
-  },
-  inputText: {
-    height: 50,
-    color: 'white',
-  },
-  button: {
-    width: '80%',
-    backgroundColor: '#fb5b5a',
-    borderRadius: 25,
-    height: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  buttonText: {
-    color: 'white',
-  },
-});

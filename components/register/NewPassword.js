@@ -5,6 +5,18 @@ const NewPassword = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const handleSubmit = () => {
+      // Insert your own logic here
+      if (password === confirmPassword) {
+          console.log("Passwords match!");
+          // Navigate or do something else
+      } else {
+          console.log("Passwords do not match!");
+          // Maybe show an error message
+      }
+    };
+
+
     return (
         <View style={styles.container}>
           <Text style={styles.logo}>Reset Password</Text>
