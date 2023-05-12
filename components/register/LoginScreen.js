@@ -1,54 +1,54 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
-import { LoginManager, AccessToken } from 'react-native-fbsdk';
+// import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
+// import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
-GoogleSignin.configure({
-  webClientId: 'your-client-id', // replace with your own client id
-  offlineAccess: true,
-});
+// GoogleSignin.configure({
+//   webClientId: 'your-client-id', // replace with your own client id
+//   offlineAccess: true,
+// });
 
 function LoginScreen({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const signInWithGoogle = async () => {
-    try {
-      await GoogleSignin.hasPlayServices();
-      const userInfo = await GoogleSignin.signIn();
-      // here you can handle user's information and navigate to another screen
-    } catch (error) {
-      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        // user cancelled the login flow
-      } else if (error.code === statusCodes.IN_PROGRESS) {
-        // operation (f.e. sign in) is in progress already
-      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        // play services not available or outdated
-      } else {
-        // some other error happened
-      }
-    }
-  };
+  // const signInWithGoogle = async () => {
+  //   try {
+  //     await GoogleSignin.hasPlayServices();
+  //     const userInfo = await GoogleSignin.signIn();
+  //     // here you can handle user's information and navigate to another screen
+  //   } catch (error) {
+  //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+  //       // user cancelled the login flow
+  //     } else if (error.code === statusCodes.IN_PROGRESS) {
+  //       // operation (f.e. sign in) is in progress already
+  //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+  //       // play services not available or outdated
+  //     } else {
+  //       // some other error happened
+  //     }
+  //   }
+  // };
 
-  const signInWithFacebook = async () => {
-    try {
-      const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+  // const signInWithFacebook = async () => {
+  //   try {
+  //     const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
 
-      if (result.isCancelled) {
-        throw 'User cancelled the login process';
-      }
+  //     if (result.isCancelled) {
+  //       throw 'User cancelled the login process';
+  //     }
 
-      const data = await AccessToken.getCurrentAccessToken();
+  //     const data = await AccessToken.getCurrentAccessToken();
 
-      if (!data) {
-        throw 'Something went wrong obtaining access token';
-      }
+  //     if (!data) {
+  //       throw 'Something went wrong obtaining access token';
+  //     }
 
-      // here you can handle user's information and navigate to another screen
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     // here you can handle user's information and navigate to another screen
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
  
 
@@ -117,12 +117,12 @@ function LoginScreen({ navigation }) {
       <TouchableOpacity style={styles.loginBtn} onPress={handleLoginPress}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.loginBtn} onPress={signInWithGoogle}>
+      {/* <TouchableOpacity style={styles.loginBtn} onPress={signInWithGoogle}>
       <Text style={styles.loginText}>LOGIN WITH GOOGLE</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.loginBtn} onPress={signInWithFacebook}>
         <Text style={styles.loginText}>LOGIN WITH FACEBOOK</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <TouchableOpacity style={styles.loginBtn} onPress={handleSignUpPress}>
         <Text style={styles.loginText}>SIGN UP</Text>
       </TouchableOpacity>

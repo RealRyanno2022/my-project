@@ -5,7 +5,14 @@ import axios from 'axios'; // import axios
 export default function VerifyEmail({ navigation }) {
   const [code, setCode] = useState('');
   const [generatedCode, setGeneratedCode] = useState(null);
+  const [isEmailInvalid, setIsEmailInvalid] = useState(false);
   const [email, setEmail] = useState('');
+
+
+  const inputStyle = (isInvalid) => [
+    styles.input,
+    isInvalid ? styles.inputInvalid : null,
+  ];
 
   const handleSendCode = async () => {
     const generatedCode = generateCode();
@@ -43,6 +50,10 @@ export default function VerifyEmail({ navigation }) {
     }
   };
 
+  const handleInputFocus = () => {
+    setIsEmailInvalid(false);
+  };
+
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('AccountInfo')}>
@@ -54,13 +65,14 @@ export default function VerifyEmail({ navigation }) {
           your email here:
         </Text>
         <View style={styles.inputView}>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Your Email"
-            placeholderTextColor="#003f5c"
-            onChangeText={setEmail}
-            value={email}
-          />
+        <TextInput
+          style={inputStyle(isEmailInvalid)}
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+          onFocus={handleInputFocus}
+        />
           <TextInput
             style={styles.inputText}
             placeholder="12-digit code"
@@ -80,3 +92,62 @@ export default function VerifyEmail({ navigation }) {
     </ScrollView>
   );
 }
+
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+  },
+  inputInvalid: {
+    borderColor: 'red',
+  },
+  nextBtn: {
+    alignSelf: 'flex-end',
+    marginBottom: 20,
+  },
+  nextText: {
+    color: '#fb5b5a',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  info: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#fb5b5a',
+  },
+  inputView: {
+    width: '80%',
+    backgroundColor: '#465881',
+    borderRadius: 25,
+    height: 50,
+    marginBottom: 20,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  inputText: {
+    height: 50,
+    color: 'white',
+  },
+  button: {
+    width: '80%',
+    backgroundColor: '#fb5b5a',
+    borderRadius: 25,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: 'white',
+  },
+});
