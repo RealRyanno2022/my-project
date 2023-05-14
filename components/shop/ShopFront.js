@@ -32,21 +32,26 @@ const ShopFront = ({ navigation }) => {
         text: 'Candii', 
         style: { color: '#fff', fontSize: 20 } 
       }}
-      rightComponent={{ 
-        icon: 'search',
-        color: '#fff',
-        onPress: handleSearch,
-      }}
+      rightComponent={(
+        <View style={{ flexDirection: 'row' }}>
+          <TouchableOpacity onPress={() => navigation.navigate('Queries')}>
+            <Icon name="message" color="#fff" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleSearch}>
+            <Icon name="search" color="#fff" />
+          </TouchableOpacity>
+        </View>
+      )}
     />
-    <SearchBar
-      containerStyle={{ width: '100%'}}
-      lightTheme
-      searchIcon={{ size: 24 }}
-      onChangeText={setSearchTerm}
-      onClear={() => setSearchTerm('')} // clear the search term
-      placeholder='Search...'
-      value={searchTerm}
-    />
+<SearchBar
+  containerStyle={{ width: '100%'}}
+  lightTheme
+  searchIcon={{ size: 24 }}
+  onChangeText={setSearchTerm}
+  onClear={() => setSearchTerm('')} // clear the search term
+  placeholder='Search...'
+  value={searchTerm}
+/>
     <ScrollView>
       <View style={styles.cardContainer}>
         <View style={styles.space} />

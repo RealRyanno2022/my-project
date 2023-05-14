@@ -9,7 +9,7 @@ import {
   Image,
 } from 'react-native';
 import Slider from '@react-native-community/slider';
-// import { Picker } from '@react-native-picker/picker';
+
 
 const ProductPage = () => {
     // dummy product
@@ -161,10 +161,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#003f5c',
     },
     container: {
-        flexGrow: 1,
-        backgroundColor: '#003f5c',
-        alignItems: 'center',
-        padding: 10,
+      flexGrow: 1,
+      backgroundColor: '#003f5c',
+      alignItems: 'center',
+      padding: 10,
     },
     reviewCounter: {
         fontSize: 14,
@@ -241,12 +241,12 @@ const styles = StyleSheet.create({
         width: 250,
         color: 'white',
       },
-    price: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: '#fb5b5a',
-      marginBottom: 10,
-    },
+      price: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#fb5b5a',
+        marginBottom: 10,
+      },
     quantityContainer: {
       flexDirection: 'row',
       alignItems: 'center',

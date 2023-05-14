@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Button, Text } from 'react-native-paper';
 import Collapsible from 'react-native-collapsible';
 
@@ -17,4 +17,28 @@ const FAQItem = ({ question, answer }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F5F5F5',
+    padding: 20,
+  },
+  faqTitle: {
+    paddingLeft: 20,
+    paddingBottom: 10,
+    color: '#1F1F1F',
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  faqAnswer: {
+    paddingLeft: 20,
+    paddingBottom: 10,
+    color: '#1F1F1F',
+    fontSize: 14,
+    marginBottom: 10,
+  },
+});
+
 export default FAQItem;
