@@ -20,6 +20,11 @@ import PaymentPage from './components/shop/PaymentPage';
 import ConfirmationPage from './components/shop/ConfirmationPage';
 import ShopFront from './components/shop/ShopFront';
 import BrandVarieties from './components/shop/BrandVarieties';
+import JuiceScreen from './components/shop/JuiceScreen';
+import VapeScreen from './components/shop/VapeScreen';
+import SearchProducts from './components/shop/SearchProducts';
+
+
 
 import AccountInfo from './components/account/AccountInfo';
 import ProjectInfo from './components/account/ProjectInfo';
@@ -29,6 +34,7 @@ import DeleteAccount from './components/account/DeleteAccount';
 
 import NotFoundScreen from './components/NotFoundScreen';
 import JuiceProductPage from './components/shop/JuiceProductPage';
+import Intro from './components/shop/Intro';
 
 export default function App() {
 
@@ -46,9 +52,9 @@ export default function App() {
     // - Add additional vape varieties to BrandVarieties
 
 
-
-
-  //  ShopFront -> BrandScreen -> BrandVarieties -> ProductPage -> LoginScreen -> PaymentPage -> ConfirmationPage
+  //     ______________________________________________________________> Search Products
+  //     \/                   \/                   \/                \/
+  //  ShopFront -> JuiceScreen / VapeScreen -> BrandVarieties -> ProductPage -> LoginScreen -> PaymentPage -> ConfirmationPage
   //        |_>AccountInfo              |_>BrandBox                |_> SignUp -> Verify Email   
   //            |_> UserInfo                                      |_>ForgotPassword -> NewPassword
   //            |_> ProjectInfo
@@ -64,7 +70,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="VerifyEmail">
+      <Stack.Navigator initialRouteName="Intro">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="ProjectInfo" component={ProjectInfo} /> 
         <Stack.Screen name="SignUp" component={SignUp} /> 
@@ -81,7 +87,11 @@ export default function App() {
         <Stack.Screen name="Queries" component={Queries} />
         <Stack.Screen name="NotFoundScreen" component={NotFoundScreen} />        
         <Stack.Screen name="JuiceProductPage" component={JuiceProductPage} />        
-        <Stack.Screen name="DeleteAccount" component={DeleteAccount} />        
+        <Stack.Screen name="DeleteAccount" component={DeleteAccount} />  
+        <Stack.Screen name="JuiceScreen" component={JuiceScreen} />  
+        <Stack.Screen name="VapeScreen" component={VapeScreen} />    
+        <Stack.Screen name="Intro" component={Intro} />      
+        <Stack.Screen name="SearchProducts" component={SearchProducts} />   
 
       </Stack.Navigator>
     </NavigationContainer>
