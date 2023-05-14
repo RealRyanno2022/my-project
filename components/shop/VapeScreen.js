@@ -7,9 +7,6 @@ const VapeScreen = ({ navigation }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  
-
-
   const handleBrandPress = (brandName) => {
     navigation.navigate('BrandVarieties', { brandName });
   };

@@ -9,29 +9,22 @@ export default function AccountInfo({ navigation }) {
 
   return (
     <View style={styles.container}>
-        <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('ForgotPassword')}>
-            <Text style={styles.nextText}>NEXT</Text>
-        </TouchableOpacity>
       <Text>Your username is USERNAME.</Text>
       <Text>Your email address is EMAIL.</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('SearchVideos')}
-      >
-        <Text style={styles.buttonText}>Back to Search</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate('ProjectInfo')}
-      >
-        <Text style={styles.buttonText}>Project Info</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LoginScreen')}>
-        <Text style={styles.buttonText}>Sign Out</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('DeleteAccount')}>
-        <Text style={styles.buttonText}>Delete Account</Text>
-      </TouchableOpacity>
+      <View style={styles.cardContainer}>
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('SearchVideos')}>
+          <Text style={styles.cardText}>Back to Search</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ProjectInfo')}>
+          <Text style={styles.cardText}>Project Info</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.card} onPress={handleSignOut}>
+          <Text style={styles.cardText}>Sign Out</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('DeleteAccount')}>
+          <Text style={styles.cardText}>Delete Account</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -39,21 +32,33 @@ export default function AccountInfo({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#003f5c',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#F5F5F5',
   },
-  button: {
-    width: '80%',
-    backgroundColor: '#fb5b5a',
-    borderRadius: 25,
-    height: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10,
-    marginBottom: 10,
+  cardContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    flexWrap: 'wrap',
+    padding: 20,
   },
-  buttonText: {
-    color: 'white',
+  card: {
+    width: '45%',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 15,
+    padding: 20,
+    marginBottom: 20,
+    alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  cardText: {
+    color: '#1F1F1F',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
