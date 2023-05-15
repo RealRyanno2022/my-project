@@ -19,7 +19,7 @@ export default function VerifyEmail({ navigation }) {
     setGeneratedCode(generatedCode);
 
     try {
-        const response = await axios.post('http://localhost:5000/send-email', {
+        const response = await axios.post('http://localhost:5000/send_email', {
             name: 'Candii',
             email: email,
             message: `Your verification code is: ${generatedCode}`
