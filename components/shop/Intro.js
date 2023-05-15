@@ -23,12 +23,10 @@ const Intro = ({ navigation }) => {
       }),
     ]).start();
 
-    // Show the ActivityIndicator after 3.5 seconds
     setTimeout(() => {
       setLoadingVisible(true);
     }, 3500);
 
-    // Start scrolling text after 4 seconds
     setTimeout(() => {
       Animated.timing(scrollValue, {
         toValue: 0,
@@ -49,7 +47,7 @@ const Intro = ({ navigation }) => {
       </Animated.Text>
       <View style={styles.space} />
       <View style={styles.placeholder}>
-        {loadingVisible && <ActivityIndicator style={{marginTop: 20}} size="large" color="#fb5b5a" />}
+        {loadingVisible && <ActivityIndicator style={{marginTop: 20}} size="large" color="#1F1F1F" />}
       </View>
       <View style={styles.space} />
       <Animated.View style={{position: 'absolute', width: '80%', left: scrollValue, alignSelf: 'center'}}>
@@ -62,7 +60,7 @@ const Intro = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#003f5c',
+    backgroundColor: '#F5F5F5',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -70,13 +68,13 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   text: {
-    color: '#fb5b5a',
+    color: '#1F1F1F',
     fontSize: 50,
     fontWeight: 'bold',
     marginBottom: 20,
   },
   subText: {
-    color: '#fb5b5a',
+    color: '#1F1F1F',
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',

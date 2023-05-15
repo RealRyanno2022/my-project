@@ -70,7 +70,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="VerifyEmail">
+      <Stack.Navigator initialRouteName="Intro">
 
       <Stack.Screen name="AccountInfo" component={AccountInfo} />
       <Stack.Screen name="CustomerBasket" component={CustomerBasket} />

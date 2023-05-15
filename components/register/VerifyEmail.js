@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import axios from 'axios'; // import axios
+import { Header, SearchBar, Icon } from 'react-native-elements';
 
 export default function VerifyEmail({ navigation }) {
   const [code, setCode] = useState('');
@@ -56,9 +57,32 @@ export default function VerifyEmail({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('AccountInfo')}>
-        <Text style={styles.nextText}>NEXT</Text>
-      </TouchableOpacity>
+
+    <Header
+        leftComponent={{ 
+          icon: 'person-outline', 
+          color: '#fff',
+          onPress: () => navigation.navigate('AccountInfo') 
+        }}
+        centerComponent={{ 
+          text: 'Candii', 
+          style: { color: '#fff', fontSize: 20 } 
+        }}
+        rightComponent={{ 
+          icon: 'search',
+          color: '#fff',
+          onPress: handleSearch,
+        }}
+      />
+      <SearchBar
+        containerStyle={{ width: '100%'}}
+        lightTheme
+        searchIcon={{ size: 24 }}
+        onChangeText={setSearchTerm}
+        onClear={() => setSearchTerm('')} // clear the search term
+        placeholder='Search...'
+        value={searchTerm}
+      />
       <View style={styles.container}>
         <Text style={styles.info}>
           A 12-digit code has been sent to your email address. Type it in to verify
@@ -87,6 +111,9 @@ export default function VerifyEmail({ navigation }) {
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handleSendCode}>
           <Text style={styles.buttonText}>SEND CODE</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={navigation.goBack()}>
+          <Text style={styles.buttonText}>Go back</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import BraintreeDropIn from 'react-native-braintree-payments-drop-in';
+import { Header, SearchBar, Icon } from 'react-native-elements';
 
-class PaymentPage extends Component {
+const PaymentPage = ({ navigation }) => {
   handlePayment = async () => {
     try {
       // Fetch the client token from your server
@@ -41,6 +42,31 @@ class PaymentPage extends Component {
   render() {
     return (
       <View>
+        <Header
+        leftComponent={{ 
+          icon: 'person-outline', 
+          color: '#fff',
+          onPress: () => navigation.navigate('AccountInfo') 
+        }}
+        centerComponent={{ 
+          text: 'Candii', 
+          style: { color: '#fff', fontSize: 20 } 
+        }}
+        rightComponent={{ 
+          icon: 'search',
+          color: '#fff',
+          onPress: handleSearch,
+        }}
+      />
+      <SearchBar
+        containerStyle={{ width: '100%'}}
+        lightTheme
+        searchIcon={{ size: 24 }}
+        onChangeText={setSearchTerm}
+        onClear={() => setSearchTerm('')} // clear the search term
+        placeholder='Search...'
+        value={searchTerm}
+      />
         <Button
           title="Pay"
           onPress={this.handlePayment}
