@@ -19,17 +19,17 @@ export default function VerifyEmail({ navigation }) {
     setGeneratedCode(generatedCode);
 
     try {
-        const response = await axios.post('http://localhost:5000/send_email', {
-            name: 'Candii',
-            email: email,
-            message: `Your verification code is: ${generatedCode}`
-        });
+      const response = await axios.post('https://candii-vapes.herokuapp.com/send_email', {
+        name: 'Candii',
+        email: email,
+        message: `Your verification code is: ${generatedCode}`
+      });
 
-        if (response.data === 'Email sent successfully') {
-            Alert.alert('Success', 'Code sent successfully!');
-        } else {
-            throw new Error('Failed to send email');
-        }
+      if (response.data === 'Email sent successfully') {
+          Alert.alert('Success', 'Code sent successfully!');
+      } else {
+          throw new Error('Failed to send email');
+      }
     } catch (error) {
         console.error('Error sending code:', error);
         Alert.alert('Error', 'Code sending failed');

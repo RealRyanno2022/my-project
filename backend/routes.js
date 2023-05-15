@@ -16,13 +16,14 @@ router.get('/posts', posts.getAllPosts);
 router.get('/posts/:id', posts.getPostById);
 router.put('/posts/:id', posts.updatePost);
 router.delete('/posts/:id', posts.deletePost);
+const sendEmail = require('./sendEmail');
 
 // Add a new route for sending emails
 router.post('/send_email', async (req, res) => {
   const { to, subject, text } = req.body;
 
   try {
-    await email(to, subject, text);
+    await sendEmail(to, subject, text);
     res.status(200).json({ message: 'Email sent successfully.' });
   } catch (error) {
     res.status(500).json({ message: 'Error sending email.', error: error.toString() });
