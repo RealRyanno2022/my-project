@@ -6,7 +6,7 @@ const VerifyAge = ({ navigation }) => {
 
   const handleVerification = (isOver18) => {
     if (isOver18) {
-      navigation.navigate('ShopFront');
+      navigation.navigate('PrivacyPolicy');
     } else {
       Linking.openURL('https://www.who.int/news-room/questions-and-answers/item/tobacco-e-cigarettes');
     }
