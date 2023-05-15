@@ -38,7 +38,7 @@ const Intro = ({ navigation }) => {
     }, 4000);
 
     setTimeout(() => {
-      navigation.navigate('ShopFront');
+      navigation.navigate('VerifyAge');
     }, 100);
   }, []);
 
