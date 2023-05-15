@@ -35,6 +35,7 @@ import DeleteAccount from './components/account/DeleteAccount';
 import NotFoundScreen from './components/NotFoundScreen';
 import JuiceProductPage from './components/shop/JuiceProductPage';
 import Intro from './components/shop/Intro';
+import DeliveryAddress from './components/shop/DeliveryAddress';
 
 export default function App() {
 
@@ -70,7 +71,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Intro">
+      <Stack.Navigator initialRouteName="DeliveryAddress">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="ProjectInfo" component={ProjectInfo} /> 
         <Stack.Screen name="SignUp" component={SignUp} /> 
@@ -92,6 +93,7 @@ export default function App() {
         <Stack.Screen name="VapeScreen" component={VapeScreen} />    
         <Stack.Screen name="Intro" component={Intro} />      
         <Stack.Screen name="SearchProducts" component={SearchProducts} />   
+        <Stack.Screen name="DeliveryAddress" component={DeliveryAddress} />   
 
       </Stack.Navigator>
     </NavigationContainer>
