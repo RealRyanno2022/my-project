@@ -7,6 +7,6 @@ const port = 5000;
 app.use(express.json());  // you only need one body-parsing middleware
 app.use(router);
 
-app.listen('192.168.56.1', port, () => {
+app.listen(process.env.PORT || 5000, port, () => {
   console.log(`Server running on port ${port}`);
 });
