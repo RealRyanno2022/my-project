@@ -38,8 +38,6 @@ const PaymentPage = ({ navigation }) => {
       console.error(error);
     }
   }
-
-  render() {
     return (
       <View>
         <Header
@@ -74,6 +72,5 @@ const PaymentPage = ({ navigation }) => {
       </View>
     );
   }
-}
 
 export default PaymentPage;
