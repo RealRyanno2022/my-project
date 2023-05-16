@@ -9,7 +9,6 @@ import {
   Image,
 } from 'react-native';
 import Slider from '@react-native-community/slider';
-import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from './ShopHeader';
 // import { Picker } from '@react-native-picker/picker';
 
