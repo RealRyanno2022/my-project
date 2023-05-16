@@ -6,6 +6,7 @@ import { TextInput, HelperText, Button } from 'react-native-paper';
 import countryStateArray from './countryStateArray';
 import countriesWithCities from './countriesWithCities';
 import validCountries from './validCountries';
+import ShopHeader from './ShopHeader';
   // Regular expression for validating email
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
@@ -137,36 +138,7 @@ const DeliveryAddress = ({ navigation }) => {
     <View style={{ flex: 1}}>
       <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
         <View style={styles.container}>
-          <Header
-            leftComponent={{ 
-              icon: 'person-outline', 
-              color: '#fff',
-              onPress: () => navigation.navigate('AccountInfo') 
-            }}
-            centerComponent={{ 
-              text: 'Candii', 
-              style: { color: '#fff', fontSize: 20 } 
-            }}
-            rightComponent={(
-              <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity onPress={() => navigation.navigate('Queries')}>
-                    <Icon name="message" color="#fff" />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={handleSearch}>
-                    <Icon name="search" color="#fff" />
-                </TouchableOpacity>
-              </View>
-            )}
-          />
-          <SearchBar
-            containerStyle={{ width: '100%'}}
-            lightTheme
-            searchIcon={{ size: 24 }}
-            onChangeText={setSearchTerm}
-            onClear={() => setSearchTerm('')} // clear the search term
-            placeholder='Search...'
-            value={searchTerm}
-          />
+          <ShopHeader />
           <ScrollView ref={scrollViewRef} contentContainerStyle={{ paddingBottom: 100 }}>
             <View style={{paddingBottom: 100}}>
             <View style={styles.label}>

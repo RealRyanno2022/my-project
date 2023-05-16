@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
+import ShopHeader from './ShopHeader';
 
 const ShopFront = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,36 +23,7 @@ const ShopFront = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-    <Header
-      leftComponent={{ 
-        icon: 'person-outline', 
-        color: '#fff',
-        onPress: () => navigation.navigate('AccountInfo') 
-      }}
-      centerComponent={{ 
-        text: 'Candii', 
-        style: { color: '#fff', fontSize: 20 } 
-      }}
-      rightComponent={(
-        <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity onPress={() => navigation.navigate('Queries')}>
-            <Icon name="message" color="#fff" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleSearch}>
-            <Icon name="search" color="#fff" />
-          </TouchableOpacity>
-        </View>
-      )}
-    />
-<SearchBar
-  containerStyle={{ width: '100%'}}
-  lightTheme
-  searchIcon={{ size: 24 }}
-  onChangeText={setSearchTerm}
-  onClear={() => setSearchTerm('')} // clear the search term
-  placeholder='Search...'
-  value={searchTerm}
-/>
+    <ShopHeader />
     <ScrollView>
       <View style={styles.cardContainer}>
         <View style={styles.space} />

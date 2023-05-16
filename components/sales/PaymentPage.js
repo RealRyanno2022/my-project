@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import BraintreeDropIn from 'react-native-braintree-payments-drop-in';
 import { Header, SearchBar, Icon } from 'react-native-elements';
+import ShopHeader from './ShopHeader';
 
 const PaymentPage = ({ navigation }) => {
   handlePayment = async () => {
@@ -40,31 +41,7 @@ const PaymentPage = ({ navigation }) => {
   }
     return (
       <View>
-        <Header
-        leftComponent={{ 
-          icon: 'person-outline', 
-          color: '#fff',
-          onPress: () => navigation.navigate('AccountInfo') 
-        }}
-        centerComponent={{ 
-          text: 'Candii', 
-          style: { color: '#fff', fontSize: 20 } 
-        }}
-        rightComponent={{ 
-          icon: 'search',
-          color: '#fff',
-          onPress: handleSearch,
-        }}
-      />
-      <SearchBar
-        containerStyle={{ width: '100%'}}
-        lightTheme
-        searchIcon={{ size: 24 }}
-        onChangeText={setSearchTerm}
-        onClear={() => setSearchTerm('')} // clear the search term
-        placeholder='Search...'
-        value={searchTerm}
-      />
+        <ShopHeader />
         <Button
           title="Pay"
           onPress={this.handlePayment}
