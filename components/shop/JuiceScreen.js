@@ -21,7 +21,7 @@ const JuiceScreen = ({ navigation }) => {
 
   return (
     <View style={{flex: 1}}>
-      <ShopHeader />
+      <ShopHeader navigation={navigation}  />
       <ScrollView>
         <View style={styles.cardContainer}>
           {["Kinship", "BMG", "Hale", "Slushie", "Yeti", "IVG Salt", "Elfiq"].map(brand => (

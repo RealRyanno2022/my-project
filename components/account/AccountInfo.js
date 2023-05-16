@@ -3,10 +3,25 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader'
 
 export default function AccountInfo({ navigation }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Add state to track whether user is signed in
+
   const handleSignOut = () => {
     // Handle sign out logic here
-    console.log('Signing out...');
+    navigation.navigate("ShopFront")
+    setIsLoggedIn(false); // Set isLoggedIn to false when user signs out
   };
+
+  const handleSignIn = () => {
+    // Handle sign in logic here
+    navigation.navigate("LoginScreen")
+    // setIsLoggedIn(true); // Set isLoggedIn to true when user signs in
+  };
+
+  const handleSignUp = () => {
+    // Handle sign up logic here
+    navigation.navigate("SignUp")
+  };
+
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = () => {
@@ -25,12 +40,28 @@ export default function AccountInfo({ navigation }) {
         <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ProjectInfo')}>
           <Text style={styles.cardText}>Project Info</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.card} onPress={handleSignOut}>
-          <Text style={styles.cardText}>Sign Out</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('DeleteAccount')}>
-          <Text style={styles.cardText}>Delete Account</Text>
-        </TouchableOpacity>
+        {isLoggedIn ? (
+          <>
+            <TouchableOpacity style={styles.card} onPress={handleSignOut}>
+              <Text style={styles.cardText}>Sign Out</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('DeleteAccount')}>
+              <Text style={styles.cardText}>Delete Account</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ChangePassword')}>
+              <Text style={styles.cardText}>Change Password</Text>
+            </TouchableOpacity>
+          </>
+        ) : (
+          <>
+            <TouchableOpacity style={styles.card} onPress={handleSignIn}>
+              <Text style={styles.cardText}>Log In</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.card} onPress={handleSignUp}>
+              <Text style={styles.cardText}>Sign Up</Text>
+            </TouchableOpacity>
+          </>
+        )}
       </View>
     </View>
   );

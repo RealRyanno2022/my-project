@@ -8,7 +8,7 @@ import emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
 import ShopHeader from '../shop/ShopHeader';
 
-const Queries = () => {
+const Queries = ({ navigation }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');

@@ -21,7 +21,7 @@ const ShopFront = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-    <ShopHeader />
+    <ShopHeader navigation={navigation}  />
     <ScrollView>
       <View style={styles.cardContainer}>
         <View style={styles.space} />
