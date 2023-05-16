@@ -1,35 +1,35 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import LoginScreen from './components/register/LoginScreen'
-import ForgotPassword from './components/register/ForgotPassword';
-import SignUp from './components/register/SignUp';
-import VerifyEmail from './components/register/VerifyEmail';
-import NewPassword from './components/register/NewPassword'
-
-import ProductPage from './components/shop/ProductPage';
-import PaymentPage from './components/shop/PaymentPage';
-import ConfirmationPage from './components/shop/ConfirmationPage';
-import ShopFront from './components/shop/ShopFront';
-import BrandVarieties from './components/shop/BrandVarieties';
-import JuiceScreen from './components/shop/JuiceScreen';
-import VapeScreen from './components/shop/VapeScreen';
-import PrivacyPolicy from './components/shop/PrivacyPolicy';
-import SearchProducts from './components/shop/SearchProducts';
-import VerifyAge from './components/shop/VerifyAge';
-
-
-
 import AccountInfo from './components/account/AccountInfo';
 import ProjectInfo from './components/account/ProjectInfo';
 import CustomerBasket from './components/account/CustomerBasket';
 import Queries from './components/account/Queries';
 import DeleteAccount from './components/account/DeleteAccount';
 
-import NotFoundScreen from './components/NotFoundScreen';
-import JuiceProductPage from './components/shop/JuiceProductPage';
 import Intro from './components/shop/Intro';
+import PrivacyPolicy from './components/shop/PrivacyPolicy';
+import ShopFront from './components/shop/ShopFront';
+import VerifyAge from './components/shop/VerifyAge';
+
+import ForgotPassword from './components/register/ForgotPassword';
+import LoginScreen from './components/register/LoginScreen';
+import NewPassword from './components/register/NewPassword';
+import SignUp from './components/register/SignUp';
+import VerifyEmail from './components/register/VerifyEmail';
+
+import ConfirmationPage from './components/shop/ConfirmationPage';
 import DeliveryAddress from './components/shop/DeliveryAddress';
+import PaymentPage from './components/shop/PaymentPage';
+
+import BrandVarieties from './components/shop/BrandVarieties';
+import JuiceProductPage from './components/shop/JuiceProductPage';
+import JuiceScreen from './components/shop/JuiceScreen';
+import ProductPage from './components/shop/ProductPage';
+import SearchProducts from './components/shop/SearchProducts';
+import VapeScreen from './components/shop/VapeScreen';
+
+import NotFoundScreen from './components/NotFoundScreen';
 
 export default function App() {
 
@@ -77,26 +77,33 @@ export default function App() {
       <Stack.Screen name="DeleteAccount" component={DeleteAccount} /> 
       <Stack.Screen name="ProjectInfo" component={ProjectInfo} /> 
       <Stack.Screen name="Queries" component={Queries} />
-
+        
+      <Stack.Screen name="Intro" component={Intro} />  
+      <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+      <Stack.Screen name="ShopFront" component={ShopFront} /> 
+      <Stack.Screen name="VerifyAge" component={VerifyAge} />
+      
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} /> 
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="NewPassword" component={NewPassword} />
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="VerifyEmail" component={VerifyEmail} /> 
-      
-      <Stack.Screen name="BrandVarieties" component={BrandVarieties} />
+
       <Stack.Screen name="ConfirmationPage" component={ConfirmationPage} />
       <Stack.Screen name="DeliveryAddress" component={DeliveryAddress} /> 
-      <Stack.Screen name="Intro" component={Intro} />  
+      <Stack.Screen name="PaymentPage" component={PaymentPage} />
+
+      <Stack.Screen name="BrandVarieties" component={BrandVarieties} />
       <Stack.Screen name="JuiceProductPage" component={JuiceProductPage} />
       <Stack.Screen name="JuiceScreen" component={JuiceScreen} />  
-      <Stack.Screen name="PaymentPage" component={PaymentPage} />
-      <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
       <Stack.Screen name="ProductPage" component={ProductPage} />
-      <Stack.Screen name="SearchProducts" component={SearchProducts} /> 
-      <Stack.Screen name="ShopFront" component={ShopFront} /> 
+      <Stack.Screen name="SearchProducts" component={SearchProducts} />    
       <Stack.Screen name="VapeScreen" component={VapeScreen} />    
-      <Stack.Screen name="VerifyAge" component={VerifyAge} />
+  
+
+   
+
+
 
       <Stack.Screen name="NotFoundScreen" component={NotFoundScreen} />    
 

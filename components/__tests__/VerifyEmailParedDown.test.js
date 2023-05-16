@@ -1,11 +1,11 @@
-import React from 'react';
+
 import { render, fireEvent, waitFor } from '@testing-library/react-native';
-import VerifyEmail from './VerifyEmail';
+import VerifyEmailParedDown from './VerifyEmailParedDown';
 import axios from 'axios';
 
 jest.mock('axios'); // Mocks axios module
 
-describe('<VerifyEmail />', () => {
+describe('<VerifyEmailParedDown />', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });

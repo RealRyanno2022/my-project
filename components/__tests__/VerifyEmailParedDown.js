@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import axios from 'axios'; // import axios
-import { Header, SearchBar, Icon } from 'react-native-elements';
 
 export default function VerifyEmail({ navigation }) {
   const [code, setCode] = useState('');
