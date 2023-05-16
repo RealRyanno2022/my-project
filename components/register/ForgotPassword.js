@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import ShopHeader from '../shop/ShopHeader';
 
 const ForgotPassword = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -16,6 +17,8 @@ const ForgotPassword = ({ navigation }) => {
   };
 
   return (
+    <View>
+    <ShopHeader />
     <View style={styles.container}>
       <Text style={styles.title}>Reset Password</Text>
       <Text style={styles.smallText}>Enter your email and enter the code to reset your password</Text>
@@ -48,6 +51,7 @@ const ForgotPassword = ({ navigation }) => {
       <TouchableOpacity style={styles.loginBtn} onPress={() => handleSubmit()}>
         <Text style={styles.loginText}>Boom</Text>
       </TouchableOpacity>
+    </View>
     </View>
   );
 };

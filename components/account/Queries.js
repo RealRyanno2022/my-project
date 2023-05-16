@@ -6,6 +6,7 @@ import { Header, SearchBar, Icon } from 'react-native-elements';
 
 import emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
+import ShopHeader from '../shop/ShopHeader';
 
 const Queries = () => {
     const [name, setName] = useState('');
@@ -58,36 +59,7 @@ const Queries = () => {
   
     return (
       <View style={{flex: 1}}>
-      <Header
-      leftComponent={{ 
-        icon: 'person-outline', 
-        color: '#fff',
-        onPress: () => navigation.navigate('AccountInfo') 
-      }}
-      centerComponent={{ 
-        text: 'Candii', 
-        style: { color: '#fff', fontSize: 20 } 
-      }}
-      rightComponent={(
-        <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity onPress={() => navigation.navigate('Queries')}>
-            <Icon name="message" color="#fff" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleSearch}>
-            <Icon name="search" color="#fff" />
-          </TouchableOpacity>
-        </View>
-      )}
-    />
-      <SearchBar
-        containerStyle={{ width: '100%'}}
-        lightTheme
-        searchIcon={{ size: 24 }}
-        onChangeText={setSearchTerm}
-        onClear={() => setSearchTerm('')} // clear the search term
-        placeholder='Search...'
-        value={searchTerm}
-      />
+      <ShopHeader />
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.bigText}>Have a query? Feel free to ask us!</Text>
         <TextInput

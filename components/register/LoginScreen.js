@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { Header, SearchBar, Icon } from 'react-native-elements';
+import ShopHeader from '../shop/ShopHeader';
 // import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 // import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
@@ -91,31 +91,7 @@ function LoginScreen({ navigation }) {
 
   return (
     <View>
-    <Header
-        leftComponent={{ 
-          icon: 'person-outline', 
-          color: '#fff',
-          onPress: () => navigation.navigate('AccountInfo') 
-        }}
-        centerComponent={{ 
-          text: 'Candii', 
-          style: { color: '#fff', fontSize: 20 } 
-        }}
-        rightComponent={{ 
-          icon: 'search',
-          color: '#fff',
-          onPress: handleSearch,
-        }}
-      />
-      <SearchBar
-        containerStyle={{ width: '100%'}}
-        lightTheme
-        searchIcon={{ size: 24 }}
-        onChangeText={setSearchTerm}
-        onClear={() => setSearchTerm('')} // clear the search term
-        placeholder='Search...'
-        value={searchTerm}
-      />
+    <ShopHeader />
     <View style={styles.container}>
       <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('NewPassword')}>
         <Text style={styles.nextText}>NEXT</Text>

@@ -12,6 +12,7 @@ import {
   Alert,
 } from 'react-native';
 import { Platform } from 'react-native';
+import ShopHeader from '../shop/ShopHeader';
 // import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 // import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
@@ -172,31 +173,7 @@ const SignUp = ({ navigation }) => {
   return (
     <ScrollView style={styles.scrollViewContainer} ref={scrollViewRef}>
 
-      <Header
-        leftComponent={{ 
-          icon: 'person-outline', 
-          color: '#fff',
-          onPress: () => navigation.navigate('AccountInfo') 
-        }}
-        centerComponent={{ 
-          text: 'Candii', 
-          style: { color: '#fff', fontSize: 20 } 
-        }}
-        rightComponent={{ 
-          icon: 'search',
-          color: '#fff',
-          onPress: handleSearch,
-        }}
-      />
-      <SearchBar
-        containerStyle={{ width: '100%'}}
-        lightTheme
-        searchIcon={{ size: 24 }}
-        onChangeText={setSearchTerm}
-        onClear={() => setSearchTerm('')} // clear the search term
-        placeholder='Search...'
-        value={searchTerm}
-      />
+      <ShopHeader />
       <View style={styles.background}>
         <Text style={styles.title}>Sign up</Text>
         <View style={styles.inputContainer}>

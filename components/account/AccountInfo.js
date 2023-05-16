@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { Header, SearchBar } from 'react-native-elements';
+import ShopHeader from '../shop/ShopHeader'
 
 export default function AccountInfo({ navigation }) {
   const handleSignOut = () => {
@@ -15,26 +15,7 @@ export default function AccountInfo({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Header
-        centerComponent={{ 
-          text: 'Candii', 
-          style: { color: '#fff', fontSize: 20 } 
-        }}
-        rightComponent={{ 
-          icon: 'search',
-          color: '#fff',
-          onPress: handleSearch,
-        }}
-      />
-      <SearchBar
-        containerStyle={{ width: '100%'}}
-        lightTheme
-        searchIcon={{ size: 24 }}
-        onChangeText={setSearchTerm}
-        onClear={() => setSearchTerm('')} // clear the search term
-        placeholder='Search...'
-        value={searchTerm}
-      />
+      <ShopHeader />
       <Text>Your username is USERNAME.</Text>
       <Text>Your email address is EMAIL.</Text>
       <View style={styles.cardContainer}>

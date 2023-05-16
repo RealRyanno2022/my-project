@@ -5,7 +5,7 @@ import { Header, SearchBar, Icon } from 'react-native-elements';
 import { TextInput, HelperText, Button } from 'react-native-paper';
 import countryStateArray from './countryStateArray';
 import countriesWithCities from './countriesWithCities';
-import validCountries from './validCountries';
+import validCountries from '../data/validCountries';
 import ShopHeader from './ShopHeader';
   // Regular expression for validating email
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;

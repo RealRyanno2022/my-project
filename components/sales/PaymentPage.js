@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import BraintreeDropIn from 'react-native-braintree-payments-drop-in';
 import { Header, SearchBar, Icon } from 'react-native-elements';
-import ShopHeader from './ShopHeader';
+import ShopHeader from '../shop/ShopHeader';
 
 const PaymentPage = ({ navigation }) => {
   handlePayment = async () => {
