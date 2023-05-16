@@ -7,6 +7,10 @@ const { getClientToken, processPayment } = require('./braintree.js');
 const sendEmail = require('./sendEmail'); // Update the import statement
 
 const router = express.Router();
+router.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
 
 router.post('/register', auth.register);
 router.post('/login', auth.login);
