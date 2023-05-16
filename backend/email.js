@@ -3,8 +3,8 @@ const nodemailer = require('nodemailer');
 const transport = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'ryannobusiness@gmail.com',
-    pass: 'yourPassword'
+    user: 'rhythmly.verify@gmail.com',
+    pass: 'blackmamba13'
   }
 });
 
@@ -22,6 +22,8 @@ const sendEmail = async (to, subject, text) => {
   } catch (error) {
     console.error('Error sending email: ', error);
   }
-}
+};
+
+
 
 module.exports = sendEmail;

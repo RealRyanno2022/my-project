@@ -16,27 +16,7 @@ export default function VerifyEmail({ navigation }) {
     isInvalid ? styles.inputInvalid : null,
   ];
 
-  const handleSendCode = async () => {
-    const generatedCode = generateCode();
-    setGeneratedCode(generatedCode);
-
-    try {
-      const response = await axios.post('https://candii-vapes.herokuapp.com/send_email', {
-        name: 'Candii',
-        email: email,
-        message: `Your verification code is: ${generatedCode}`
-      });
-
-      if (response.data === 'Email sent successfully') {
-          Alert.alert('Success', 'Code sent successfully!');
-      } else {
-          throw new Error('Failed to send email');
-      }
-    } catch (error) {
-        console.error('Error sending code:', error);
-        Alert.alert('Error', 'Code sending failed');
-    }
-};
+  c
 
   const generateCode = () => {
     const code = Math.floor(Math.random() * 1000000000000);
