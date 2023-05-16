@@ -30,6 +30,7 @@ import SearchProducts from './components/shop/SearchProducts';
 import VapeScreen from './components/shop/VapeScreen';
 
 import NotFoundScreen from './components/NotFoundScreen';
+import ContinueShopping from './components/shop/ContinueShopping';
 
 export default function App() {
 
@@ -94,6 +95,7 @@ export default function App() {
       <Stack.Screen name="PaymentPage" component={PaymentPage} />
 
       <Stack.Screen name="BrandVarieties" component={BrandVarieties} />
+      <Stack.Screen name="ContinueShopping" component={ContinueShopping} />
       <Stack.Screen name="JuiceProductPage" component={JuiceProductPage} />
       <Stack.Screen name="JuiceScreen" component={JuiceScreen} />  
       <Stack.Screen name="ProductPage" component={ProductPage} />

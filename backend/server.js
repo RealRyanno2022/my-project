@@ -1,5 +1,6 @@
 const express = require('express');
 const router = require('./routes');
+const { gateway } = require('./braintree');
 
 const app = express();
 const port = process.env.PORT || 5000;

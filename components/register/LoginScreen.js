@@ -51,7 +51,9 @@ function LoginScreen({ navigation }) {
   //   }
   // };
 
- 
+  function handleGuestPress() {
+    navigation.navigate('DeliveryAddress')
+  }
 
   const handleLoginPress = async () => {
     try {
@@ -131,6 +133,9 @@ function LoginScreen({ navigation }) {
       </TouchableOpacity>
       <TouchableOpacity style={styles.loginBtn} onPress={handleForgotPasswordPress}>
         <Text style={styles.loginText}>FORGOT PASSWORD?</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.loginBtn} onPress={handleGuestPress}>
+        <Text style={styles.loginText}>CONTINUE AS GUEST</Text>
       </TouchableOpacity>
     </View>
     </View>

@@ -16,7 +16,7 @@ const PaymentPage = ({ navigation }) => {
       });
 
       // Send the nonce to your server for processing the payment
-      const paymentResponse = await fetch('https://candii-vapes-backend.herokuapp.com/checkout', {
+      const paymentResponse = await fetch('https://candii-vapes-backend.herokuapp.com/execute_transaction', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

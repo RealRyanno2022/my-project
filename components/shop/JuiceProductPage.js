@@ -46,6 +46,10 @@ const JuiceProductPage = ({ navigation }) => {
   const isStandardShipping = shippingOption === 'standard';
   const isExpressShipping = shippingOption === 'express';
 
+  function handleAddtoCart() {
+    navigation.navigate("LoginScreen");
+  }
+
 
   const renderStarRating = (rating) => {
     const emptyStar = '../pictures/star1-removebg-preview.png';
@@ -233,6 +237,12 @@ const incrementQuantity = () => {
           Total Price: ${(totalPrice + shippingCost).toFixed(2)}
         </Text>
       </View>
+      <TouchableOpacity
+            style={styles.card}
+            onPress={() => handleAddtoCart()}
+          >
+            <Text style={styles.cardText}>Add to Cart</Text>
+          </TouchableOpacity>
   </ScrollView>
   );
 };
@@ -304,6 +314,27 @@ const styles = StyleSheet.create({
       },
       shippingButtonActive: {
         backgroundColor: '#d64947',
+      },
+      card: {
+        width: '45%',
+        backgroundColor: '#FFFFFF',
+        borderRadius: 15,
+        padding: 20,
+        marginBottom: 20,
+        alignItems: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+      },
+      cardText: {
+        color: '#1F1F1F',
+        fontSize: 18,
+        fontWeight: 'bold',
       },
       shippingButtonText: {
         fontSize: 16,
