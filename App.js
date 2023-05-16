@@ -20,7 +20,6 @@ import VerifyEmail from './components/register/VerifyEmail';
 
 import ConfirmationPage from './components/shop/ConfirmationPage';
 import DeliveryAddress from './components/shop/DeliveryAddress';
-import PaymentPage from './components/shop/PaymentPage';
 
 import BrandVarieties from './components/shop/BrandVarieties';
 import JuiceProductPage from './components/shop/JuiceProductPage';
@@ -71,7 +70,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Intro">
+      <Stack.Navigator initialRouteName="PaymentPage">
 
       <Stack.Screen name="AccountInfo" component={AccountInfo} />
       <Stack.Screen name="CustomerBasket" component={CustomerBasket} />
@@ -92,7 +91,6 @@ export default function App() {
 
       <Stack.Screen name="ConfirmationPage" component={ConfirmationPage} />
       <Stack.Screen name="DeliveryAddress" component={DeliveryAddress} /> 
-      <Stack.Screen name="PaymentPage" component={PaymentPage} />
 
       <Stack.Screen name="BrandVarieties" component={BrandVarieties} />
       <Stack.Screen name="ContinueShopping" component={ContinueShopping} />
