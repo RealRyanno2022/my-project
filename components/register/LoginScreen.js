@@ -93,7 +93,7 @@ function LoginScreen({ navigation }) {
 
   return (
     <View>
-    <ShopHeader />
+    <ShopHeader navigation={navigation}  />
     <View style={styles.container}>
       <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('NewPassword')}>
         <Text style={styles.nextText}>NEXT</Text>

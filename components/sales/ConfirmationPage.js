@@ -17,7 +17,7 @@ const ConfirmationPage = ({ route, navigation }) => {
 
   return (
     <View>
-    <ShopHeader />
+    <ShopHeader navigation={navigation}  />
     <View style={styles.container}>
       <Text style={styles.title}>Order Confirmation</Text>
       <Text style={styles.details}>Your Order ID: {orderID}</Text>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
-import ShopHeader from './ShopHeader';
+import ShopHeader from '../shop/ShopHeader';
 
 const ShopFront = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,9 +15,7 @@ const ShopFront = ({ navigation }) => {
     } 
   };
 
-  const handleSearch = () => {
-    navigation.push('SearchProducts', { searchTerm });
-  }
+  
 
 
 

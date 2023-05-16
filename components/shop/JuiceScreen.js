@@ -20,7 +20,7 @@ const JuiceScreen = ({ navigation }) => {
   }
 
   return (
-    <View>
+    <View style={{flex: 1}}>
       <ShopHeader />
       <ScrollView>
         <View style={styles.cardContainer}>
@@ -87,6 +87,9 @@ const styles = StyleSheet.create({
     color: '#1F1F1F',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  buffer: {
+    marginBottom: 150,
   },
 });
 

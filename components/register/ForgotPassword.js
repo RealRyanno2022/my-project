@@ -18,7 +18,7 @@ const ForgotPassword = ({ navigation }) => {
 
   return (
     <View>
-    <ShopHeader />
+    <ShopHeader navigation={navigation}  />
     <View style={styles.container}>
       <Text style={styles.title}>Reset Password</Text>
       <Text style={styles.smallText}>Enter your email and enter the code to reset your password</Text>

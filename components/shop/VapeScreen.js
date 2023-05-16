@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
+import ShopHeader from './ShopHeader';
 
 const VapeScreen = ({ navigation }) => {
 
@@ -20,32 +21,8 @@ const VapeScreen = ({ navigation }) => {
   }
 
   return (
-    <View>
-      <Header
-        leftComponent={{ 
-          icon: 'person-outline', 
-          color: '#fff',
-          onPress: () => navigation.navigate('AccountInfo') 
-        }}
-        centerComponent={{ 
-          text: 'Candii', 
-          style: { color: '#fff', fontSize: 20 } 
-        }}
-        rightComponent={{ 
-          icon: 'search',
-          color: '#fff',
-          onPress: handleSearch,
-        }}
-      />
-      <SearchBar
-        containerStyle={{ width: '100%'}}
-        lightTheme
-        searchIcon={{ size: 24 }}
-        onChangeText={setSearchTerm}
-        onClear={() => setSearchTerm('')} // clear the search term
-        placeholder='Search...'
-        value={searchTerm}
-      />
+    <View style={{flex: 1}}>
+     <ShopHeader navigation={navigation} />
       <ScrollView>
         <View style={styles.cardContainer}>
           {["Elfa Bar", "Jewel Mini", "Lost Mary", "Elf Bar", "IVG Bar"].map(brand => (

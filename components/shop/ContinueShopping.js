@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import CustomerBasket from '../account/CustomerBasket';
+import ShopHeader from './ShopHeader';
 
 const ContinueShopping = () => {
   const navigation = useNavigation();
@@ -17,6 +18,7 @@ const ContinueShopping = () => {
 
   return (
     <View style={styles.container}>
+      <ShopHeader navigation={navigation} />
       <View style={styles.header}>
         <Text style={styles.smallText}>The item was added to your cart! Continue shopping or checkout now?</Text>
       </View>

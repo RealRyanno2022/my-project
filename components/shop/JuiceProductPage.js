@@ -106,7 +106,7 @@ const incrementQuantity = () => {
 
   return (
     <ScrollView style={styles.scrollView}>
-      <ShopHeader />
+      <ShopHeader navigation={navigation}  />
     <View style={styles.container}>
       <Image style={styles.image} source={{ uri: product.images[sliderValue] }} />
       <Slider

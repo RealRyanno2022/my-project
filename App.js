@@ -7,10 +7,10 @@ import CustomerBasket from './components/account/CustomerBasket';
 import Queries from './components/account/Queries';
 import DeleteAccount from './components/account/DeleteAccount';
 
-import Intro from './components/shop/Intro';
-import PrivacyPolicy from './components/shop/PrivacyPolicy';
-import ShopFront from './components/shop/ShopFront';
-import VerifyAge from './components/shop/VerifyAge';
+import Intro from './components/onboarding/Intro';
+import PrivacyPolicy from './components/onboarding/PrivacyPolicy';
+import ShopFront from './components/onboarding/ShopFront';
+import VerifyAge from './components/onboarding/VerifyAge';
 
 import ForgotPassword from './components/register/ForgotPassword';
 import LoginScreen from './components/register/LoginScreen';
@@ -18,8 +18,8 @@ import NewPassword from './components/register/NewPassword';
 import SignUp from './components/register/SignUp';
 import VerifyEmail from './components/register/VerifyEmail';
 
-import ConfirmationPage from './components/shop/ConfirmationPage';
-import DeliveryAddress from './components/shop/DeliveryAddress';
+import ConfirmationPage from './components/sales/ConfirmationPage';
+import DeliveryAddress from './components/sales/DeliveryAddress';
 
 import BrandVarieties from './components/shop/BrandVarieties';
 import JuiceProductPage from './components/shop/JuiceProductPage';
@@ -70,7 +70,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="PaymentPage">
+      <Stack.Navigator initialRouteName="Intro">
 
       <Stack.Screen name="AccountInfo" component={AccountInfo} />
       <Stack.Screen name="CustomerBasket" component={CustomerBasket} />

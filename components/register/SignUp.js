@@ -173,7 +173,7 @@ const SignUp = ({ navigation }) => {
   return (
     <ScrollView style={styles.scrollViewContainer} ref={scrollViewRef}>
 
-      <ShopHeader />
+      <ShopHeader navigation={navigation}  />
       <View style={styles.background}>
         <Text style={styles.title}>Sign up</Text>
         <View style={styles.inputContainer}>

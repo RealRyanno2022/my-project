@@ -77,7 +77,7 @@ export default function VerifyEmail({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <ShopHeader />
+      <ShopHeader navigation={navigation}  />
     
       <View style={styles.container}>
         <Text style={styles.info}>

@@ -3,10 +3,10 @@ import { Controller, useForm } from 'react-hook-form';
 import { StyleSheet, View, Text, ScrollView,TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import { TextInput, HelperText, Button } from 'react-native-paper';
-import countryStateArray from './countryStateArray';
-import countriesWithCities from './countriesWithCities';
+import countryStateArray from '../data/countryStateArray';
+import countriesWithCities from '../data/countriesWithCities';
 import validCountries from '../data/validCountries';
-import ShopHeader from './ShopHeader';
+import ShopHeader from '../shop/ShopHeader';
 import BraintreeDropIn from 'react-native-braintree-payments-drop-in';
   // Regular expression for validating email
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -206,7 +206,7 @@ const DeliveryAddress = ({ navigation }) => {
     <View style={{ flex: 1}}>
       <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}>
         <View style={styles.container}>
-          <ShopHeader />
+          <ShopHeader navigation={navigation}  />
           <ScrollView ref={scrollViewRef} contentContainerStyle={{ paddingBottom: 100 }}>
             <View style={{paddingBottom: 100}}>
             <View style={styles.label}>

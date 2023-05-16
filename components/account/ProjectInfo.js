@@ -12,7 +12,7 @@ const ProjectInfo = ({ navigation }) => {
   }
   return (
     <View style={{flex: 1}}>
-      <ShopHeader />
+      <ShopHeader navigation={navigation} />
       <View style={styles.container}>
       <View style={styles.space} />
       <Text style={styles.cardText}>Project Info</Text>

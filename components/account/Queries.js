@@ -59,7 +59,7 @@ const Queries = () => {
   
     return (
       <View style={{flex: 1}}>
-      <ShopHeader />
+      <ShopHeader navigation={navigation}  />
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.bigText}>Have a query? Feel free to ask us!</Text>
         <TextInput

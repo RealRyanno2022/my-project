@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import BrandBox from './BrandBox';
-import brandData from './brandData';
+import brandData from '../data/brandData';
+import ShopHeader from './ShopHeader';
 
 const BrandVarieties = ({ route, navigation }) => {
   const { brandName } = route.params;
@@ -13,7 +14,10 @@ const BrandVarieties = ({ route, navigation }) => {
   }, [brandName]);
 
   return (
+
+
     <View style={styles.container}>
+      <ShopHeader navigation={navigation} />
       <Text style={styles.title}>{brandName} Varieties</Text>
       <View style={styles.listContainer}>
         {varieties.map((product) => (

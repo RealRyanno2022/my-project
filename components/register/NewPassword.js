@@ -20,7 +20,7 @@ const NewPassword = ({ navigation }) => {
 
     return (
       <View>
-      <ShopHeader />
+      <ShopHeader navigation={navigation}  />
         <View style={styles.container}>
           <Text style={styles.logo}>Reset Password</Text>
           <Text style={styles.smallText}>Enter your new password and confirm it</Text>

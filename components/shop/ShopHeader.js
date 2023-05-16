@@ -1,9 +1,14 @@
 import { View, Text } from 'react-native'
-import React from 'react'
-
+import React, { useState } from 'react'
+import { TouchableOpacity } from 'react-native';
 import { Header, Icon, SearchBar} from 'react-native-elements';
 
-const ShopHeader = () => {
+const ShopHeader = ({ navigation }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = () => {
+    navigation.push('SearchProducts', { searchTerm });
+  }
   return (
     <View>
       <Header
