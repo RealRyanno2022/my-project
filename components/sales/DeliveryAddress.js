@@ -25,11 +25,38 @@ const DeliveryAddress = ({ navigation }) => {
   const [country, setCountry] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const scrollViewRef = useRef();
+  const [state, setState] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [postCode, setPostCode] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
-  const onSubmit = () => {
+  const handleSaveUserInformation = async () => {
+    try {
+      const response = await axios.post('https://candii-vapes-backend.herokuapp.com/save_user_information', {
+        state,
+        country,
+        email,
+        address,
+        phoneNumber,
+        postCode,
+        firstName,
+        lastName,
+      });
+
+      console.log(response.data.message);
+    } catch (error) {
+      console.error('Error saving user information:', error);
+    }
+  };
+
+  const onSubmit = async (data) => {
     console.log(data);
-    navigation.navigate("PaymentPage");
-  } 
+    await handleSaveUserInformation(data);
+    navigation.navigate('PaymentPage');
+  };
 
   const input1Ref = useRef();
   const input2Ref = useRef();

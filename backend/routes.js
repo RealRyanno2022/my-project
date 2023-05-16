@@ -55,4 +55,24 @@ router.post('/execute_transaction', (req, res) => {
   );
 });
 
+router.post('/save_user_information', async (req, res) => {
+  const { state, country, email, address, phoneNumber, postCode, firstName, lastName } = req.body;
+
+  try {
+    const query = `
+      INSERT INTO users (state, country, email, address, phone_number, post_code, first_name, last_name)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+    `;
+    const values = [state, country, email, address, phoneNumber, postCode, firstName, lastName];
+
+    await pool.query(query, values);
+
+    res.status(200).json({ message: 'User information saved successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error saving user information', error: error.toString() });
+  }
+});
+
+
+
 module.exports = router;

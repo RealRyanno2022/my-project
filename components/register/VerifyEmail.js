@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import axios from 'axios'; // import axios
-import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
 
 export default function VerifyEmail({ navigation }) {
@@ -23,11 +22,51 @@ export default function VerifyEmail({ navigation }) {
     return code.toString().padStart(12, '0');
   };
 
-  const handleVerifyCode = () => {
+  const handleSendCode = async () => {
+    if (email.length === 0 || email.length > 100 || !(email.includes("@"))) {
+      setIsEmailInvalid(true);
+      Alert.alert('Error', 'Please enter a valid email address');
+      return;
+    }
+
+    const newCode = generateCode();
+    setGeneratedCode(newCode);
+
+    try {
+      await axios.post('https://candii-vapes-backend.herokuapp.com/send_email', {
+        email,
+        code: newCode
+      });
+
+      Alert.alert('Success', 'Code sent successfully to your email address');
+    } catch (error) {
+      console.error('Error sending code:', error);
+      Alert.alert('Error', 'Failed to send code');
+    }
+  };
+
+  const handleVerifyCode = async () => {
     if (code === generatedCode) {
+      // Email verification successful
       Alert.alert('Success', 'Email verified successfully!');
-      navigation.navigate('ProductPage');
+      
+      try {
+        // Create a new user with the provided email and purchasing data
+        const response = await axios.post('https://candii-vapes-backend.herokuapp.com/create_user', {
+          email,
+          purchasingData: [] // Add the necessary purchasing data here
+        });
+  
+        const { id } = response.data; // Get the newly created user's ID
+        
+        // Navigate to the next screen, passing the user ID
+        navigation.navigate('ProductPage', { userId: id });
+      } catch (error) {
+        console.error('Error creating user:', error);
+        Alert.alert('Error', 'Failed to create user');
+      }
     } else {
+      // Invalid verification code
       Alert.alert('Error', 'Invalid code');
     }
   };
