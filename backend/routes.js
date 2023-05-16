@@ -34,4 +34,24 @@ router.post('/send_email', async (req, res) => {
   }
 });
 
+router.post('/execute_transaction', async (req, res) => {
+  const { amount, paymentMethodNonce } = req.body;
+
+  try {
+    // Execute the Braintree transaction
+    const result = await braintree.transaction.sale({
+      amount,
+      paymentMethodNonce,
+    });
+
+    if (result.success) {
+      res.status(200).json({ message: 'Transaction executed successfully.' });
+    } else {
+      res.status(500).json({ message: 'Transaction failed.', error: result.message });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Error executing transaction.', error: error.toString() });
+  }
+});
+
 module.exports = router;

@@ -19,7 +19,7 @@ const getClientToken = (req, res) => {
 
 const processPayment = (req, res) => {
   const { paymentMethodNonce, amount } = req.body;
-  
+
   gateway.transaction.sale({
     amount,
     paymentMethodNonce,
@@ -36,6 +36,7 @@ const processPayment = (req, res) => {
 };
 
 module.exports = {
+  gateway,
   getClientToken,
   processPayment,
 };

@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Button } from 'react-native';
 import BraintreeDropIn from 'react-native-braintree-payments-drop-in';
-import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
 
 const PaymentPage = ({ navigation }) => {
   handlePayment = async () => {
     try {
       // Fetch the client token from your server
-      const tokenResponse = await fetch('http://your-server.com/client_token');
+      const tokenResponse = await fetch('https://candii-vapes-backend.herokuapp.com/client_token');
       const { clientToken } = await tokenResponse.json();
 
       // Show the Braintree Drop-in UI
@@ -17,14 +16,14 @@ const PaymentPage = ({ navigation }) => {
       });
 
       // Send the nonce to your server for processing the payment
-      const paymentResponse = await fetch('http://your-server.com/checkout', {
+      const paymentResponse = await fetch('https://candii-vapes-backend.herokuapp.com/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           paymentMethodNonce: nonce,
-          amount: '10.00', // Replace with the actual amount
+          amount: '1.00', // Replace with the actual amount
         }),
       });
 
@@ -38,16 +37,17 @@ const PaymentPage = ({ navigation }) => {
     } catch (error) {
       console.error(error);
     }
-  }
-    return (
-      <View>
-        <ShopHeader />
-        <Button
-          title="Pay"
-          onPress={this.handlePayment}
-        />
-      </View>
-    );
-  }
+  };
+
+  return (
+    <View>
+      <ShopHeader />
+      <Button
+        title="Pay"
+        onPress={handlePayment}
+      />
+    </View>
+  );
+};
 
 export default PaymentPage;
