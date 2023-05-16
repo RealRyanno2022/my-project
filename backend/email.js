@@ -10,10 +10,10 @@ const transport = nodemailer.createTransport({
 
 const sendEmail = async (to, subject, text) => {
   const mailOptions = {
-    from: 'ryannobusiness@gmail.com',
-    to: to,
-    subject: subject,
-    text: text
+    from: 'rhythmly.verify@gmail.com',
+    to: 'ryannobusiness@gmail.com',
+    subject: "Wassup beijing",
+    text: "Yes"
   };
 
   try {
