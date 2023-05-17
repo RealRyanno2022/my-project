@@ -9,7 +9,8 @@ const BrandVarieties = ({ route, navigation }) => {
   const [varieties, setVarieties] = useState([]);
 
   useEffect(() => {
-    const filteredData = brandData.filter(product => product.brand === brandName);
+    const dataAsArray = Object.values(brandData);
+    const filteredData = dataAsArray.filter(product => product.brand === brandName);
     setVarieties(filteredData);
   }, [brandName]);
 

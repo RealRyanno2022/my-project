@@ -1,837 +1,837 @@
-const brandData={
-"1":{
-"name":"StrawberryRaspberryCherryIce",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/StrawberryRaspberryCherryIce"
+const brandData = {
+"1": {
+"name": "StrawberryRaspberryCherryIce",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/StrawberryRaspberryCherryIce.png"),
 },
-"2":{
-"name":"Blueberry",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/Blueberry"
+"2": {
+"name": "Blueberry",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/Blueberry.png"),
 },
-"3":{
-"name":"Watermelon",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/Watermelon"
+"3": {
+"name": "Watermelon",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/Watermelon.png"),
 },
-"4":{
-"name":"Grape",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/Grape"
+// "4": {
+// "name": "Grape",
+// "price": 7.99,
+// "brand": "Elfbar",
+// "image": require("../pictures/VapePics/Elfbar/Grape.png"),
+// },
+"5": {
+"name": "StrawberryIce",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/StrawberryIce.png"),
 },
-"5":{
-"name":"StrawberryIce",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/StrawberryIce"
+"6": {
+"name": "KiwiPassionfruitGuava",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/KiwiPassionfruitGuava.png"),
 },
-"6":{
-"name":"KiwiPassionfruitGuava",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/KiwiPassionfruitGuava"
+"7": {
+"name": "BananaIce",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/BananaIce.png"),
 },
-"7":{
-"name":"BananaIce",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/BananaIce"
+"8": {
+"name": "ElfbullIce",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/ElfbullIce.png"),
 },
-"8":{
-"name":"ElfbullIce",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/ElfbullIce"
+"9": {
+"name": "Spearmint",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/Spearmint.png"),
 },
-"9":{
-"name":"Spearmint",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/Spearmint"
+// "10": {
+// "name": "Cola",
+// "price": 7.99,
+// "brand": "Elfbar",
+// "image": require("../pictures/VapePics/Elfbar/Cola.png"),
+// },
+"11": {
+"name": "CherryCola",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/CherryCola.png"),
 },
-"10":{
-"name":"Cola",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/Cola"
+"12": {
+"name": "PinkLemonade",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/PinkLemonade.png"),
 },
-"11":{
-"name":"CherryCola",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/CherryCola"
+// "13": {
+// "name": "PeachIce",
+// "price": 7.99,
+// "brand": "Elfbar",
+// "image": require("../pictures/VapePics/Elfbar/PeachIce.png"),
+// },
+"14": {
+"name": "Mango",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/Mango.png"),
 },
-"12":{
-"name":"PinkLemonade",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/PinkLemonade"
+"15": {
+"name": "CottonCandyIce",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/CottonCandyIce.png"),
 },
-"13":{
-"name":"PeachIce",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/PeachIce"
+"16": {
+"name": "Cherry",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/Cherry.png"),
 },
-"14":{
-"name":"Mango",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/Mango"
+"17": {
+"name": "BlueberrySourRaspberry",
+"price": 7.99,
+"brand": "Elfbar",
+"image": require("../pictures/VapePics/Elfbar/BlueberrySourRaspberry.png"),
 },
-"15":{
-"name":"CottonCandyIce",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/CottonCandyIce"
+// "18": {
+// "name": "AlolaGrapeIce",
+// "price": 7.99,
+// "brand": "IVGBar",
+// "image": require("../pictures/VapePics/IVGBar/AlolaGrapeIce.png"),
+// },
+"19": {
+"name": "PolarMint",
+"price": 7.99,
+"brand": "IVGBar",
+"image": require("../pictures/VapePics/IVGBar/PolarMint.png"),
 },
-"16":{
-"name":"Cherry",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/Cherry"
+// "20": {
+// "name": "BerryLemonadeIce",
+// "price": 7.99,
+// "brand": "IVGBar",
+// "image": require("../pictures/VapePics/IVGBar/BerryLemonadeIce.png"),
+// },
+"21": {
+"name": "EnergyIce",
+"price": 7.99,
+"brand": "IVGBar",
+"image": require("../pictures/VapePics/IVGBar/EnergyIce.png"),
 },
-"17":{
-"name":"BlueberrySourRaspberry",
-"price":7.99,
-"brand":"Elfbar",
-"image":"./pictures/VapePics/Elfbar/BlueberrySourRaspberry"
+"22": {
+"name": "ColaIce",
+"price": 7.99,
+"brand": "IVGBar",
+"image": require("../pictures/VapePics/IVGBar/ColaIce.png"),
 },
-"18":{
-"name":"AlolaGrapeIce",
-"price":7.99,
-"brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/AlolaGrapeIce"
-},
-"19":{
-"name":"PolarMint",
-"price":7.99,
-"brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/PolarMint"
-},
-"20":{
-"name":"BerryLemonadeIce",
-"price":7.99,
-"brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/BerryLemonadeIce"
-},
-"21":{
-"name":"EnergyIce",
-"price":7.99,
-"brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/EnergyIce"
-},
-"22":{
-"name":"ColaIce",
-"price":7.99,
-"brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/ColaIce"
-},
-"23":{
-"name":"StrawberryRaspberryPinkApple",
-"price":7.99,
-"brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/StrawberryRaspberryPinkApple"
-},
+// "23": {
+// "name": "StrawberryRaspberryPinkApple",
+// "price": 7.99,
+// "brand": "IVGBar",
+// "image": require("../pictures/VapePics/IVGBar/StrawberryRaspberryPinkApple.png"),
+// },
 "24":{
 "name":"RaspberryOrangeMix",
 "price":7.99,
 "brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/RaspberryOrangeMix"
+"image":require("../pictures/VapePics/IVGBar/RaspberryOrangeMix.png"),
 },
 "25":{
 "name":"RaspberryLemonade",
 "price":7.99,
 "brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/RaspberryLemonade"
+"image":require("../pictures/VapePics/IVGBar/RaspberryLemonade.png"),
 },
 "26":{
 "name":"StrawberryWatermelon",
 "price":7.99,
 "brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/StrawberryWatermelon"
+"image":require("../pictures/VapePics/IVGBar/StrawberryWatermelon.png"),
 },
 "27":{
 "name":"RubyGuavaIce",
 "price":7.99,
 "brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/RubyGuavaIce"
+"image":require("../pictures/VapePics/IVGBar/RubyGuavaIce.png"),
 },
-"28":{
-"name":"PinkLemonade",
-"price":7.99,
-"brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/PinkLemonade"
-},
-"29":{
-"name":"FujiAppleMelon",
-"price":7.99,
-"brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/FujiAppleMelon"
-},
+// "28":{
+// "name":"PinkLemonade",
+// "price":7.99,
+// "brand":"IVGBar",
+// "image":require("../pictures/VapePics/IVGBar/PinkLemonade.png"),
+// },
+// "29":{
+// "name":"FujiAppleMelon",
+// "price":7.99,
+// "brand":"IVGBar",
+// "image":require("../pictures/VapePics/IVGBar/FujiAppleMelon.png"),
+// },
 "30":{
 "name":"Rainbow",
 "price":7.99,
 "brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/Rainbow"
+"image":require("../pictures/VapePics/IVGBar/Rainbow.png"),
 },
 "31":{
 "name":"BlueRaspberryIce",
 "price":7.99,
 "brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/BlueRaspberryIce"
+"image":require("../pictures/VapePics/IVGBar/BlueRaspberryIce.png"),
 },
 "32":{
 "name":"PassionFruit",
 "price":7.99,
 "brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/PassionFruit"
+"image":require("../pictures/VapePics/IVGBar/PassionFruit.png"),
 },
-"33":{
-"name":"ClassicMenthol",
-"price":7.99,
-"brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/ClassicMenthol"
-},
-"34":{
-"name":"MangoLychee",
-"price":7.99,
-"brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/MangoLychee"
-},
+// "33":{
+// "name":"ClassicMenthol",
+// "price":7.99,
+// "brand":"IVGBar",
+// "image":require("../pictures/VapePics/IVGBar/ClassicMenthol.png"),
+// },
+// "34":{
+// "name":"MangoLychee",
+// "price":7.99,
+// "brand":"IVGBar",
+// "image":require("../pictures/VapePics/IVGBar/MangoLychee.png"),
+// },
 "35":{
 "name":"ExoticMango",
 "price":7.99,
 "brand":"IVGBar",
-"image":"./pictures/VapePics/IVGBar/ExoticMango"
+"image":require("../pictures/VapePics/IVGBar/ExoticMango.png"),
 },
-"36":{
-"name":"BlueRazzCherry",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/BlueRazzCherry"
-},
-"37":{
-"name":"MarybullIce",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/MarybullIce"
-},
-"38":{
-"name":"Menthol",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/Menthol"
-},
-"39":{
-"name":"RedAppleIce",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/RedAppleIce"
-},
-"40":{
-"name":"JuicyPeach",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/JuicyPeach"
-},
+// "36":{
+// "name":"BlueRazzCherry",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/BlueRazzCherry.png"),
+// },
+// "37":{
+// "name":"MarybullIce",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/MarybullIce.png"),
+// },
+// "38":{
+// "name":"Menthol",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/Menthol.png"),
+// },
+// "39":{
+// "name":"RedAppleIce",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/RedAppleIce.png"),
+// },
+// "40":{
+// "name":"JuicyPeach",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/JuicyPeach.png"),
+// },
 "41":{
 "name":"StrawberryKiwi",
 "price":7.99,
 "brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/StrawberryKiwi"
+"image":require("../pictures/VapePics/LostMary/StrawberryKiwi.png"),
 },
-"42":{
-"name":"BlueRazzIce",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/BlueRazzIce"
-},
-"43":{
-"name":"TripleMelon",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/TripleMelon"
-},
-"44":{
-"name":"PineappleIce",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/PineappleIce"
-},
-"45":{
-"name":"Blueberry",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/Blueberry"
-},
+// "42":{
+// "name":"BlueRazzIce",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/BlueRazzIce.png"),
+// },
+// "43":{
+// "name":"TripleMelon",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/TripleMelon.png"),
+// },
+// "44":{
+// "name":"PineappleIce",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/PineappleIce.png"),
+// },
+// "45":{
+// "name":"Blueberry",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/Blueberry.png"),
+// },
 "46":{
 "name":"PinkGrapefruit",
 "price":7.99,
 "brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/PinkGrapefruit"
+"image":require("../pictures/VapePics/LostMary/PinkGrapefruit.png"),
 },
 "47":{
 "name":"DoubleApple",
 "price":7.99,
 "brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/DoubleApple"
+"image":require("../pictures/VapePics/LostMary/DoubleApple.png"),
 },
 "48":{
 "name":"MadBlue",
 "price":7.99,
 "brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/MadBlue"
+"image":require("../pictures/VapePics/LostMary/MadBlue.png"),
 },
 "49":{
 "name":"Grape",
 "price":7.99,
 "brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/Grape"
+"image":require("../pictures/VapePics/LostMary/Grape.png"),
 },
-"50":{
-"name":"StrawberryIce",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/StrawberryIce"
-},
-"51":{
-"name":"WatermelonLemon",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/WatermelonLemon"
-},
+// "50":{
+// "name":"StrawberryIce",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/StrawberryIce.png"),
+// },
+// "51":{
+// "name":"WatermelonLemon",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/WatermelonLemon.png"),
+// },
 "52":{
 "name":"PinkLemonade",
 "price":7.99,
 "brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/PinkLemonade"
+"image":require("../pictures/VapePics/LostMary/PinkLemonade.png"),
 },
 "53":{
 "name":"CherryIce",
 "price":7.99,
 "brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/CherryIce"
+"image":require("../pictures/VapePics/LostMary/CherryIce.png"),
 },
 "54":{
 "name":"WatermelonIce",
 "price":7.99,
 "brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/WatermelonIce"
+"image":require("../pictures/VapePics/LostMary/WatermelonIce.png"),
 },
-"55":{
-"name":"BlueberrySourRaspberry",
-"price":7.99,
-"brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/BlueberrySourRaspberry"
-},
+// "55":{
+// "name":"BlueberrySourRaspberry",
+// "price":7.99,
+// "brand":"LostMary",
+// "image":require("../pictures/VapePics/LostMary/BlueberrySourRaspberry.png"),
+// },
 "56":{
 "name":"TripleMango",
 "price":7.99,
 "brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/TripleMango"
+"image":require("../pictures/VapePics/LostMary/TripleMango.png"),
 },
 "57":{
 "name":"KiwiPassionfruitGuava",
 "price":7.99,
 "brand":"LostMary",
-"image":"./pictures/VapePics/LostMary/KiwiPassionfruitGuava"
+"image":require("../pictures/VapePics/LostMary/KiwiPassionfruitGuava.png"),
 },
 "76":{
 "name":"Orange",
 "price":8.99,
 "brand":"ElfaBar",
-"image":"./pictures/VapePics/Orange"
+"image":require("../pictures/VapePics/ElfaBar/Orange.png"),
 },
 "77":{
 "name":"NavyBlue",
 "price":8.99,
 "brand":"ElfaBar",
-"image":"./pictures/VapePics/NavyBlue"
+"image":require("../pictures/VapePics/ElfaBar/NavyBlue.png"),
 },
 "78":{
 "name":"Cola",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/Cola"
+"image":require("../pictures/VapePics/Elfiq/Cola.png"),
 },
 "79":{
 "name":"KiwiPassionfruitGuava",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/KiwiPassionfruitGuava"
+"image":require("../pictures/VapePics/Elfiq/KiwiPassionfruitGuava.png"),
 },
 "80":{
 "name":"StrawberryIceCream",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/StrawberryIceCream"
+"image":require("../pictures/VapePics/Elfiq/StrawberryIceCream.png"),
 },
-"81":{
-"name":"StrawberryIce",
-"price":5.99,
-"brand":"Elfiq",
-"image":"./pictures/VapePics/StrawberryIce"
-},
+// "81":{
+// "name":"StrawberryIce",
+// "price":5.99,
+// "brand":"Elfiq",
+// "image":require("../pictures/VapePics/StrawberryIce.png"),
+// },
 "82":{
 "name":"StrawberryKiwi",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/StrawberryKiwi"
+"image":require("../pictures/VapePics/Elfiq/StrawberryKiwi.png"),
 },
 "83":{
 "name":"ElfbullIce",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/ElfbullIce"
+"image":require("../pictures/VapePics/Elfiq/ElfbullIce.png"),
 },
 "84":{
 "name":"PinkGrapefruit",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/PinkGrapefruit"
+"image":require("../pictures/VapePics/Elfiq/PinkGrapefruit.png"),
 },
 "85":{
 "name":"Mango",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/Mango"
+"image":require("../pictures/VapePics/Elfiq/Mango.png"),
 },
 "86":{
 "name":"Spearmint",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/Spearmint"
+"image":require("../pictures/VapePics/Elfiq/Spearmint.png"),
 },
 "87":{
 "name":"BlueRazzLemonade",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/BlueRazzLemonade"
+"image":require("../pictures/VapePics/Elfiq/BlueRazzLemonade.png"),
 },
 "88":{
 "name":"CreamTobacco",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/CreamTobacco"
+"image":require("../pictures/VapePics/Elfiq/CreamTobacco.png"),
 },
 "89":{
 "name":"ApplePeach",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/ApplePeach"
+"image":require("../pictures/VapePics/Elfiq/ApplePeach.png"),
 },
 "90":{
 "name":"CherryCola",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/CherryCola"
+"image":require("../pictures/VapePics/Elfiq/CherryCola.png"),
 },
 "91":{
 "name":"BlueberrySourRaspberry",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/BlueberrySourRaspberry"
+"image":require("../pictures/VapePics/Elfiq/BlueberrySourRaspberry.png"),
 },
 "92":{
 "name":"CottonCandyIce",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/CottonCandyIce"
+"image":require("../pictures/VapePics/Elfiq/CottonCandyIce.png"),
 },
 "93":{
 "name":"Watermelon",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/Watermelon"
+"image":require("../pictures/VapePics/Elfiq/Watermelon.png"),
 },
-"94":{
-"name":"PeachIce",
-"price":5.99,
-"brand":"Elfiq",
-"image":"./pictures/VapePics/PeachIce"
-},
+// "94":{
+// "name":"PeachIce",
+// "price":5.99,
+// "brand":"Elfiq",
+// "image":require("../pictures/VapePics/Elfiq/PeachIce.png"),
+// },
 "95":{
 "name":"Cherry",
 "price":5.99,
 "brand":"Elfiq",
-"image":"./pictures/VapePics/Cherry"
+"image":require("../pictures/VapePics/Elfiq/Cherry.png"),
 },
-"96":{
-"name":"Blueberry",
-"price":5.99,
-"brand":"Elfiq",
-"image":"./pictures/VapePics/Blueberry"
-},
+// "96":{
+// "name":"Blueberry",
+// "price":5.99,
+// "brand":"Elfiq",
+// "image":require("../pictures/VapePics/Elfiq/Blueberry.png"),
+// },
 "97":{
 "name":"CherryBlossomGrape",
 "price":7.99,
 "brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/CherryBlossomGrape"
+"image":require("../pictures/VapePics/JewelMini/CherryBlossomGrape.png"),
 },
 "98":{
 "name":"RainbowCandy",
 "price":7.99,
 "brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/RainbowCandy"
+"image":require("../pictures/VapePics/JewelMini/RainbowCandy.png"),
 },
-"99":{
-"name":"ColaMajito",
-"price":7.99,
-"brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/ColaMajito"
-},
-"100":{
-"name":"RaspberryKiwi",
-"price":7.99,
-"brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/RaspberryKiwi"
-},
+// "99":{
+// "name":"ColaMajito",
+// "price":7.99,
+// "brand":"JewelMini",
+// "image":require("../pictures/VapePics/JewelMini/ColaMajito.png"),
+// },
+// "100":{
+// "name":"RaspberryKiwi",
+// "price":7.99,
+// "brand":"JewelMini",
+// "image":require("../pictures/VapePics/JewelMini/RaspberryKiwi.png"),
+// },
 "101":{
 "name":"ApplePeachLyche",
 "price":7.99,
 "brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/ApplePeachLyche"
+"image":require("../pictures/VapePics/JewelMini/ApplePeachLyche.png"),
 },
 "102":{
 "name":"ValentineFruit",
 "price":7.99,
 "brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/ValentineFruit"
+"image":require("../pictures/VapePics/JewelMini/ValentineFruit.png"),
 },
 "103":{
 "name":"TripleBerry",
 "price":7.99,
 "brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/TripleBerry"
+"image":require("../pictures/VapePics/JewelMini/TripleBerry.png"),
 },
 "104":{
 "name":"TripleMango",
 "price":7.99,
 "brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/TripleMango"
+"image":require("../pictures/VapePics/JewelMini/TripleMango.png"),
 },
 "105":{
 "name":"PinkLemon",
 "price":7.99,
 "brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/PinkLemon"
+"image":require("../pictures/VapePics/JewelMini/PinkLemon.png"),
 },
 "106":{
 "name":"VimtoCrush",
 "price":7.99,
 "brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/VimtoCrush"
+"image":require("../pictures/VapePics/JewelMini/VimtoCrush.png"),
 },
 "107":{
 "name":"BlueberryRaspberry",
 "price":7.99,
 "brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/BlueberryRaspberry"
+"image":require("../pictures/VapePics/JewelMini/BlueberryRaspberry.png"),
 },
 "108":{
 "name":"RedAppleWatermelon",
 "price":7.99,
 "brand":"JewelMini",
-"image":"./pictures/VapePics/JewelMini/RedAppleWatermelon"
+"image":require("../pictures/VapePics/JewelMini/RedAppleWatermelon.png"),
 },
 "109":{
 "name":"SummerBlaze",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/SummerBlaze"
+"image":require("../pictures/VapePics/IVGSalt/SummerBlaze.png"),
 },
 "110":{
 "name":"KiwiLemonKool",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/KiwiLemonKool"
+"image":require("../pictures/VapePics/IVGSalt/KiwiLemonKool.png"),
 },
 "111":{
 "name":"HoneyDewLemonade",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/HoneyDewLemonade"
+"image":require("../pictures/VapePics/IVGSalt/HoneyDewLemonade.png"),
 },
 "112":{
 "name":"BluebergBurst",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/BluebergBurst"
+"image":require("../pictures/VapePics/IVGSalt/BluebergBurst.png"),
 },
 "113":{
 "name":"RioRush",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/RioRush"
+"image":require("../pictures/VapePics/IVGSalt/RioRush.png"),
 },
 "114":{
 "name":"StrawberryWatermelonChew",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/StrawberryWatermelonChew"
+"image":require("../pictures/VapePics/IVGSalt/StrawberryWatermelonChew.png"),
 },
 "115":{
 "name":"SourGreenApple",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/SourGreenApple"
+"image":require("../pictures/VapePics/IVGSalt/SourGreenApple.png"),
 },
 "116":{
 "name":"FruitTwist",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/FruitTwist"
+"image":require("../pictures/VapePics/IVGSalt/FruitTwist.png"),
 },
 "117":{
 "name":"PinkLemonade",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/PinkLemonade"
+"image":require("../pictures/VapePics/IVGSalt/PinkLemonade.png"),
 },
 "118":{
 "name":"Spearmint",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/Spearmint"
+"image":require("../pictures/VapePics/IVGSalt/Spearmint.png"),
 },
 "119":{
 "name":"NeonLime",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/NeonLime"
+"image":require("../pictures/VapePics/IVGSalt/NeonLime.png"),
 },
 "120":{
 "name":"FreshLemonade",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/FreshLemonade"
+"image":require("../pictures/VapePics/IVGSalt/FreshLemonade.png"),
 },
 "121":{
 "name":"BubbleGum",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/BubbleGum"
+"image":require("../pictures/VapePics/IVGSalt/BubbleGum.png"),
 },
-"122":{
-"name":"ParadiseLagoon",
-"price":5.99,
-"brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/ParadiseLagoon"
-},
+// "122":{
+// "name":"ParadiseLagoon",
+// "price":5.99,
+// "brand":"IVGSalt",
+// "image":require("../pictures/VapePics/IVGSalt/ParadiseLagoon.png"),
+// },
 "123":{
 "name":"GreenEnergy",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/GreenEnergy"
+"image":require("../pictures/VapePics/IVGSalt/GreenEnergy.png"),
 },
 "124":{
 "name":"RiberryLemonade",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/RiberryLemonade"
+"image":require("../pictures/VapePics/IVGSalt/RiberryLemonade.png"),
 },
 "125":{
 "name":"CitrusLemonade",
 "price":5.99,
 "brand":"IVGSalt",
-"image":"pictures/VapePics/IVGSalt/CitrusLemonade"
+"image":require("../pictures/VapePics/IVGSalt/CitrusLemonade.png"),
 },
 "126":{
 "name":"Energy",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/Energy"
+"image":require("../pictures/VapePics/Yeti/Energy.png"),
 },
 "127":{
 "name":"Lemonade",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/Lemonade"
+"image":require("../pictures/VapePics/Yeti/Lemonade.png"),
 },
 "128":{
 "name":"Frostbite",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/Frostbite"
+"image":require("../pictures/VapePics/Yeti/Frostbite.png"),
 },
 "129":{
 "name":"OrangeMango",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/OrangeMango"
+"image":require("../pictures/VapePics/Yeti/OrangeMango.png"),
 },
 "130":{
 "name":"BlueRaspberry",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/BlueRaspberry"
+"image":require("../pictures/VapePics/Yeti/BlueRaspberry.png"),
 },
 "131":{
 "name":"HoneydewBlackcurrent",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/HoneydewBlackcurrent"
+"image":require("../pictures/VapePics/Yeti/HoneydewBlackcurrant.png"),
 },
 "132":{
 "name":"Watermelon",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/Watermelon"
+"image":require("../pictures/VapePics/Yeti/Watermelon.png"),
 },
 "133":{
 "name":"DarkFruits",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/DarkFruits"
+"image":require("../pictures/VapePics/Yeti/DarkFruits.png"),
 },
 "134":{
 "name":"AppleCranberry",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/AppleCranberry"
+"image":require("../pictures/VapePics/Yeti/AppleCranberry.png"),
 },
 "135":{
 "name":"Grape",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/Grape"
+"image":require("../pictures/VapePics/Yeti/Grape.png"),
 },
 "136":{
 "name":"PassionfruitLychee",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/PassionfruitLychee"
+"image":require("../pictures/VapePics/Yeti/PassionFruitLyche.png"),
 },
 "137":{
 "name":"CitrusFreeze",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/CitrusFreeze"
+"image":require("../pictures/VapePics/Yeti/CitrusFreeze.png"),
 },
 "138":{
 "name":"PinkRaspberry",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/PinkRaspberry"
+"image":require("../pictures/VapePics/Yeti/PinkRaspberry.png"),
 },
 "139":{
 "name":"BloodOrangeGrape",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/BloodOrangeGrape"
+"image":require("../pictures/VapePics/Yeti/BloodOrangeGrape.png"),
 },
 "140":{
 "name":"AppleCranberry",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/AppleCranberry"
+"image":require("../pictures/VapePics/Yeti/AppleCranberry.png"),
 },
-"141":{
-"name":"FrozenPear",
-"price":5.99,
-"brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/FrozenPear"
-},
+// "141":{
+// "name":"FrozenPear",
+// "price":5.99,
+// "brand":"Yeti",
+// "image":require("../pictures/VapePics/Yeti/FrozenPear.png"),
+// },
 "142":{
 "name":"Strawberry",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/Strawberry"
+"image":require("../pictures/VapePics/Yeti/Strawberry.png"),
 },
 "143":{
 "name":"PineappleGrapefruit",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/PineappleGrapefruit"
+"image":require("../pictures/VapePics/Yeti/PineappleGrapefruit.png"),
 },
 "144":{
 "name":"Blueberry",
 "price":5.99,
 "brand":"Yeti",
-"image":"./pictures/VapePics/Yeti/Blueberry"
+"image":require("../pictures/VapePics/Yeti/Blueberry.png"),
 },
 "145":{
 "name":"CaribbeanSlush",
 "price":4.99,
 "brand":"Slushie",
-"image":"pictures/VapePics/Slushie/CaribbeanSlush20"
+"image":require("../pictures/VapePics/Slushie/CaribbeanSlush.png"),
 },
 "146":{
 "name":"BlueberrySlush",
 "price":4.99,
 "brand":"Slushie",
-"image":"pictures/VapePics/Slushie/BlueberrySlush20"
+"image":require("../pictures/VapePics/Slushie/BlueberrySlush.png"),
 },
-"147":{
-"name":"ColaSlush",
-"price":4.99,
-"brand":"Slushie",
-"image":"pictures/VapePics/Slushie/ColaSlush20"
-},
+// "147":{
+// "name":"ColaSlush",
+// "price":4.99,
+// "brand":"Slushie",
+// "image":require("../pictures/VapePics/Slushie/ColaSlush.png"),
+// },
 "148":{
 "name":"ParmaSlush",
 "price":4.99,
 "brand":"Slushie",
-"image":"pictures/VapePics/Slushie/ParmaSlush20"
+"image":require("../pictures/VapePics/Slushie/ParmaSlush.png"),
 },
 "149":{
 "name":"GrapefruitLemonade",
 "price":4.99,
 "brand":"Slushie",
-"image":"pictures/VapePics/Slushie/GrapefruitLemonade20"
+"image":require("../pictures/VapePics/Slushie/GrapefruitLemonade.png"),
 },
 "150":{
 "name":"SourAppleandWatermelon",
 "price":4.99,
 "brand":"Slushie",
-"image":"pictures/VapePics/Slushie/SourAppleandWatermelon20"
+"image":require("../pictures/VapePics/Slushie/SourAppleAndWatermelon.png"),
 },
 "151":{
 "name":"BlackcurrentLemonade",
 "price":4.99,
 "brand":"Slushie",
-"image":"pictures/VapePics/Slushie/BlackcurrentLemonade20"
+"image":require("../pictures/VapePics/Slushie/BlackcurrantLemonade.png"),
 },
 "152":{
 "name":"RaspberryBubblegum",
 "price":4.99,
 "brand":"Slushie",
-"image":"pictures/VapePics/Slushie/RaspberryBubblegum20"
+"image":require("../pictures/VapePics/Slushie/RaspberryBubblegum.png"),
 },
-"153":{
-"name":"MangosteenandGuava",
-"price":4.99,
-"brand":"Slushie",
-"image":"pictures/VapePics/Slushie/MangosteenandGuava20"
-},
+// "153":{
+// "name":"MangosteenandGuava",
+// "price":4.99,
+// "brand":"Slushie",
+// "image":require("../pictures/VapePics/Slushie/MangosteenandGuava.png"),
+// },
 "154":{
 "name":"BubblegumSlush",
 "price":4.99,
 "brand":"Slushie",
-"image":"pictures/VapePics/Slushie/BubblegumSlush20"
+"image":require("../pictures/VapePics/Slushie/BubblegumSlush.png"),
 },
-"155":{
-"name":"BlackCherryandRaspberry",
-"price":4.99,
-"brand":"Slushie",
-"image":"pictures/VapePics/Slushie/BlackCherryandRaspberry20"
-},
+// "155":{
+// "name":"BlackCherryandRaspberry",
+// "price":4.99,
+// "brand":"Slushie",
+// "image":require("../pictures/VapePics/Slushie/BlackCherryandRaspberry.png"),
+// },
 "156":{
 "name":"IronSlush",
 "price":4.99,
 "brand":"Slushie",
-"image":"pictures/VapePics/Slushie/IronSlush20"
+"image":require("../pictures/VapePics/Slushie/IronSlush.png"),
 },
 "157":{
 "name":"StrawberrySlush",
 "price":4.99,
 "brand":"Slushie",
-"image":"pictures/VapePics/Slushie/StrawberrySlush20"
+"image":require("../pictures/VapePics/Slushie/StrawberrySlush.png"),
 },
 "undefined":{}
 }

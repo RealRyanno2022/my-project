@@ -6,17 +6,31 @@ import {
   TouchableOpacity,
   Alert
 } from 'react-native';
-import { Header, SearchBar, Icon } from 'react-native-elements';
+
 import ShopHeader from '../shop/ShopHeader';
 
 const DeleteAccountPage = ({ navigation }) => {
   
-  const handleDelete = () => {
-    // Call the API to delete the account here
-    // After deleting, navigate to login or welcome screen
-    // navigation.navigate('Login')
-    console.log('Account deleted');
-    navigation.navigate('ShopFront');
+  const handleDelete = async () => {
+    try {
+      let response = await fetch('https://candii-vapes-backend.herokuapp.com/user/USER_ID', {
+        method: 'DELETE',
+        headers: {
+          'Authorization': 'Bearer YOUR_TOKEN',
+          'Content-Type': 'application/json'
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('HTTP status ' + response.status);
+      }
+
+      // Call was successful, navigate back to Login or Welcome screen
+      console.log('Account deleted');
+      navigation.navigate('ShopFront');
+    } catch (error) {
+      console.error('Failed to delete the account:', error);
+    }
   };
 
   const handleConfirmDelete = () => {

@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import images from '../data/images'
+
 
 const BrandBox = ({ product, navigation }) => {
   const handleProductPress = () => {
@@ -8,12 +10,15 @@ const BrandBox = ({ product, navigation }) => {
 
   return (
     <TouchableOpacity style={styles.brandBox} onPress={handleProductPress}>
-      <Image style={styles.productImage} source={{ uri: product.image }} />
+      <Image style={styles.productImage} source={images[product.name]} />
       <Text style={styles.productName}>{product.name}</Text>
       <Text style={styles.productPrice}>{`$${product.price.toFixed(2)}`}</Text>
     </TouchableOpacity>
   );
 };
+
+// ... the rest of your code ...
+
 
 const styles = StyleSheet.create({
   brandBox: {
