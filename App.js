@@ -34,17 +34,8 @@ import ContinueShopping from './components/shop/ContinueShopping';
 export default function App() {
 
   // CHECKLIST
-  // - Allow the user to perform CRUD operations on their account
-  // - Make sure the PostgreSQL database registers users and purchases
-  // - Make BrandBox visible in the BrandVarieties screen, and possibly, ConfirmationPage, CustomerBasket
-  // - Add authentication to the Login component, and SignUp
-  // - Allow VerifyEmail, ForgotPassword, Queries and ConfirmationPage to send emails
-      // - Add product search
-
-  // THIS SESSION
-    // - Add mg selectors for juice on a separate JuiceProductPage
-    // - Add user email and username to AccountInfo to make UserInfo redundant. Add delete account option to AccountInfo
-    // - Add additional vape varieties to BrandVarieties
+  // - Add delete account api route
+  // - Fix the brand varieties issue (Main bottleneck)
 
 
 
