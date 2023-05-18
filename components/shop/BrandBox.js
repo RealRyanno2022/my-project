@@ -10,9 +10,9 @@ const BrandBox = ({ product, navigation }) => {
 
   return (
     <TouchableOpacity style={styles.brandBox} onPress={handleProductPress}>
-      <Image style={styles.productImage} source={images[product.name]} />
+      <Image style={styles.productImage} source={product.image} />
       <Text style={styles.productName}>{product.name}</Text>
-      <Text style={styles.productPrice}>{`$${product.price.toFixed(2)}`}</Text>
+      <Text style={styles.productPrice}>{`${product.price.toFixed(2)}`}</Text>
     </TouchableOpacity>
   );
 };

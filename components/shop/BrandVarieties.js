@@ -10,7 +10,7 @@ const BrandVarieties = ({ route, navigation }) => {
 
   useEffect(() => {
     console.log(route.params);
-    const dataAsArray = Object.values(brandData);
+    const dataAsArray = Object.entries(brandData).map(([id, product]) => ({ id, ...product }));
     const filteredData = dataAsArray.filter(product => product.brand === brandName);
     console.log(filteredData);
     setVarieties(filteredData);
@@ -24,7 +24,7 @@ const BrandVarieties = ({ route, navigation }) => {
       <Text style={styles.title}>{brandName} Varieties</Text>
       <FlatList 
         data={varieties}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <BrandBox product={item} navigation={navigation} />
         )}
