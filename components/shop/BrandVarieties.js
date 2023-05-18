@@ -9,8 +9,10 @@ const BrandVarieties = ({ route, navigation }) => {
   const [varieties, setVarieties] = useState([]);
 
   useEffect(() => {
+    console.log(route.params);
     const dataAsArray = Object.values(brandData);
     const filteredData = dataAsArray.filter(product => product.brand === brandName);
+    console.log(filteredData);
     setVarieties(filteredData);
   }, [brandName]);
 
@@ -20,11 +22,13 @@ const BrandVarieties = ({ route, navigation }) => {
     <View style={styles.container}>
       <ShopHeader navigation={navigation} />
       <Text style={styles.title}>{brandName} Varieties</Text>
-      <View style={styles.listContainer}>
-        {varieties.map((product) => (
-          <BrandBox key={product.id} product={product} navigation={navigation} />
-        ))}
-      </View>
+      <FlatList 
+        data={varieties}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({ item }) => (
+          <BrandBox product={item} navigation={navigation} />
+        )}
+      />
     </View>
   );
 };
