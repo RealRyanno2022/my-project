@@ -34,6 +34,13 @@ import NotFoundScreen from './components/NotFoundScreen';
 import ContinueShopping from './components/shop/ContinueShopping';
 
 import SubSignUp from './components/subscriptions/SubSignUp';
+import SubVapeScreen from './components/subscriptions/SubVapeScreen';
+import ChooseFlavours from './components/subscriptions/ChooseFlavours';
+import ManageSubscription from './components/subscriptions/ManageSubscription';
+
+import ChangeAddress from './components/subscriptions/ChangeAddress';
+import CancelMembership from './components/subscriptions/CancelMembership';
+import ChangeFlavours from './components/subscriptions/ChangeFlavours';
 
 
 export default function App() {
@@ -101,9 +108,16 @@ export default function App() {
 
    
       <Stack.Screen name="SubSignUp" component={SubSignUp} />   
+      <Stack.Screen name="SubVapeScreen" component={SubVapeScreen} />  
 
 
       <Stack.Screen name="NotFoundScreen" component={NotFoundScreen} />    
+      <Stack.Screen name="ChooseFlavours" component={ChooseFlavours} />   
+      <Stack.Screen name="ManageSubscription" component={ManageSubscription} />   
+
+      <Stack.Screen name="CancelMembership" component={CancelMembership} />   
+      <Stack.Screen name="ChangeAddress" component={ChangeAddress} />   
+      <Stack.Screen name="ChangeFlavours" component={ChangeFlavours} />   
 
 
       </Stack.Navigator>

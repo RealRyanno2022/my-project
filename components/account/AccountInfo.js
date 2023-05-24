@@ -31,7 +31,7 @@ export default function AccountInfo({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <ShopHeader navigation={navigation} />
+      <ShopHeader navigation={navigation} style={{ position: 'absolute '}} />
       <Text>Your username is USERNAME.</Text>
       <Text>Your email address is EMAIL.</Text>
       <View style={styles.cardContainer}>

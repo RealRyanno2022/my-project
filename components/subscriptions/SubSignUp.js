@@ -4,29 +4,17 @@ import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
 const SubSignUp = ({ navigation }) => {
-  const [subscriptionType, setSubscriptionType] = useState('monthly');
-  const [vapeQuantity, setVapeQuantity] = useState(1);
+  const [subscriptionType, setSubscriptionType] = useState('yearly');
 
   const handleSubscriptionTypeChange = (type) => {
     setSubscriptionType(type);
   };
 
-  const handleVapeQuantityChange = (quantity) => {
-    setVapeQuantity(quantity);
-  };
-
-  const calculateSubscriptionPrice = () => {
-    if (subscriptionType === 'monthly') {
-      return (8 + (vapeQuantity - 1) * 7).toFixed(2);
-    } else if (subscriptionType === 'yearly') {
-      return (84 + (vapeQuantity - 1) * 84).toFixed(2);
-    }
-    return '';
-  };
-
   return (
+    <View style={styles.mainContainer}>
+          <ShopHeader navigation={navigation}  style={styles.header} />
     <ScrollView contentContainerStyle={styles.container}>
-      <ShopHeader navigation={navigation} />
+    
       <View style={styles.content}>
         <Text style={styles.title}>Try our Vape Pass!</Text>
         <Text style={styles.title}>Get a discounted vape every week!</Text>
@@ -55,7 +43,7 @@ const SubSignUp = ({ navigation }) => {
             <Text style={styles.subscriptionOptionPrice}>€279.99/year</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.signUpButton}>
+        <TouchableOpacity style={styles.signUpButton} onPress={() => navigation.navigate("SubVapeScreen")}>
           <Text style={styles.signUpButtonText}>Sign Up</Text>
         </TouchableOpacity>
         <View style={styles.subscriptionInfo}>
@@ -83,14 +71,19 @@ const SubSignUp = ({ navigation }) => {
             </Text>
         </View>
       <View style={styles.space}></View>
-      <ShopFooter navigation={navigation} />
-      </View>
-        
+      </View> 
+     
     </ScrollView>
+    <ShopFooter navigation={navigation} style={styles.footer}  />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+
+    mainContainer: {
+        flex: 1,
+    },
     container: {
         backgroundColor: '#F2F2F2',
         padding: 10,
@@ -101,6 +94,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        position: "absolute",
     },
     image: {
         height: 225,
@@ -254,6 +248,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         shadowRadius: 2,
         elevation: 2,
+        position: "absolute",
     },
     footerText: {
         fontSize: 14,

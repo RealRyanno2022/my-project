@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
+
 const ShopFooter = ({ navigation }) => {
+  const [isSubscribed, setIsSubscibed] = useState(true);
   const route = useRoute();
 
   const componentNames = ['BrandVarieties','JuiceProductPage','SearchProducts','ContinueShopping','ProductPage','ShopFront', 'VapeScreen', 'JuiceScreen'];
 
+  const signUpComponentNames = ["SubSignUp", "YourFlavours","ManageSubscription","SubVapeScreen","ChooseFlavours"];
+
   const isShopComponent = componentNames.includes(route?.name);
   const isAccountInfoComponent = route?.name === 'AccountInfo';
-  const isSubSignUpComponent = route?.name === 'SubSignUp';
 
+  const isSubSignUpComponent = signUpComponentNames.includes(route?.name);
+
+  const handleVapePress = () => {
+    if(isSubscribed) {
+      navigation.navigate("ManageSubscription")
+    } else {
+      navigation.navigate("SubSignUp")
+    }
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.footerContent}>
@@ -29,7 +41,7 @@ const ShopFooter = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('CustomerBasket')}>
           <Image source={require('../pictures/basket-removebg-preview.png')} style={styles.icon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('SubSignUp')} disabled={isSubSignUpComponent}>
+        <TouchableOpacity onPress={handleVapePress} disabled={isSubSignUpComponent}>
           <Image 
             source={require('../pictures/vape-removebg-preview.png')} 
             style={[styles.icon, isSubSignUpComponent && styles.disabledIcon]} 
