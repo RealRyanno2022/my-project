@@ -41,6 +41,7 @@ import ManageSubscription from './components/subscriptions/ManageSubscription';
 import ChangeAddress from './components/subscriptions/ChangeAddress';
 import CancelMembership from './components/subscriptions/CancelMembership';
 import ChangeFlavours from './components/subscriptions/ChangeFlavours';
+import CancelConfirm from './components/subscriptions/CancelConfirm';
 
 
 export default function App() {
@@ -118,6 +119,7 @@ export default function App() {
       <Stack.Screen name="CancelMembership" component={CancelMembership} />   
       <Stack.Screen name="ChangeAddress" component={ChangeAddress} />   
       <Stack.Screen name="ChangeFlavours" component={ChangeFlavours} />   
+      <Stack.screen name="CancelConfirm" component={CancelConfirm} />
 
 
       </Stack.Navigator>
