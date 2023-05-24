@@ -8,16 +8,20 @@ for (const key in brandData) {
     const item = brandData[key];
     if (item.image) {
       const imageName = item.image.split('/').pop(); // Extract the image name from the image path
-      const imagePath = `./pictures/VapePics/${item.brand}/${imageName}.png`;
-      images[item.name] = imagePath;
+      images[item.name] = `./pictures/VapePics/${item.brand}/${imageName}.png`;
     }
   }
 }
 
-console.log(images);
+let content = 'module.exports = {\n';
+
+for (let key in images) {
+  content += `  "${key}": require("${images[key]}"),\n`;
+}
+
+content += '};';
 
 const filePath = 'imageArray2.js';
-const content = `module.exports = ${JSON.stringify(images, null, 2)};`;
 
 fs.writeFile(filePath, content, (err) => {
   if (err) {
