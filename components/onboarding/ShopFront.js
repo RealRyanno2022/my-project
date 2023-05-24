@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
 
 const ShopFront = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,76 +16,63 @@ const ShopFront = ({ navigation }) => {
     } 
   };
 
-  
-
-
-
   return (
     <View style={styles.container}>
-    <ShopHeader navigation={navigation}  />
-    <ScrollView>
-      <View style={styles.cardContainer}>
+      <ShopHeader navigation={navigation} />
+      <ScrollView contentContainerStyle={styles.scrollViewContent} stickyHeaderIndices={[1]}>
+        <View style={styles.cardContainer}>
+          <View style={styles.space} />
+          <TouchableOpacity
+            id="disposables"
+            style={styles.card}
+            onPress={() => handleBrandPress('Disposables')}
+          >
+            <Image 
+              source={require('my-project/components/pictures/VapePics/elfbar-fotor-bg-remover-20230514115238.png')} 
+              style={styles.imageStyle}
+            />
+            <Text style={styles.cardText}>Disposables</Text>
+          </TouchableOpacity>
+          <View style={styles.space} />
+          <TouchableOpacity
+            id="juice"
+            style={styles.card}
+            onPress={() => handleBrandPress('Juice')}
+          >
+            <Image 
+              source={require('my-project/components/pictures/VapePics/juice-fotor-bg-remover-20230514115248.png')} 
+              style={styles.imageStyle}
+            />
+            <Text style={styles.cardText}>Juice</Text>
+          </TouchableOpacity>
+        </View>
         <View style={styles.space} />
-        <TouchableOpacity
-          id="disposables"
-          style={styles.card}
-          onPress={() => handleBrandPress('Disposables')}
-        >
-          <Image 
-            source={require('my-project/components/pictures/VapePics/elfbar-fotor-bg-remover-20230514115238.png')} 
-            style={styles.imageStyle}
-          />
-          <Text style={styles.cardText}>Disposables</Text>
-        </TouchableOpacity>
-        <View style={styles.space} />
-        <TouchableOpacity
-          id="juice"
-          style={styles.card}
-          onPress={() => handleBrandPress('Juice')}
-        >
-          <Image 
-          
-            source={require('my-project/components/pictures/VapePics/juice-fotor-bg-remover-20230514115248.png')} 
-            style={styles.imageStyle}
-          />
-          <Text style={styles.cardText}>Juice</Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+       
+      </ScrollView>
+      <ShopFooter />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: '#F5F5F5',
   },
-  header: {
-    paddingTop: 50,
-    paddingBottom: 30,
-    backgroundColor: '#D3D3D3',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    fontWeight: 'bold',
-    fontSize: 50,
-    color: '#1F1F1F',
-    fontFamily: 'Helvetica',
+  scrollViewContent: {
+    flexGrow: 1,
   },
   space: {
-    marginTop: 50,
-  },
-  smallText: {
-    fontSize: 20,
-    color: '#1F1F1F',
-    marginTop: 10,
-    fontFamily: 'Helvetica',
+    marginTop: 20,
   },
   cardContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+  },
+  space: {
+    marginTop: 50,
   },
   card: {
     width: '80%',
@@ -93,7 +81,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 20,
     alignItems: 'center',
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
