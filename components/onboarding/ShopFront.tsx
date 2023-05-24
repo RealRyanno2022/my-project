@@ -73,9 +73,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
   },
-  space: {
-    marginTop: 50,
-  },
   card: {
     width: '80%',
     backgroundColor: '#FFFFFF',

@@ -25,15 +25,13 @@ const PrivacyPolicy = ({ navigation }) => {
 
       <View style={styles.policyContainer}>
         <ScrollView style={styles.policyScrollView}>
-          <Text style={styles.policyText}>
+
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at rutrum ipsum. Cras pharetra vulputate mattis.
-            {/* ... */}
-          </Text>
         </ScrollView>
       </View>
       <Text style={styles.acceptanceText}>I have read and accepted the Privacy Policy.</Text>
       <TouchableOpacity
-        style={[styles.checkBox, isPolicyAccepted && styles.checkBoxSelected]}
+        // style={[styles.checkBox, isPolicyAccepted && styles.checkBoxSelected]}
         onPress={handlePolicyAcceptance}
       >
         {isPolicyAccepted && <Text style={styles.checkBoxText}>✓</Text>}

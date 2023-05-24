@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
+import BrandBox from '../shop/BrandBox';
 
 const ConfirmationPage = ({ route, navigation }) => {
   const { orderID, orderDate, totalAmount } = route.params;
@@ -13,8 +14,17 @@ const ConfirmationPage = ({ route, navigation }) => {
     navigation.navigate('ShopFront')
   }
   const renderOrderedItem = ({ item }) => {
-    return <BrandBox item={item} />;
+    const { product } = item;
+    return <BrandBox 
+    product={product} 
+    navigation={navigator} />;
   }
+
+  const orderedItems = [
+    { id: '1', product: { name: 'Product 1' } },
+    { id: '2', product: { name: 'Product 2' } },
+    { id: '3', product: { name: 'Product 3' } },
+  ];
 
   return (
     <View>
@@ -27,7 +37,8 @@ const ConfirmationPage = ({ route, navigation }) => {
 
       <Text style={styles.details}>Items Ordered:</Text>
       <FlatList
-        data={orderedItems}
+        // data={orderedItems}
+        data=""
         renderItem={renderOrderedItem}
         keyExtractor={item => item.id}
       />

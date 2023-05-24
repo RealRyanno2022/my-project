@@ -6,7 +6,7 @@ import ShopFooter from '../shop/ShopFooter';
 
 export default function VerifyEmail({ navigation }) {
   const [code, setCode] = useState('');
-  const [generatedCode, setGeneratedCode] = useState(null);
+  const [generatedCode, setGeneratedCode] = useState('');
   const [isEmailInvalid, setIsEmailInvalid] = useState(false);
   const [email, setEmail] = useState('');
 
@@ -16,7 +16,7 @@ export default function VerifyEmail({ navigation }) {
     isInvalid ? styles.inputInvalid : null,
   ];
 
-  c
+  
 
   const generateCode = () => {
     const code = Math.floor(Math.random() * 1000000000000);

@@ -47,7 +47,7 @@ const SignUp = ({ navigation }) => {
   const apiUrl =
   Platform.OS === 'android' ? 'http://10.0.2.2:5000' : 'http://localhost:5000';
 
-  const scrollViewRef = useRef();
+  const scrollViewRef = useRef<ScrollView | null>(null);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -149,12 +149,11 @@ const SignUp = ({ navigation }) => {
   }, [isEmailInvalid, isPasswordInvalid, isConfirmedPasswordInvalid]);
 
   const handleInputFocus = (event) => {
-
     event.persist();
-
+  
     if (event && event.nativeEvent && event.nativeEvent.target) {
       setTimeout(() => {
-        scrollViewRef.current.scrollTo({
+        scrollViewRef.current?.scrollTo({
           y: event.nativeEvent.target.offsetTop,
           animated: true,
         });
@@ -237,12 +236,12 @@ const SignUp = ({ navigation }) => {
         >
           <Text style={styles.signupText}>Sign up</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.loginBtn} onPress={signInWithGoogle}>
+        {/* <TouchableOpacity style={styles.loginBtn} onPress={signInWithGoogle}>
           <Text style={styles.loginText}>LOGIN WITH GOOGLE</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.loginBtn} onPress={signInWithFacebook}>
           <Text style={styles.loginText}>LOGIN WITH FACEBOOK</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </ScrollView>
         <ShopFooter navigation={navigation} />

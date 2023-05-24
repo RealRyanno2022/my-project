@@ -51,7 +51,46 @@ import { View, Appearance } from 'react-native';
 import { lightStyles, darkStyles } from './styles.js';
 
 
-export default function App() {
+type RootStackParamList = {
+  AccountInfo: undefined;
+  CustomerBasket: undefined;
+  DeleteAccount: undefined;
+  ProjectInfo: undefined;
+  Queries: undefined;
+  Intro: undefined;
+  PrivacyPolicy: undefined;
+  ShopFront: undefined;
+  VerifyAge: undefined;
+  ForgotPassword: undefined;
+  LoginScreen: undefined;
+  NewPassword: undefined;
+  SignUp: undefined;
+  VerifyEmail: undefined;
+  ConfirmationPage: undefined;
+  DeliveryAddress: undefined;
+  BrandVarieties: undefined;
+  ContinueShopping: undefined;
+  JuiceProductPage: undefined;
+  JuiceScreen: undefined;
+  ProductPage: undefined;
+  SearchProducts: undefined;
+  VapeScreen: undefined;
+  SubSignUp: undefined;
+  SubVapeScreen: undefined;
+  NotFoundScreen: undefined;
+  ChooseFlavours: undefined;
+  ManageSubscription: undefined;
+  CancelMembership: undefined;
+  ChangeAddress: undefined;
+  ChangeFlavours: undefined;
+  CancelConfirm: undefined;
+};
+
+
+
+
+
+const App: React.FC = () => {
 
   // CHECKLIST
 
@@ -141,3 +180,4 @@ export default function App() {
   );
 }
 
+export default App;

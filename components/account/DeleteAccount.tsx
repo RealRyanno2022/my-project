@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
 
 const DeleteAccountPage = ({ navigation }) => {
   
@@ -62,7 +63,6 @@ const DeleteAccountPage = ({ navigation }) => {
       <Text style={styles.info}>
         This will delete your purchase history, record of your account and basket. 
       </Text>
-      <View style={styles.space} />
       <TouchableOpacity style={styles.deleteButton} onPress={handleConfirmDelete}>
         <Text style={styles.buttonText}>Delete Account</Text>
       </TouchableOpacity>
@@ -70,7 +70,7 @@ const DeleteAccountPage = ({ navigation }) => {
           <Text style={styles.cardText}>Back</Text>
         </TouchableOpacity>
     </View>
-    <Footer navigation={navigation}/>
+    <ShopFooter navigation={navigation}/>
     </View>
   );
 };

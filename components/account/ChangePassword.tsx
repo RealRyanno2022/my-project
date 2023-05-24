@@ -19,7 +19,7 @@ const ChangePassword = () => {
 
   return (
     <View style={styles.container}>
-        <ShopHeader navigation={navigation}  />
+        <ShopHeader navigation={navigator}  />
       <View style={styles.card}>
         <Text style={styles.cardText}>Change Password</Text>
         <TextInput

@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { Header, SearchBar } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
 
 const ProjectInfo = ({ navigation }) => {
 
@@ -27,7 +28,7 @@ const ProjectInfo = ({ navigation }) => {
           <Text style={styles.cardText}>Back</Text>
         </TouchableOpacity>
     </View>
-    <Footer navigation={navigation}/>
+    <ShopFooter navigation={navigation}/>
     </View>
   )
 }
@@ -63,9 +64,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  space: {
-    marginTop: 50,
-  }
 });
 
 export default ProjectInfo;

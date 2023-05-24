@@ -672,12 +672,12 @@ const brandData = {
 "brand":"Yeti",
 "image":images.BlueRaspberry,
 },
-"131":{
-"name":"HoneydewBlackcurrent",
-"price":5.99,
-"brand":"Yeti",
-"image":images.HoneydewBlackcurrant,
-},
+// "131":{
+// "name":"HoneydewBlackcurrent",
+// "price":5.99,
+// "brand":"Yeti",
+// "image":images.HoneydewBlackcurrant,
+// },
 "132":{
 "name":"Watermelon",
 "price":5.99,
@@ -702,12 +702,12 @@ const brandData = {
 "brand":"Yeti",
 "image":images.Grape,
 },
-"136":{
-"name":"PassionfruitLychee",
-"price":5.99,
-"brand":"Yeti",
-"image":images.PassionFruitLyche,
-},
+// "136":{
+// "name":"PassionfruitLychee",
+// "price":5.99,
+// "brand":"Yeti",
+// "image":images.PassionFruitLyche,
+// },
 "137":{
 "name":"CitrusFreeze",
 "price":5.99,
@@ -786,18 +786,18 @@ const brandData = {
 "brand":"Slushie",
 "image":images.GrapefruitLemonade,
 },
-"150":{
-"name":"SourAppleandWatermelon",
-"price":4.99,
-"brand":"Slushie",
-"image":images.SourAppleAndWatermelon,
-},
-"151":{
-"name":"BlackcurrentLemonade",
-"price":4.99,
-"brand":"Slushie",
-"image":images.BlackcurrantLemonade,
-},
+// "150":{
+// "name":"SourAppleandWatermelon",
+// "price":4.99,
+// "brand":"Slushie",
+// "image":images.SourAppleAndWatermelon,
+// },
+// "151":{
+// "name":"BlackcurrentLemonade",
+// "price":4.99,
+// "brand":"Slushie",
+// "image":images.BlackcurrantLemonade,
+// },
 "152":{
 "name":"RaspberryBubblegum",
 "price":4.99,

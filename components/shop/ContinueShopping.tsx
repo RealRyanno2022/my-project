@@ -1,20 +1,21 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 import CustomerBasket from '../account/CustomerBasket';
 import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
 
+type NavigationType = NavigationProp<Record<string, object>, string, any, any, any>;
+
 const ContinueShopping = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationType>();
 
   const handleContinueShopping = () => {
-    navigation.goBack();
-    navigation.goBack(); // Navigate back twice to the BrandVarieties page
+    navigation.navigate('BrandVarieties', { screen: 'BrandVarieties'}); // Navigate to the BrandVarieties page
   };
 
   const handleCheckout = () => {
-    navigation.navigate('LoginScreen'); // Navigate to the LoginScreen for checkout
+    navigation.navigate('LoginScreen', { screen: 'LoginScreen'}); // Navigate to the LoginScreen for checkout
   };
 
   return (
@@ -23,7 +24,7 @@ const ContinueShopping = () => {
       <View style={styles.header}>
         <Text style={styles.smallText}>The item was added to your cart! Continue shopping or checkout now?</Text>
       </View>
-      <CustomerBasket />
+      <CustomerBasket navigation={navigator} />
       <View style={styles.cardContainer}>
         <TouchableOpacity style={styles.card} onPress={handleContinueShopping}>
           <Text style={styles.cardText}>Continue Shopping</Text>

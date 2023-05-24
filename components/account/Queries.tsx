@@ -7,6 +7,7 @@ import { Header, SearchBar, Icon } from 'react-native-elements';
 import emailjs from 'emailjs-com';
 import { init } from 'emailjs-com';
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
 
 const Queries = ({ navigation }) => {
     const [name, setName] = useState('');
@@ -100,10 +101,10 @@ const Queries = ({ navigation }) => {
             <View style={styles.space}></View>
         <Text style={styles.faqTitle}>Frequently Asked Questions</Text>
         {faqData.map((item, index) => (
-          <FAQItem key={index} question={item.question} answer={item.answer} style={styles.cardText} />
+          <FAQItem key={index} question={item.question} answer={item.answer} />
         ))}
       </ScrollView>
-      <Footer navigation={navigation}/>
+      <ShopFooter navigation={navigation}/>
       </View>
     );
   };
