@@ -9,7 +9,11 @@ import { init } from 'emailjs-com';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-const Queries = ({ navigation }) => {
+type QueriesProps = {
+  navigation: any;
+}
+
+const Queries: React.FC<QueriesProps> = ({ navigation }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');

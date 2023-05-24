@@ -3,7 +3,11 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from './shop/ShopHeader';
 
-const NotFoundScreen = () => {
+type NotFoundScreenProps = {
+  navigation: any;
+}
+
+const NotFoundScreen: React.FC<NotFoundScreenProps> = ({ navigation }) => {
   return (
     <View>
     <ShopHeader navigation={navigation} />

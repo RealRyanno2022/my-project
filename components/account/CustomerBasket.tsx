@@ -2,7 +2,12 @@ import { View, Text } from 'react-native'
 import React from 'react'
 // import ShopHeader from '../shop/ShopHeader';
 
-const CustomerBasket = ({ navigation }) => {
+type CustomerBasketProps = {
+  navigation: any;
+}
+
+
+const CustomerBasket: React.FC<CustomerBasketProps> =  ({ navigation }) => {
   return (
     <View>
       <Text>CustomerBasket</Text>

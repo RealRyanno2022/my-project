@@ -4,7 +4,11 @@ import { Header, SearchBar } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-const ProjectInfo = ({ navigation }) => {
+type ProjectInfoProps = {
+  navigation: any;
+}
+
+const ProjectInfo: React.FC<ProjectInfoProps> = ({ navigation }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
 

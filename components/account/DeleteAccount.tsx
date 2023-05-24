@@ -10,7 +10,11 @@ import {
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-const DeleteAccountPage = ({ navigation }) => {
+type DeleteAccountPageProps = { 
+  navigation: any;
+}
+
+const DeleteAccountPage: React.FC<DeleteAccountPageProps> = ({ navigation }) => {
   
   const handleDelete = async () => {
     try {

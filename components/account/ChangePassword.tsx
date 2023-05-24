@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
 
-const ChangePassword = () => {
+
+type ChangePasswordProps = {
+  navigation: any;
+}
+
+
+
+const ChangePassword: React.FC<ChangePasswordProps> = ({ navigation }) => {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
