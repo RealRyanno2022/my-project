@@ -9,13 +9,20 @@ const ShopHeader = ({ navigation }) => {
   const handleSearch = () => {
     navigation.push('SearchProducts', { searchTerm });
   }
+
+  const deviceTheme = Appearance.getColorScheme(); // 'light' or 'dark'
+  const [isDarkMode, setIsDarkMode] = useState(deviceTheme === 'dark');
+
+  const handleColorMode = () => {
+    setIsDarkMode(!isDarkMode);
+  }
   return (
     <View>
       <Header
         leftComponent={{
-          icon: 'search',
+          icon: 'moon',
           color: '#fff',
-          onPress: () => navigation.navigate('Queries'),
+          onPress: () => handleColorMode(),
         }}
         centerComponent={{
           text: 'Candii',

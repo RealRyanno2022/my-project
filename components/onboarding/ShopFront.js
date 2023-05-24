@@ -4,7 +4,7 @@ import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-const ShopFront = ({ navigation }) => {
+const ShopFront = ({ navigation, props }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleBrandPress = (productType) => {
@@ -16,8 +16,10 @@ const ShopFront = ({ navigation }) => {
     } 
   };
 
+  const { styles } = props.screenProps;
+
   return (
-    <View style={styles.container}>
+    <View style={{backgroundColor: styles.background}}>
       <ShopHeader navigation={navigation} />
       <ScrollView contentContainerStyle={styles.scrollViewContent} stickyHeaderIndices={[1]}>
         <View style={styles.cardContainer}>

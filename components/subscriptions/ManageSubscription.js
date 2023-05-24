@@ -7,9 +7,6 @@ const ManageSubscription = ({ navigation, user }) => {
     const [subscription, setSubscription] = useState(user.subscription);
     const [flavours, setFlavours] = useState(user.flavours);
 
-
-
-
     const dummyUser = {
         subscription: {
           type: 'monthly',

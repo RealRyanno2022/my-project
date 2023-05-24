@@ -1,3 +1,5 @@
+
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -44,6 +46,11 @@ import ChangeFlavours from './components/subscriptions/ChangeFlavours';
 import CancelConfirm from './components/subscriptions/CancelConfirm';
 
 
+import { View, Appearance } from 'react-native';
+
+import { lightStyles, darkStyles } from './styles.js';
+
+
 export default function App() {
 
   // CHECKLIST
@@ -72,10 +79,16 @@ export default function App() {
 
 
   const Stack = createStackNavigator();
+
+  const deviceTheme = Appearance.getColorScheme(); // 'light' or 'dark'
+  const [isDarkMode, setIsDarkMode] = useState(deviceTheme === 'dark');
+
+  const styles = isDarkMode ? darkStyles : lightStyles;
   
 
   return (
-    <NavigationContainer>
+    <View style={{backgroundColor: styles.background}}>
+    <NavigationContainer screenProps={{ styles }}>
       <Stack.Navigator initialRouteName="Intro">
 
       <Stack.Screen name="AccountInfo" component={AccountInfo} />
@@ -119,11 +132,12 @@ export default function App() {
       <Stack.Screen name="CancelMembership" component={CancelMembership} />   
       <Stack.Screen name="ChangeAddress" component={ChangeAddress} />   
       <Stack.Screen name="ChangeFlavours" component={ChangeFlavours} />   
-      <Stack.screen name="CancelConfirm" component={CancelConfirm} />
+      <Stack.Screen name="CancelConfirm" component={CancelConfirm} />
 
 
       </Stack.Navigator>
     </NavigationContainer>
+    </View>
   );
 }
 
