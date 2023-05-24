@@ -33,6 +33,8 @@ import NotFoundScreen from './components/NotFoundScreen';
 
 import ContinueShopping from './components/shop/ContinueShopping';
 
+import SubSignUp from './components/subscriptions/SubSignUp';
+
 
 export default function App() {
 
@@ -98,7 +100,7 @@ export default function App() {
   
 
    
-
+      <Stack.Screen name="SubSignUp" component={SubSignUp} />   
 
 
       <Stack.Screen name="NotFoundScreen" component={NotFoundScreen} />    

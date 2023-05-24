@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader'
+import ShopFooter from '../shop/ShopFooter';
 
 export default function AccountInfo({ navigation }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Add state to track whether user is signed in
@@ -30,7 +31,7 @@ export default function AccountInfo({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <ShopHeader />
+      <ShopHeader navigation={navigation} />
       <Text>Your username is USERNAME.</Text>
       <Text>Your email address is EMAIL.</Text>
       <View style={styles.cardContainer}>
@@ -63,6 +64,7 @@ export default function AccountInfo({ navigation }) {
           </>
         )}
       </View>
+      <ShopFooter navigation={navigation} />
     </View>
   );
 }

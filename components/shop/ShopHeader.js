@@ -27,14 +27,6 @@ const ShopHeader = ({ navigation }) => {
           onPress: () => navigation.navigate('Queries'),
         }}
       />
-      <View style={{ flexDirection: 'row' }}>
-        <TouchableOpacity onPress={() => navigation.navigate('Queries')}>
-          <Icon name="message" color="#fff" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleSearch}>
-          <Icon name="search" color="#fff" />
-        </TouchableOpacity>
-      </View>
       <SearchBar
         containerStyle={{ width: '100%' }}
         lightTheme

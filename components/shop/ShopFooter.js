@@ -7,8 +7,9 @@ const ShopFooter = ({ navigation }) => {
 
   const componentNames = ['BrandVarieties','JuiceProductPage','SearchProducts','ContinueShopping','ProductPage','ShopFront', 'VapeScreen', 'JuiceScreen'];
 
-  // Check if the current route is from the "shop" folder
   const isShopComponent = componentNames.includes(route?.name);
+  const isAccountInfoComponent = route?.name === 'AccountInfo';
+  const isSubSignUpComponent = route?.name === 'SubSignUp';
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,14 +20,20 @@ const ShopFooter = ({ navigation }) => {
             style={[styles.icon, isShopComponent && styles.disabledIcon]}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('SomeOtherScreen')}>
-          <Image source={require('../pictures/person-removebg-preview.png')} style={styles.icon} />
+        <TouchableOpacity onPress={() => navigation.navigate('AccountInfo')} disabled={isAccountInfoComponent}>
+          <Image 
+            source={require('../pictures/person-removebg-preview.png')} 
+            style={[styles.icon, isAccountInfoComponent && styles.disabledIcon]} 
+          />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('AnotherScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('CustomerBasket')}>
           <Image source={require('../pictures/basket-removebg-preview.png')} style={styles.icon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('YetAnotherScreen')}>
-          <Image source={require('../pictures/vape-removebg-preview.png')} style={styles.icon} />
+        <TouchableOpacity onPress={() => navigation.navigate('SubSignUp')} disabled={isSubSignUpComponent}>
+          <Image 
+            source={require('../pictures/vape-removebg-preview.png')} 
+            style={[styles.icon, isSubSignUpComponent && styles.disabledIcon]} 
+          />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -51,6 +58,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     width: 25,
     height: 25,
+    tintColor: 'black',
   },
   disabledIcon: {
     tintColor: 'blue',
