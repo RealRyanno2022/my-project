@@ -70,6 +70,7 @@ const DeleteAccountPage = ({ navigation }) => {
           <Text style={styles.cardText}>Back</Text>
         </TouchableOpacity>
     </View>
+    <Footer navigation={navigation}/>
     </View>
   );
 };

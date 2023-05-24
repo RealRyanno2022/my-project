@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
 
 const ConfirmationPage = ({ route, navigation }) => {
   const { orderID, orderDate, totalAmount } = route.params;
@@ -40,6 +41,7 @@ const ConfirmationPage = ({ route, navigation }) => {
         title="Continue Shopping"
       />
     </View>
+    <ShopFooter navigation={navigation} />
     </View>
   );
 }

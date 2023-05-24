@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
+
+
 // import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 // import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
@@ -138,6 +141,7 @@ function LoginScreen({ navigation }) {
         <Text style={styles.loginText}>CONTINUE AS GUEST</Text>
       </TouchableOpacity>
     </View>
+    <ShopFooter navigation={navigation} />
     </View>
   );
 }

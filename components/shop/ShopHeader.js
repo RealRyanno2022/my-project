@@ -12,37 +12,40 @@ const ShopHeader = ({ navigation }) => {
   return (
     <View>
       <Header
-      leftComponent={{ 
-        icon: 'person-outline', 
-        color: '#fff',
-        onPress: () => navigation.navigate('AccountInfo') 
-      }}
-      centerComponent={{ 
-        text: 'Candii', 
-        style: { color: '#fff', fontSize: 20 } 
-      }}
-      rightComponent={(
-        <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity onPress={() => navigation.navigate('Queries')}>
-            <Icon name="message" color="#fff" />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleSearch}>
-            <Icon name="search" color="#fff" />
-          </TouchableOpacity>
-        </View>
-      )}
-    />
-    <SearchBar
-        containerStyle={{ width: '100%'}}
+        leftComponent={{
+          icon: 'search',
+          color: '#fff',
+          onPress: () => navigation.navigate('Queries'),
+        }}
+        centerComponent={{
+          text: 'Candii',
+          style: { color: '#fff', fontSize: 20 },
+        }}
+        rightComponent={{
+          icon: 'message',
+          color: '#fff',
+          onPress: () => navigation.navigate('Queries'),
+        }}
+      />
+      <View style={{ flexDirection: 'row' }}>
+        <TouchableOpacity onPress={() => navigation.navigate('Queries')}>
+          <Icon name="message" color="#fff" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleSearch}>
+          <Icon name="search" color="#fff" />
+        </TouchableOpacity>
+      </View>
+      <SearchBar
+        containerStyle={{ width: '100%' }}
         lightTheme
         searchIcon={{ size: 24 }}
         onChangeText={setSearchTerm}
         onClear={() => setSearchTerm('')} // clear the search term
-        placeholder='Search...'
+        placeholder="Search..."
         value={searchTerm}
-    />
+      />
     </View>
-  )
+  );
 }
 
 export default ShopHeader

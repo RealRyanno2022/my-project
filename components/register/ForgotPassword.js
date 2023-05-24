@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
 
 const ForgotPassword = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -52,6 +53,7 @@ const ForgotPassword = ({ navigation }) => {
         <Text style={styles.loginText}>Boom</Text>
       </TouchableOpacity>
     </View>
+      <ShopFooter navigation={navigation} />
     </View>
   );
 };

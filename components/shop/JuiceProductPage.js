@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import Slider from '@react-native-community/slider';
 import ShopHeader from './ShopHeader';
+
+import ShopFooter from './ShopFooter';
 // import { Picker } from '@react-native-picker/picker';
 
 const JuiceProductPage = ({ navigation }) => {
@@ -104,6 +106,7 @@ const incrementQuantity = () => {
   };
 
   return (
+  <View>
     <ScrollView style={styles.scrollView}>
       <ShopHeader navigation={navigation}  />
     <View style={styles.container}>
@@ -243,6 +246,8 @@ const incrementQuantity = () => {
             <Text style={styles.cardText}>Add to Cart</Text>
           </TouchableOpacity>
   </ScrollView>
+     <ShopFooter navigation={navigation}/>
+  </View>
   );
 };
 

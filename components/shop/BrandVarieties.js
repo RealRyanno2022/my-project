@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList } from 'react-native';
 import BrandBox from './BrandBox';
 import brandData from '../data/brandData';
 import ShopHeader from './ShopHeader';
+import ShopFooter from './ShopFooter';
 
 const BrandVarieties = ({ route, navigation }) => {
   const { brandName } = route.params;
@@ -29,6 +30,7 @@ const BrandVarieties = ({ route, navigation }) => {
           <BrandBox product={item} navigation={navigation} />
         )}
       />
+       <ShopFooter navigation={navigation}/>
     </View>
   );
 };

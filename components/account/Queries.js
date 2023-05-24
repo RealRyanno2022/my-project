@@ -103,6 +103,7 @@ const Queries = ({ navigation }) => {
           <FAQItem key={index} question={item.question} answer={item.answer} style={styles.cardText} />
         ))}
       </ScrollView>
+      <Footer navigation={navigation}/>
       </View>
     );
   };

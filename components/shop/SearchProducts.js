@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, TextInput, Text, FlatList, StyleSheet, Appearance } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ShopFooter from './ShopFooter';
 
 const colorSchemes = {
   light: {
@@ -94,6 +95,7 @@ const SearchProducts = ({ brandData, navigation }) => {
         <Text>Can't find that item!</Text>
       )}
     </View>
+    <ShopFooter navigation={navigation}/>
     </View>
   );
 };

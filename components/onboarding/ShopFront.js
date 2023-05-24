@@ -49,7 +49,7 @@ const ShopFront = ({ navigation }) => {
         <View style={styles.space} />
        
       </ScrollView>
-      <ShopFooter />
+      <ShopFooter navigation={navigation} />
     </View>
   );
 };

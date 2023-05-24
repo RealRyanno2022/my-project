@@ -29,7 +29,7 @@ import SearchProducts from './components/shop/SearchProducts';
 import VapeScreen from './components/shop/VapeScreen';
 
 import NotFoundScreen from './components/NotFoundScreen';
-import FontLoader from './components/FontLoader';
+
 
 import ContinueShopping from './components/shop/ContinueShopping';
 
@@ -65,7 +65,6 @@ export default function App() {
   
 
   return (
-    <FontLoader>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Intro">
 
@@ -107,7 +106,6 @@ export default function App() {
 
       </Stack.Navigator>
     </NavigationContainer>
-    </FontLoader>
   );
 }
 

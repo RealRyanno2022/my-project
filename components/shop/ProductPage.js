@@ -11,6 +11,7 @@ import {
 import Slider from '@react-native-community/slider';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from './ShopHeader';
+import ShopFooter from './ShopFooter';
 
 const ProductPage = ({ navigation }) => {
     // dummy product
@@ -91,9 +92,14 @@ const incrementQuantity = () => {
     setQuantity(Math.max(1, quantity - 1));
   };
 
+
+ 
+
   return (
+  <View>
+    <ShopHeader navigation={navigation}  />
     <ScrollView style={styles.scrollView}>
-      <ShopHeader navigation={navigation}  />
+
     <View style={styles.container}>
       <Image style={styles.image} source={{ uri: product.images[sliderValue] }} />
       <Slider
@@ -164,7 +170,11 @@ const incrementQuantity = () => {
           >
             <Text style={styles.cardText}>Add to Cart</Text>
           </TouchableOpacity>
+
   </ScrollView>
+    <ShopFooter navigation={navigation}/>
+  
+  </View>
   );
 };
 

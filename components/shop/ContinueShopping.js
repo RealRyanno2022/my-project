@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import CustomerBasket from '../account/CustomerBasket';
 import ShopHeader from './ShopHeader';
+import ShopFooter from './ShopFooter';
 
 const ContinueShopping = () => {
   const navigation = useNavigation();
@@ -31,6 +32,7 @@ const ContinueShopping = () => {
           <Text style={styles.cardText}>Checkout</Text>
         </TouchableOpacity>
       </View>
+      <ShopFooter navigation={navigation}/>
     </View>
   );
 };

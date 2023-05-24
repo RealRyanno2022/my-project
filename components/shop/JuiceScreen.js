@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import ShopHeader from './ShopHeader';
 import brandData from '../data/brandData';
+import ShopFooter from './ShopFooter';
+
+
 const JuiceScreen = ({ navigation }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -40,6 +43,7 @@ const JuiceScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </ScrollView>
+      <ShopFooter navigation={navigation}/>
     </View>
   );
 }

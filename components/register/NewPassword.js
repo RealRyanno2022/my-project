@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
 
 const NewPassword = ({ navigation }) => {
     const [password, setPassword] = useState('');
@@ -46,6 +47,7 @@ const NewPassword = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
+        <ShopFooter navigation={navigation} />
         </View>
       );
 }

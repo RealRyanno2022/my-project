@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import axios from 'axios'; // import axios
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
 
 export default function VerifyEmail({ navigation }) {
   const [code, setCode] = useState('');
@@ -76,6 +77,7 @@ export default function VerifyEmail({ navigation }) {
   };
 
   return (
+    <View>
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <ShopHeader navigation={navigation}  />
     
@@ -113,6 +115,8 @@ export default function VerifyEmail({ navigation }) {
         </TouchableOpacity>
       </View>
     </ScrollView>
+     <ShopFooter navigation={navigation}/>
+     </View>
   );
 }
 

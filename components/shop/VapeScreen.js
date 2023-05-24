@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from './ShopHeader';
+import ShopFooter from './ShopFooter';
 
 const VapeScreen = ({ navigation }) => {
 
@@ -42,6 +43,7 @@ const VapeScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </ScrollView>
+      <ShopFooter navigation={navigation}/>
     </View>
   );
 };

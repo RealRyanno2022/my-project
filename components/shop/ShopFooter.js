@@ -1,16 +1,33 @@
 import React from 'react';
-import { View, StyleSheet, SafeAreaView } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { View, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 
+const ShopFooter = ({ navigation }) => {
+  const route = useRoute();
 
-const Footer = () => {
+  const componentNames = ['BrandVarieties','JuiceProductPage','SearchProducts','ContinueShopping','ProductPage','ShopFront', 'VapeScreen', 'JuiceScreen'];
+
+  // Check if the current route is from the "shop" folder
+  const isShopComponent = componentNames.includes(route?.name);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.footerContent}>
-        <Icon name="home" size={25} color="black" style={styles.icon} />
-        <Icon name="user" size={25} color="black" style={styles.icon} />
-        <Icon name="shopping-basket" size={25} color="black" style={styles.icon} />
-        <Icon name="smoking" size={25} color="black" style={styles.icon} />
+        <TouchableOpacity onPress={() => navigation.navigate('ShopFront')} disabled={isShopComponent}>
+          <Image
+            source={require('../pictures/haus-removebg-preview.png')}
+            style={[styles.icon, isShopComponent && styles.disabledIcon]}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('SomeOtherScreen')}>
+          <Image source={require('../pictures/person-removebg-preview.png')} style={styles.icon} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('AnotherScreen')}>
+          <Image source={require('../pictures/basket-removebg-preview.png')} style={styles.icon} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('YetAnotherScreen')}>
+          <Image source={require('../pictures/vape-removebg-preview.png')} style={styles.icon} />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -22,7 +39,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(205, 205, 204, 0.8)',
   },
   footerContent: {
     flexDirection: 'row',
@@ -32,7 +49,12 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginHorizontal: 10,
+    width: 25,
+    height: 25,
+  },
+  disabledIcon: {
+    tintColor: 'blue',
   },
 });
 
-export default Footer;
+export default ShopFooter;

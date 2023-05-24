@@ -14,19 +14,20 @@ const ProjectInfo = ({ navigation }) => {
     <View style={{flex: 1}}>
       <ShopHeader navigation={navigation} />
       <View style={styles.container}>
-      <View style={styles.space} />
-      <Text style={styles.cardText}>Project Info</Text>
-      <Text style={styles.cardText}>Developed in React Native by Daniel Ryan, 2023</Text>
-      <Text style={styles.cardText}>Features:</Text>
-      <Text style={styles.cardText}>- Braintree SDK for payments </Text>
-      <Text style={styles.cardText}>- Full account creation system with PostgreSQL</Text>
-      <Text style={styles.cardText}>- Node and Express backend</Text>
-      <Text style={styles.cardText}>- Full E-Commerce UI</Text>
-      <View style={styles.space} />
+        <View style={styles.space} />
+        <Text style={styles.cardText}>Project Info</Text>
+        <Text style={styles.cardText}>Developed in React Native by Daniel Ryan, 2023</Text>
+        <Text style={styles.cardText}>Features:</Text>
+        <Text style={styles.cardText}>- Braintree SDK for payments </Text>
+        <Text style={styles.cardText}>- Full account creation system with PostgreSQL</Text>
+        <Text style={styles.cardText}>- Node and Express backend</Text>
+        <Text style={styles.cardText}>- Full E-Commerce UI</Text>
+        <View style={styles.space} />
       <TouchableOpacity style={styles.card} onPress={() => navigation.goBack()}>
           <Text style={styles.cardText}>Back</Text>
         </TouchableOpacity>
     </View>
+    <Footer navigation={navigation}/>
     </View>
   )
 }

@@ -13,6 +13,15 @@ import {
 } from 'react-native';
 import { Platform } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
+
+
+
+
+
+
+
+
 // import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 // import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
@@ -171,6 +180,9 @@ const SignUp = ({ navigation }) => {
 
 
   return (
+
+    <View>
+
     <ScrollView style={styles.scrollViewContainer} ref={scrollViewRef}>
 
       <ShopHeader navigation={navigation}  />
@@ -233,6 +245,8 @@ const SignUp = ({ navigation }) => {
         </TouchableOpacity>
       </View>
     </ScrollView>
+        <ShopFooter navigation={navigation} />
+    </View>
   );
 }
 
