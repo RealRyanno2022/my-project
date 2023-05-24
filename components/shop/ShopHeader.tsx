@@ -1,8 +1,7 @@
 import { View, Text } from 'react-native'
 import React, { useState } from 'react'
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Appearance } from 'react-native';
 import { Header, Icon, SearchBar} from 'react-native-elements';
-
 const ShopHeader = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -16,6 +15,11 @@ const ShopHeader = ({ navigation }) => {
   const handleColorMode = () => {
     setIsDarkMode(!isDarkMode);
   }
+
+  const handleSearchTextChange = (text) => {
+    setSearchTerm(text);
+  }
+
   return (
     <View>
       <Header
@@ -37,8 +41,8 @@ const ShopHeader = ({ navigation }) => {
       <SearchBar
         containerStyle={{ width: '100%' }}
         lightTheme
-        searchIcon={{ size: 24 }}
-        onChangeText={setSearchTerm}
+        searchIcon={{ name: 'search', size: 24 }}
+        onChangeText={handleSearchTextChange} // Updated the prop to use the callback function
         onClear={() => setSearchTerm('')} // clear the search term
         placeholder="Search..."
         value={searchTerm}
@@ -47,4 +51,4 @@ const ShopHeader = ({ navigation }) => {
   );
 }
 
-export default ShopHeader
+export default ShopHeader;

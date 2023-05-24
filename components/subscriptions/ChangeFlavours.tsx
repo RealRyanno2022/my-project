@@ -1,16 +1,16 @@
 
-import React, { useState } from 'react';
-
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
+import BrandBox from '../shop/BrandBox';
+import brandData from '../data/brandData';
 
-const ChangeFlavours = ({ navigation }) => {
-    const [selectedFlavours, setSelectedFlavours] = useState({
-      'Cola0': 4,
-    });
-    const flavours = ['Cola0', 'Cola1', 'Cola2', 'Cola3'];
+const ChangeFlavours = ({ route, navigation }) => {
+  const [selectedFlavours, setSelectedFlavours] = useState(['Cola0']);
+  const flavours = ['Cola0', 'Cola1', 'Cola2', 'Cola3'];
 
-    const { brandName } = route.params;
+  const { brandName } = route.params;
   const [varieties, setVarieties] = useState([]);
   const [selectedVarieties, setSelectedVarieties] = useState({});
 
@@ -44,37 +44,37 @@ const ChangeFlavours = ({ navigation }) => {
   };
 
   return (
-
-    <View>
-      <ShopHeader navigation={navigation} />
     <View style={styles.container}>
-      <Text style={styles.title}>Change Flavours</Text>
+      <ShopHeader navigation={navigation} />
+      <View style={styles.container}>
+        <Text style={styles.title}>Change Flavours</Text>
 
-      <FlatList
-        data={flavours}
-        keyExtractor={(item) => item}
-        renderItem={({ item }) => (
-          <BrandBox
-            product={item}
-            selected={selectedFlavours[item] > 0}
-            quantity={selectedFlavours[item] || 0}
-            onSelect={() => handlePress(item)}
-            onDeselect={() => handleDeselect(item)}
-          />
-        )}
-      />
+        <FlatList
+          data={flavours}
+          keyExtractor={(item) => item}
+          renderItem={({ item }) => (
+            <BrandBox
+              product={item}
+              selected={selectedFlavours.includes(item)}
+              quantity={selectedFlavours.filter((flavour) => flavour === item).length}
+              onSelect={() => handlePress(item)}
+              onDeselect={() => handleDeselect(item)}
+            />
+          )}
+        />
 
-      <TouchableOpacity
-        style={styles.continueButton}
-        onPress={() => navigation.navigate('ManageSubscription', { selectedFlavours })} 
-      >
-        <Text style={styles.continueText}>Continue</Text>
-      </TouchableOpacity>
-    </View>
-    <ShopFooter navigation={navigation} />  
+        <TouchableOpacity
+          style={styles.continueButton}
+          onPress={() => navigation.navigate('ManageSubscription', { selectedFlavours })}
+        >
+          <Text style={styles.continueText}>Continue</Text>
+        </TouchableOpacity>
+      </View>
+      <ShopFooter navigation={navigation} />
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
     container: {

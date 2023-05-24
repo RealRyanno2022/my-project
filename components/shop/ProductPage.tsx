@@ -17,20 +17,19 @@ const ProductPage = ({ navigation }) => {
     // dummy product
     
     const product = {
-        name: 'Cool Headphones',
-        images: [
-          'https://example.com/images/cool-headphones-1.jpg',
-          'https://example.com/images/cool-headphones-2.jpg',
-          'https://example.com/images/cool-headphones-3.jpg',
-          '../pictures/react.png',
-        ],
-        price: 150.99,
-        description:
-          '',
-        reviewCount: 185,
-        rating: 4.5,
-        deliveryCharge: 5.95,
-      };
+      name: 'Cool Headphones',
+      images: [
+        { uri: 'https://example.com/images/cool-headphones-1.jpg' },
+        { uri: 'https://example.com/images/cool-headphones-2.jpg' },
+        { uri: 'https://example.com/images/cool-headphones-3.jpg' },
+        require('../pictures/react.png'),
+      ],
+      price: 150.99,
+      description: '',
+      reviewCount: 185,
+      rating: 4.5,
+      deliveryCharge: 5.95,
+    };
 
   const [quantity, setQuantity] = useState(1);
   const [sliderValue, setSliderValue] = useState(0);

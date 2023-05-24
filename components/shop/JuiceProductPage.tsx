@@ -18,21 +18,50 @@ const JuiceProductPage = ({ navigation }) => {
     // dummy product
     
     const product = {
-        name: 'Cool Headphones',
-        images: [
-          'https://example.com/images/cool-headphones-1.jpg',
-          'https://example.com/images/cool-headphones-2.jpg',
-          'https://example.com/images/cool-headphones-3.jpg',
-          '../pictures/react.png',
-        ],
-        price: 150.99,
-        description:
-          '',
-        reviewCount: 185,
-        rating: 4.5,
-        deliveryCharge: 5.95,
-      };
-
+      name: 'Cool Headphones',
+      images: [
+        require('../pictures/cool-headphones-1.jpg'),
+        require('../pictures/cool-headphones-2.jpg'),
+        require('../pictures/cool-headphones-3.jpg'),
+        require('../pictures/react.png'),
+      ],
+      price: 150.99,
+      description: '',
+      reviewCount: 185,
+      rating: 4.5,
+      deliveryCharge: 5.95,
+    };
+  
+    // Rest of the code...
+  
+    const renderStarRating = (rating) => {
+      const emptyStar = require('../pictures/star1-removebg-preview.png');
+      const halfStar = require('../pictures/star2-removebg-preview.png');
+      const fullStar = require('../pictures/star3-removebg-preview.png');
+    
+      const fullStars = Math.floor(rating);
+      const hasHalfStar = rating % 1 >= 0.5;
+      const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    
+      return (
+        <View>
+          <View style={styles.starRating}>
+            {Array(fullStars)
+              .fill(null)
+              .map((_, index) => (
+                <Image key={`full_star_${index}`} source={fullStar} style={styles.star} />
+              ))}
+            {hasHalfStar && <Image source={halfStar} style={styles.star} />}
+            {Array(emptyStars)
+              .fill(null)
+              .map((_, index) => (
+                <Image key={`empty_star_${index}`} source={emptyStar} style={styles.star} />
+              ))}
+          </View>
+        </View>
+      );
+    };
+  
   const [quantity, setQuantity] = useState(1);
   const [sliderValue, setSliderValue] = useState(0);
   const totalPrice = product.price * quantity + product.deliveryCharge;
@@ -52,33 +81,6 @@ const JuiceProductPage = ({ navigation }) => {
   }
 
 
-  const renderStarRating = (rating) => {
-    const emptyStar = '../pictures/star1-removebg-preview.png';
-    const halfStar = '../pictures/star2-removebg-preview.png';
-    const fullStar = '../pictures/star3-removebg-preview.png';
-
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-
-    return (
-      <View>
-        <View style={styles.starRating}>
-          {Array(fullStars)
-            .fill(null)
-            .map((_, index) => (
-              <Image key={`full_star_${index}`} source={fullStar} style={styles.star} />
-            ))}
-          {hasHalfStar && <Image source={halfStar} style={styles.star} />}
-          {Array(emptyStars)
-            .fill(null)
-            .map((_, index) => (
-              <Image key={`empty_star_${index}`} source={emptyStar} style={styles.star} />
-            ))}
-        </View>
-      </View>
-    );
-  };
 
   const [mgOption, setMgOption] = useState('6mg'); // new state
 
@@ -172,64 +174,6 @@ const incrementQuantity = () => {
         </TouchableOpacity>
       </View>
       </View>
-
-      <View style={styles.mgOptionContainer}>
-          <TouchableOpacity
-            onPress={() => handleMgOptionButtonPress('6mg')}
-            style={[
-              styles.mgOptionButton,
-              is6mg && styles.mgOptionButtonActive,
-            ]}
-          >
-            <Text
-              style={[
-                styles.mgOptionButtonText,
-                is6mg && styles.mgOptionButtonTextActive,
-              ]}
-            >
-              6mg
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => handleMgOptionButtonPress('12mg')}
-            style={[
-              styles.mgOptionButton,
-              is12mg && styles.mgOptionButtonActive,
-            ]}
-          >
-            <Text
-              style={[
-                styles.mgOptionButtonText,
-                is12mg && styles.mgOptionButtonTextActive,
-              ]}
-            >
-              12mg
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => handleMgOptionButtonPress('18mg')}
-            style={[
-              styles.mgOptionButton,
-              is18mg && styles.mgOptionButtonActive,
-            ]}
-          >
-            <Text
-              style={[
-                styles.mgOptionButtonText,
-                is18mg && styles.mgOptionButtonTextActive,
-              ]}
-            >
-              18mg
-            </Text>
-          </TouchableOpacity>
-        </View>
-
-
-
-
-
-
-
 
       <View style={styles.priceInfoContainer}>
         <Text style={styles.totalPrice}>
@@ -386,11 +330,6 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 16,
-        color: 'white',
-        marginBottom: 10,
-      },
-      reviewCounter: {
-        fontSize: 14,
         color: 'white',
         marginBottom: 10,
       },

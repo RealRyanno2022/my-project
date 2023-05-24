@@ -121,6 +121,7 @@ const App: React.FC = () => {
 
   const deviceTheme = Appearance.getColorScheme(); // 'light' or 'dark'
   const [isDarkMode, setIsDarkMode] = useState(deviceTheme === 'dark');
+  const [isSubscribed, setIsSubscribed] = useState(true);
 
   const styles = isDarkMode ? darkStyles : lightStyles;
   
@@ -171,7 +172,7 @@ const App: React.FC = () => {
       <Stack.Screen name="CancelMembership" component={CancelMembership} />   
       <Stack.Screen name="ChangeAddress" component={ChangeAddress} />   
       <Stack.Screen name="ChangeFlavours" component={ChangeFlavours} />   
-      <Stack.Screen name="CancelConfirm" component={CancelConfirm} />
+      <Stack.Screen name="CancelConfirm" component={CancelConfirm} initialParams={{ isSubscribed }} />
 
 
       </Stack.Navigator>

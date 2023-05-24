@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const CancelConfirm = ({ navigation }) => {
+const CancelConfirm = ({ route, navigation }) => {
   const { isSubscribed, setIsSubscribed } = route.params;
 
   // Simulate cancellation of subscription
@@ -34,6 +34,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  button: {
+    marginTop: 20,
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: 'white',
     textAlign: 'center',
   },
 });
