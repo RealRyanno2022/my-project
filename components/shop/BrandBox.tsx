@@ -2,6 +2,14 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import images from '../data/images'
 
+type BrandBoxProps = {
+  product: string;
+  selected: boolean;
+  quantity: number;
+  onSelect: () => void;
+  onDeselect: () => void;
+};
+
 
 const BrandBox = ({ product, navigation }) => {
   const handleProductPress = () => {

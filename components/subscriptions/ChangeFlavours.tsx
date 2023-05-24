@@ -11,7 +11,7 @@ const ChangeFlavours = ({ route, navigation }) => {
   const flavours = ['Cola0', 'Cola1', 'Cola2', 'Cola3'];
 
   const { brandName } = route.params;
-  const [varieties, setVarieties] = useState([]);
+  const [varieties, setVarieties] = useState({});
   const [selectedVarieties, setSelectedVarieties] = useState({});
 
   useEffect(() => {
