@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import ShopHeader from '../shop/ShopHeader';
 
 const ChangeAddress = ({ navigation }) => {
   const [city, setCity] = useState('');
@@ -8,71 +9,123 @@ const ChangeAddress = ({ navigation }) => {
   const [country, setCountry] = useState('');
 
   const handleSubmit = () => {
-    // Here you might want to update the user's address in your app's state or backend
-    navigation.navigate('NextScreen');  // Replace 'NextScreen' with the actual route name
+    // Update user's address and navigate to next screen
+    navigation.navigate('ManageSubscription');
   };
 
   return (
+    <View>
+        <ShopHeader navigation={navigation} />
+    
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="City"
-        value={city}
-        onChangeText={setCity}
-      />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Postcode"
-        value={postcode}
-        onChangeText={setPostcode}
-      />
+      <View style={styles.card}>
+        <View style={styles.fieldContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="City"
+            value={city}
+            onChangeText={setCity}
+          />
+        </View>
 
-      <TextInput
-        style={styles.input}
-        placeholder="State"
-        value={state}
-        onChangeText={setState}
-      />
+        <View style={styles.fieldContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="Postcode"
+            value={postcode}
+            onChangeText={setPostcode}
+          />
+        </View>
 
-      <TextInput
-        style={styles.input}
-        placeholder="Country"
-        value={country}
-        onChangeText={setCountry}
-      />
+        <View style={styles.fieldContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="State"
+            value={state}
+            onChangeText={setState}
+          />
+        </View>
 
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>Continue</Text>
-      </TouchableOpacity>
+        <View style={styles.fieldContainer}>
+          <TextInput
+            style={styles.input}
+            placeholder="Country"
+            value={country}
+            onChangeText={setCountry}
+          />
+        </View>
+
+        <TouchableOpacity style={styles.label} onPress={handleSubmit}>
+          <Text style={styles.labelText}>Continue</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+      <ShopFooter navigation={navigation} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  label: {
+    flexDirection: 'row',
+    marginBottom: 20,
+    marginTop: 20,
+    alignItems: 'center',
+    alignContent: 'center',
     justifyContent: 'center',
+  },
+  labelText: {
+    fontSize: 24,
+  },
+  asterisk: {
+    fontSize: 16,
+    color: 'red',
+  },
+  fieldContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    flexGrow: 1,
+  },
+  space: {
+    marginTop: 150,
+  },
+  card: {
+    width: '90%',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 15,
     padding: 20,
+    marginBottom: 20,
+    alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    alignSelf: 'center',
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    alignItems: 'center',
+  },
+  cardText: {
+    color: '#1F1F1F',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  container: {
+    justifyContent: 'center',
+    width: '100%',
+    alignItems: 'center',  // Add this line
+    paddingTop: 50,  // Add some padding top to align card in the center
   },
   input: {
-    height: 50,
-    borderColor: 'gray',
+    width: '100%',
+    padding: 10,
     borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 20,
-    paddingLeft: 10,
-  },
-  button: {
-    height: 50,
-    backgroundColor: '#fb5b5a',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 18,
+    borderColor: '#ccc',
+    marginBottom: 10,
   },
 });
 

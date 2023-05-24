@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import ShopHeader from '../shop/ShopHeader';
 
 const ChangeFlavours = ({ navigation }) => {
     const [selectedFlavours, setSelectedFlavours] = useState({
@@ -43,6 +44,9 @@ const ChangeFlavours = ({ navigation }) => {
   };
 
   return (
+
+    <View>
+      <ShopHeader navigation={navigation} />
     <View style={styles.container}>
       <Text style={styles.title}>Change Flavours</Text>
 
@@ -66,6 +70,8 @@ const ChangeFlavours = ({ navigation }) => {
       >
         <Text style={styles.continueText}>Continue</Text>
       </TouchableOpacity>
+    </View>
+    <ShopFooter navigation={navigation} />  
     </View>
   );
 };

@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 const CancelConfirm = ({ navigation }) => {
-  const [isSubscribed, setIsSubscribed] = useState(true);
+  const { isSubscribed, setIsSubscribed } = route.params;
 
   // Simulate cancellation of subscription
-  useEffect(() => {
+  const handleContinue = () => {
     setIsSubscribed(false);
-  }, []);
+    navigation.navigate('SubSignUp');
+  };
 
   return (
     <View style={styles.container}>

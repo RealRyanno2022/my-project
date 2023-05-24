@@ -11,6 +11,8 @@ const CancelMembership = ({ navigation }) => {
   };
 
   return (
+    <View>
+        <ShopHeader navigation={navigation} />
     <View style={styles.container}>
       <Text style={styles.title}>Are you sure?</Text>
       <Text style={styles.text}>
@@ -29,6 +31,8 @@ const CancelMembership = ({ navigation }) => {
       <TouchableOpacity style={styles.cancelButton} onPress={handleCancel}>
         <Text style={styles.cancelText}>Cancel Membership</Text>
       </TouchableOpacity>
+    </View>
+        <ShopFooter navigation={navigation} />
     </View>
   );
 };

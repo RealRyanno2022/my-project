@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Button, StyleSheet, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel'; // you need to install this
+import ShopHeader from '../shop/ShopHeader';
 
 const ManageSubscription = ({ navigation, user }) => {
     const [subscription, setSubscription] = useState(user.subscription);
@@ -40,7 +41,10 @@ const ManageSubscription = ({ navigation, user }) => {
     }
 
     return (
+      <View>
+        <ShopHeader navigation={navigation} />
         <View style={styles.container}>
+            <Text style={styles.title}>Manage Subscription</Text>
             <Carousel
                 data={flavours}
                 renderItem={renderItem}
@@ -59,6 +63,8 @@ const ManageSubscription = ({ navigation, user }) => {
             <Button title="Change Address" onPress={() => navigation.navigate('ChangeAddress')} />
 
             <Button title="Change Flavours" onPress={() => navigation.navigate('ChangeFlavours')} />
+        </View>
+          <ShopFooter navigation={navigation} />
         </View>
     )
 }
@@ -80,6 +86,11 @@ const styles = StyleSheet.create({
         height: '100%',
         resizeMode: 'cover',
     },
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 20,
+    }
 });
 
 export default ManageSubscription;

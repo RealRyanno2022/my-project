@@ -18,9 +18,9 @@ const ShopFooter = ({ navigation }) => {
 
   const handleVapePress = () => {
     if(isSubscribed) {
-      navigation.navigate("ManageSubscription")
+      navigation.navigate("ManageSubscription", { isSubscribed, setIsSubscibed})
     } else {
-      navigation.navigate("SubSignUp")
+      navigation.navigate("SubSignUp", { isSubscribed, setIsSubscibed })
     }
   }
   return (
