@@ -3,7 +3,11 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from 'rea
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-const SubSignUp = ({ navigation }) => {
+type SubSignUpProps = {
+  navigation: any;
+}
+
+const SubSignUp: React.FC<SubSignUpProps> = ({ navigation }) => {
   const [subscriptionType, setSubscriptionType] = useState('yearly');
 
   const handleSubscriptionTypeChange = (type) => {

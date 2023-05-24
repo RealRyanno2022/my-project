@@ -3,6 +3,11 @@ import { View, Button, StyleSheet, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel'; // you need to install this
 import ShopHeader from '../shop/ShopHeader';
 
+type ManageSubscriptionProps = {
+  navigation: any;
+  user: any;
+}
+
 const ManageSubscription = ({ navigation, user }) => {
     const [subscription, setSubscription] = useState(user.subscription);
     const [flavours, setFlavours] = useState(user.flavours);

@@ -5,7 +5,16 @@ import brandData from '../data/brandData';
 import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
 
-const BrandVarieties = ({ route, navigation }) => {
+type BrandVarietiesProps = {
+  route: {
+    params: {
+      brandName: string;
+    };
+  };
+  navigation: any; // Update the type for the navigation prop
+};
+
+const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) => {
   const { brandName } = route.params;
   const [varieties, setVarieties] = useState([]);
 

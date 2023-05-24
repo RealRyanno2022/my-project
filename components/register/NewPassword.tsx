@@ -3,7 +3,11 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-nativ
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-const NewPassword = ({ navigation }) => {
+type NewPasswordProps = {
+  navigation: any;
+}
+
+const NewPassword: React.FC<NewPasswordProps> = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 

@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { View, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
+type ShopFooterProps = {
+  navigation: any;
+}
 
-const ShopFooter = ({ navigation }) => {
+
+const ShopFooter: React.FC<ShopFooterProps> = ({ navigation }) => {
   const [isSubscribed, setIsSubscibed] = useState(true);
   const route = useRoute();
 

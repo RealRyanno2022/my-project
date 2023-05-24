@@ -3,7 +3,12 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader'
 import ShopFooter from '../shop/ShopFooter';
 
-export default function AccountInfo({ navigation }) {
+type AccountInfoProps = {
+  navigation: any;
+}
+
+
+const AccountInfo: React.FC<AccountInfoProps> = ({ navigation }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Add state to track whether user is signed in
 
   const handleSignOut = () => {
@@ -102,3 +107,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+export default AccountInfo;

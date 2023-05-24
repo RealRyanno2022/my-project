@@ -13,7 +13,15 @@ import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
 
-const ProductPage = ({ navigation }) => {
+
+type ProductPageProps = {
+  navigation: any;
+}
+
+
+
+
+const ProductPage: React.FC<ProductPageProps> = ({ navigation }) => {
     // dummy product
     
     const product = {

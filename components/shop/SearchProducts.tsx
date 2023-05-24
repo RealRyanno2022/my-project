@@ -15,7 +15,12 @@ const colorSchemes = {
   },
 }
 
-const SearchProducts = ({ brandData, navigation }) => {
+type SearchProductProps = {
+  navigation: any;
+  brandData: any[];
+}
+
+const SearchProducts: React.FC<SearchProductProps> = ({ brandData, navigation }) => {
   const [results, setResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
 

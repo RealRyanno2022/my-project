@@ -4,8 +4,12 @@ import ShopHeader from './ShopHeader';
 import brandData from '../data/brandData';
 import ShopFooter from './ShopFooter';
 
+type JuiceScreenProps = {
+  navigation: any;
+}
 
-const JuiceScreen = ({ navigation }) => {
+
+const JuiceScreen: React.FC<JuiceScreenProps> = ({ navigation }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
 

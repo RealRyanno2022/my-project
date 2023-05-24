@@ -3,7 +3,12 @@ import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-nativ
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-const ChangeAddress = ({ navigation }) => {
+
+type ChangeAddressProps = {
+  navigation: any;
+}
+
+const ChangeAddress: React.FC<ChangeAddressProps> = ({ navigation }) => {
   const [city, setCity] = useState('');
   const [postcode, setPostcode] = useState('');
   const [state, setState] = useState('');

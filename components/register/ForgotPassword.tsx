@@ -3,7 +3,11 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-nativ
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-const ForgotPassword = ({ navigation }) => {
+type ForgotPasswordProps = {
+  navigation: any;
+}
+
+const ForgotPassword: React.FC<ForgotPasswordProps> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
   const [isCodeCorrect, setIsCodeCorrect] = useState(false);

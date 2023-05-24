@@ -12,7 +12,11 @@ import ShopFooter from '../shop/ShopFooter';
 //   offlineAccess: true,
 // });
 
-function LoginScreen({ navigation }) {
+type LoginScreenProps = {
+  navigation: any;
+}
+
+const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 

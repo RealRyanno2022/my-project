@@ -3,7 +3,11 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-const CancelMembership = ({ navigation }) => {
+type CancelMembershipProps = {
+  navigation: any;
+}
+
+const CancelMembership: React.FC<CancelMembershipProps> = ({ navigation }) => {
   const handleContinue = () => {
     navigation.navigate('Dashboard');  // Replace with the actual route name
   };

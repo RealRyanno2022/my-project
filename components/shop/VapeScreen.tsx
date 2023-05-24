@@ -5,7 +5,11 @@ import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
 
-const VapeScreen = ({ navigation }) => {
+type VapeScreenProps = {
+  navigation: any;
+}
+
+const VapeScreen: React.FC<VapeScreenProps> = ({ navigation }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
 

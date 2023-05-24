@@ -3,7 +3,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert } from 'react-native';
 import { TextInput, HelperText, Button } from 'react-native-paper';
 import axios from 'axios'; // Import axios
-import { BraintreeDropIn } from 'react-native-braintree-payment-drop-in'; // Update import statement
+// import { BraintreeDropIn } from 'react-native-braintree-payment-drop-in'; // Update import statement
 import countryStateArray from '../data/countryStateArray';
 import countriesWithCities from '../data/countriesWithCities';
 import validCountries from '../data/validCountries';
@@ -397,7 +397,6 @@ const DeliveryAddress = ({ navigation }) => {
               >
                 <Text style={styles.cardText}>Confirm and pay </Text>
               </TouchableOpacity>
-            </View>
             </View>
           </ScrollView>
           <View style={styles.space}></View>

@@ -1,7 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const CancelConfirm = ({ route, navigation }) => {
+type CancelConfirmProps = {
+  route: {
+    params: {
+      isSubscribed: boolean;
+      setIsSubscribed: React.Dispatch<React.SetStateAction<boolean>>;
+    };
+  };
+  navigation: any; // Update the type for the navigation prop
+};
+
+const CancelConfirm: React.FC<CancelConfirmProps> = ({ route, navigation }) => {
   const { isSubscribed, setIsSubscribed } = route.params;
 
   // Simulate cancellation of subscription

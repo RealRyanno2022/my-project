@@ -31,7 +31,13 @@ import ShopFooter from '../shop/ShopFooter';
 //   offlineAccess: true,
 // });
 
-const SignUp = ({ navigation }) => {
+
+type SignUpProps = {
+  navigation: any;
+}
+
+
+const SignUp: React.FC<SignUpProps> = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');

@@ -11,7 +11,7 @@ type BrandBoxProps = {
 };
 
 
-const BrandBox = ({ product, navigation }) => {
+const BrandBox: React.FC<BrandBoxProps> = ({ product, selected, quantity, onSelect, onDeselect, navigation }) => {
   const handleProductPress = () => {
     navigation.navigate('ProductScreen', { product });
   };

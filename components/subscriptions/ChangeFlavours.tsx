@@ -6,7 +6,16 @@ import ShopFooter from '../shop/ShopFooter';
 import BrandBox from '../shop/BrandBox';
 import brandData from '../data/brandData';
 
-const ChangeFlavours = ({ route, navigation }) => {
+type ChangeFlavoursProps = {
+  route: {
+    params: {
+      brandName: string;
+    };
+  };
+  navigation: any; // Update the type for the navigation prop
+};
+
+const ChangeFlavours: React.FC<ChangeFlavoursProps> =  ({ route, navigation }) => {
   const [selectedFlavours, setSelectedFlavours] = useState(['Cola0']);
   const flavours = ['Cola0', 'Cola1', 'Cola2', 'Cola3'];
 

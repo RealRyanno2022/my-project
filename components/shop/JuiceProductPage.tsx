@@ -20,10 +20,10 @@ const JuiceProductPage = ({ navigation }) => {
     const product = {
       name: 'Cool Headphones',
       images: [
-        require('../pictures/cool-headphones-1.jpg'),
-        require('../pictures/cool-headphones-2.jpg'),
-        require('../pictures/cool-headphones-3.jpg'),
-        require('../pictures/react.png'),
+        require('../pictures/basket-removebg-preview.png'),
+        require('../pictures/basket-removebg-preview.png'),
+        require('../pictures/basket-removebg-preview.png'),
+        require('../pictures/basket-removebg-preview.png'),
       ],
       price: 150.99,
       description: '',

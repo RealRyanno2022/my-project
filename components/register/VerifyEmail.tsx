@@ -4,7 +4,11 @@ import axios from 'axios'; // import axios
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-export default function VerifyEmail({ navigation }) {
+type VerifyEmailProps = {
+  navigation: any;
+}
+
+const VerifyEmail: React.FC<VerifyEmailProps> = ({ navigation }) => {
   const [code, setCode] = useState('');
   const [generatedCode, setGeneratedCode] = useState('');
   const [isEmailInvalid, setIsEmailInvalid] = useState(false);
@@ -178,3 +182,5 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
+
+export default VerifyEmail;
