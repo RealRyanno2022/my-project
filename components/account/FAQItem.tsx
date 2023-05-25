@@ -3,7 +3,12 @@ import { View, StyleSheet } from 'react-native';
 import { Button, Text } from 'react-native-paper';
 import Collapsible from 'react-native-collapsible';
 
-const FAQItem = ({ question, answer }) => {
+type FAQItemProps = {
+  question: string;
+  answer: string;
+};
+
+const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   return (

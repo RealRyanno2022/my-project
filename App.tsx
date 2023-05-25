@@ -52,7 +52,7 @@ import { lightStyles, darkStyles } from './styles.js';
 
 
 type RootStackParamList = {
-  AccountInfo: undefined;
+  AccountInfo: { userId: number};
   CustomerBasket: undefined;
   DeleteAccount: undefined;
   ProjectInfo: undefined;
@@ -128,7 +128,7 @@ const App: React.FC = () => {
 
   return (
     <View style={{backgroundColor: styles.background}}>
-    <NavigationContainer screenProps={{ styles }}>
+    <NavigationContainer>
       <Stack.Navigator initialRouteName="Intro">
 
       <Stack.Screen name="AccountInfo" component={AccountInfo} />

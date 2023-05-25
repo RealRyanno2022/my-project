@@ -1,18 +1,21 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert, LayoutRectangle, Platform } from 'react-native';
+import { View, Text, KeyboardAvoidingView, Platform, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
 import { TextInput, HelperText, Button } from 'react-native-paper';
-import { FieldValues } from 'react-hook-form';
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
+import { TextInput as RNTextInput } from 'react-native';
+import { Dropin } from 'braintree-web-drop-in';
+
 import countryStateArray from '../data/countryStateArray';
 import countriesWithCities from '../data/countriesWithCities';
 import validCountries from '../data/validCountries';
-import { BeforeRemoveEvent } from '@react-navigation/native';
-import { TextInput as RNTextInput } from 'react-native';
+
 import ShopHeader from '../shop/ShopHeader';
 import FormInput from './FormInput';
 
-import { Dropin } from 'braintree-web-drop-in';
+type SubmitHandlerType = (data: UserData) => Promise<void>;
 
 type DeliveryAddressProps = {
   navigation: any;
@@ -98,8 +101,8 @@ const validateLastName = (value: string) => {
   }
 };
 
+
 const DeliveryAddress: React.FC<DeliveryAddressProps> = ({ navigation }) => {
-  const { control, handleSubmit, formState: { errors } } = useForm();
   const [country, setCountry] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const scrollViewRef = useRef<ScrollView>(null);
@@ -111,7 +114,11 @@ const DeliveryAddress: React.FC<DeliveryAddressProps> = ({ navigation }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const handleSaveUserInformation = async (data: UserData) => {
+  function handleSubmit(onSubmit: string | number | ((data: UserData) => Promise<void>)) {
+    console.log('submit');
+  }
+
+  const handleSaveUserInformation: SubmitHandlerType = async (data: UserData) => {
     try {
       const response = await axios.post('https://candii-vapes-backend.herokuapp.com/save_user_information', {
         state: data.state,
@@ -123,14 +130,14 @@ const DeliveryAddress: React.FC<DeliveryAddressProps> = ({ navigation }) => {
         firstName: data.firstName,
         lastName: data.lastName,
       });
-
+  
       console.log(response.data.message);
     } catch (error) {
       console.error('Error saving user information:', error);
     }
   };
 
-  const onSubmit = async (data: UserData) => {
+  const onSubmit: SubmitHandler<UserData> = async (data) => {
     console.log(data);
     await handleSaveUserInformation(data);
     handlePayment();
@@ -210,13 +217,12 @@ const DeliveryAddress: React.FC<DeliveryAddressProps> = ({ navigation }) => {
     { name: 'postcode', label: country === 'Ireland' ? 'Eir Code' : 'Post Code', rules: { validate: validatePostOrEirCode } },
   ];
 
-
   const handleSearch = () => {
     navigation.push('SearchProducts', { searchTerm });
   }
 
   useEffect(() => {
-    const unsubscribe = navigation.addListener('beforeRemove', (e: BeforeRemoveEvent) => {
+    const unsubscribe = navigation.addListener('beforeRemove', (e: any) => {
       if (scrollViewRef.current && scrollViewRef.current.scrollTo) {
         scrollViewRef.current.scrollTo({ x: 0, y: 0, animated: false });
       }
@@ -237,24 +243,22 @@ const DeliveryAddress: React.FC<DeliveryAddressProps> = ({ navigation }) => {
               </View>
 
               {formFields.map(field => (
-              <FormInput 
-                key={field.name}
-                control={control}
-                name={field.name}
-                label={field.label}
-                errors={errors}
-                scrollViewRef={scrollViewRef}
-                rules={field.rules}
-                setCountry={field.setCountry ? setCountry : undefined}
-              />
-            ))}
-
-              
+                <FormInput
+                  key={field.name}
+                  name={field.name}
+                  label={field.label}
+                  scrollViewRef={scrollViewRef}
+                  rules={field.rules}
+                  control={control} // Add control property
+                  errors={errors} // Add errors property
+                  setCountry={field.setCountry ? setCountry : undefined}
+                />
+              ))}
 
               <View style={styles.card}>
                 <View id="dropin-container" style={{ marginBottom: 20 }} />
                 <TouchableOpacity
-                  onPress={handleSubmit(onSubmit)}
+                  onPress={() => handleSubmit(onSubmit)}
                   style={styles.button}
                 >
                   <Text style={styles.buttonText}>Confirm and Pay</Text>
@@ -268,6 +272,7 @@ const DeliveryAddress: React.FC<DeliveryAddressProps> = ({ navigation }) => {
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   label: {
