@@ -63,6 +63,15 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     backgroundColor: 'rgba(205, 205, 204, 0.8)',
+    paddingVertical: 20,
+    alignItems: 'center',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    elevation: 2,
+
   },
   footerContent: {
     flexDirection: 'row',

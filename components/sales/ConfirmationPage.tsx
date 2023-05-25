@@ -5,25 +5,33 @@ import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 import BrandBox from '../shop/BrandBox';
 
-const ConfirmationPage = ({ route, navigation }) => {
+type ConfirmationPageProps = {
+  route: {
+    params: {
+      orderID: string;
+      orderDate: string;
+      totalAmount: number;
+    }
+  };
+  navigation: any;
+}
+
+const ConfirmationPage: React.FC<ConfirmationPageProps> = ({ route, navigation }) => {
   const { orderID, orderDate, totalAmount } = route.params;
 
   const handleContinueShopping = () => {
-    // Navigate to desired screen
-    // For example: navigation.navigate('Home');
-    navigation.navigate('ShopFront')
-  }
-  const renderOrderedItem = ({ item }) => {
+    navigation.navigate('ShopFront');
+  };
+
+  const renderOrderedItem = ({ item }: { item: { product: Product } }) => {
     const { product } = item;
-    return <BrandBox 
-    product={product} 
-    navigation={navigator} />;
-  }
+    return <BrandBox product={product} navigation={navigation} />;
+  };
 
   const orderedItems = [
-    { id: '1', product: { name: 'Product 1' } },
-    { id: '2', product: { name: 'Product 2' } },
-    { id: '3', product: { name: 'Product 3' } },
+    { id: '1', product: { id: '1', name: 'Product 1' } },
+    { id: '2', product: { id: '2', name: 'Product 2' } },
+    { id: '3', product: { id: '3', name: 'Product 3' } },
   ];
 
   return (

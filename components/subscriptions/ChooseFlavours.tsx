@@ -15,18 +15,32 @@ type BrandVarietiesProps = {
 };
 
 
+type BrandData = {
+  id: string;
+  name: string;
+  price: number;
+  brand: string;
+  image: string;
+};
+
+
 const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) => {
   const { brandName } = route.params;
-  const [varieties, setVarieties] = useState([]);
-  const [selectedVarieties, setSelectedVarieties] = useState({});
+  const [varieties, setVarieties] = useState<BrandData[]>([]);
+  const [selectedVarieties, setSelectedVarieties] = useState<Record<string, number>>({});
+
+  const isBrandData = (data: any): data is BrandData => {
+    return data && data.id && typeof data.name === 'string' && typeof data.price === 'number' && typeof data.brand === 'string' && typeof data.image === 'string';
+  };
 
   useEffect(() => {
     const dataAsArray = Object.entries(brandData).map(([id, product]) => ({ id, ...product }));
-    const filteredData = dataAsArray.filter(product => product.brand === brandName);
-    setVarieties(filteredData);
+    const filteredData = dataAsArray.filter(product => 'brand' in product && product.brand === brandName);
+    const validatedData = filteredData.filter(isBrandData);
+    setVarieties(validatedData);
   }, [brandName]);
 
-  const handlePress = (id) => {
+  const handlePress = (id: string) => {
     setSelectedVarieties((prev) => {
       if (!prev[id]) {
         return { ...prev, [id]: 1 };
@@ -38,7 +52,7 @@ const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) =>
     });
   };
 
-  const handleDeselect = (id) => {
+  const handleDeselect = (id: string) => {
     setSelectedVarieties((prev) => {
       if (prev[id] === 1) {
         const { [id]: _, ...rest } = prev;

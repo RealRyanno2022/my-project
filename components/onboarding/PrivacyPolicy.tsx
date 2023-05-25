@@ -2,7 +2,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 
-const PrivacyPolicy = ({ navigation }) => {
+type PrivacyPolicyProps = {
+  navigation: any;
+}
+
+
+const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ navigation }) => {
   const [isPolicyAccepted, setIsPolicyAccepted] = useState(false);
 
   const handlePolicyAcceptance = () => {

@@ -10,7 +10,7 @@ type SubSignUpProps = {
 const SubSignUp: React.FC<SubSignUpProps> = ({ navigation }) => {
   const [subscriptionType, setSubscriptionType] = useState('yearly');
 
-  const handleSubscriptionTypeChange = (type) => {
+  const handleSubscriptionTypeChange = (type: string) => {
     setSubscriptionType(type);
   };
 
@@ -78,7 +78,7 @@ const SubSignUp: React.FC<SubSignUpProps> = ({ navigation }) => {
       </View> 
      
     </ScrollView>
-    <ShopFooter navigation={navigation} style={styles.footer}  />
+    <ShopFooter navigation={navigation}  />
     </View>
   );
 };
@@ -241,18 +241,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#FFFFFF',
         fontFamily: 'OpenSans-Bold',
-    },
-    footer: {
-        paddingVertical: 20,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        borderRadius: 10,
-        shadowColor: '#000',
-        shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 0.3,
-        shadowRadius: 2,
-        elevation: 2,
-        position: "absolute",
     },
     footerText: {
         fontSize: 14,

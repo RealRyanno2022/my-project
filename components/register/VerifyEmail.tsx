@@ -15,7 +15,7 @@ const VerifyEmail: React.FC<VerifyEmailProps> = ({ navigation }) => {
   const [email, setEmail] = useState('');
 
 
-  const inputStyle = (isInvalid) => [
+  const inputStyle = (isInvalid: boolean) => [
     styles.input,
     isInvalid ? styles.inputInvalid : null,
   ];

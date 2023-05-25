@@ -1,19 +1,108 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, KeyboardAvoidingView, Alert, LayoutRectangle, Platform } from 'react-native';
 import { TextInput, HelperText, Button } from 'react-native-paper';
-import axios from 'axios'; // Import axios
-// import { BraintreeDropIn } from 'react-native-braintree-payment-drop-in'; // Update import statement
+import { FieldValues } from 'react-hook-form';
+import axios from 'axios';
 import countryStateArray from '../data/countryStateArray';
 import countriesWithCities from '../data/countriesWithCities';
 import validCountries from '../data/validCountries';
+import { BeforeRemoveEvent } from '@react-navigation/native';
+import { TextInput as RNTextInput } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
+import FormInput from './FormInput';
 
-const DeliveryAddress = ({ navigation }) => {
+import { Dropin } from 'braintree-web-drop-in';
+
+type DeliveryAddressProps = {
+  navigation: any;
+}
+
+type UserData = {
+  state: string;
+  country: string;
+  email: string;
+  address: string;
+  phoneNumber: string;
+  postCode: string;
+  firstName: string;
+  lastName: string;
+};
+
+const validateEmail = (value: string) => {
+  if (value.includes('@')) return true;
+  return false;
+};
+
+const validatePhoneNumber = (value: string) => {
+  if (!value || value.length === 10) return true;
+  return false;
+};
+
+const validateCountry = (value: string) => {
+  if (validCountries.includes(value)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const validateStateOrCounty = (value: string, country: string) => {
+  const selectedCountry = countryStateArray.countries.find(i => i.country === country);
+  if (selectedCountry && selectedCountry.states.includes(value)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const validatePostOrEirCode = (value: string, country: string) => {
+  if (country === 'Ireland') {
+    if (value.length === 7 && value[0] === 'string' && value[3] === 'string') {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    if (value.length === 5 || value.length === 6 /* && condition to check for alphanumeric */) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
+
+const validateCity = (value: string) => {
+  const countryKeys = Object.keys(countriesWithCities) as Array<keyof typeof countriesWithCities>;
+  for (const country of countryKeys) {
+    if (countriesWithCities[country].includes(value)) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const validateFirstName = (value: string) => {
+  if (value.length < 2) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+const validateLastName = (value: string) => {
+  if (value.length < 3) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+const DeliveryAddress: React.FC<DeliveryAddressProps> = ({ navigation }) => {
   const { control, handleSubmit, formState: { errors } } = useForm();
   const [country, setCountry] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-  const scrollViewRef = useRef();
+  const scrollViewRef = useRef<ScrollView>(null);
   const [state, setState] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
@@ -22,7 +111,7 @@ const DeliveryAddress = ({ navigation }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const handleSaveUserInformation = async (data) => {
+  const handleSaveUserInformation = async (data: UserData) => {
     try {
       const response = await axios.post('https://candii-vapes-backend.herokuapp.com/save_user_information', {
         state: data.state,
@@ -30,7 +119,7 @@ const DeliveryAddress = ({ navigation }) => {
         email: data.email,
         address: data.address,
         phoneNumber: data.phoneNumber,
-        postCode: data.postcode,
+        postCode: data.postCode,
         firstName: data.firstName,
         lastName: data.lastName,
       });
@@ -41,138 +130,100 @@ const DeliveryAddress = ({ navigation }) => {
     }
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: UserData) => {
     console.log(data);
     await handleSaveUserInformation(data);
     handlePayment();
   }
 
   const handlePayment = async () => {
-    try {
-      // Fetch the client token from your server
-      const tokenResponse = await fetch('https://candii-vapes-backend.herokuapp.com/client_token');
-      const { clientToken } = await tokenResponse.json();
+    // try {
+    //   // Fetch the client token from your server
+    //   const tokenResponse = await fetch('https://candii-vapes-backend.herokuapp.com/client_token');
+    //   const { clientToken } = await tokenResponse.json();
 
       // Show the Braintree Drop-in UI
-      const nonce = await BraintreeDropIn.show({
-        clientToken,
-      });
+      // const dropinInstance = await Dropin.create({
+      //   authorization: clientToken,
+      //   container: '#dropin-container',
+      //   card: {
+      //     cardholderName: {
+      //       required: true
+      //     }
+      //   }
+      // });
+
+      // const { nonce } = await dropinInstance.requestPaymentMethod();
 
       // Send the nonce to your server for processing the payment
-      const paymentResponse = await fetch('https://candii-vapes-backend.herokuapp.com/execute_transaction', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          paymentMethodNonce: nonce,
-          amount: '1.00', // Replace with the actual amount
-        }),
-      });
+      // const paymentResponse = await fetch('https://candii-vapes-backend.herokuapp.com/execute_transaction', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     paymentMethodNonce: nonce,
+      //     amount: '1.00', // Replace with the actual amount
+      //   }),
+      // });
 
-      if (!paymentResponse.ok) {
-        throw new Error('Payment failed');
-      }
+      // if (!PaymentResponse.ok) {
+      //   throw new Error('Payment failed');
+      // }
 
-      const { message } = await paymentResponse.json();
-      console.log(message);
-      navigation.navigate('ConfirmationDetails');
-    } catch (error) {
-      console.error(error);
-      Alert.alert('Error', 'Payment failed, please try again');
-      navigation.navigate('ShopFront');
-    }
+    //   const { message } = await paymentResponse.json();
+    //   console.log(message);
+    //   navigation.navigate('ConfirmationDetails');
+    // } catch (error) {
+    //   console.error(error);
+    //   Alert.alert('Error', 'Payment failed, please try again');
+    //   navigation.navigate('ShopFront');
+    // }
   };
 
-  const input1Ref = useRef();
-  const input2Ref = useRef();
-  const input3Ref = useRef();
-  const input4Ref = useRef();
-  const input5Ref = useRef();
-  const input6Ref = useRef();
-  const input7Ref = useRef();
-  const input8Ref = useRef();
+  const input1Ref = useRef<RNTextInput | null>(null);
+  const input2Ref = useRef<RNTextInput | null>(null);
+  const input3Ref = useRef<RNTextInput | null>(null);
+  const input4Ref = useRef<RNTextInput | null>(null);
+  const input5Ref = useRef<RNTextInput | null>(null);
+  const input6Ref = useRef<RNTextInput | null>(null);
+  const input7Ref = useRef<RNTextInput | null>(null);
+  const input8Ref = useRef<RNTextInput | null>(null);
 
-  const input1Layout = useRef();
-  const input2Layout = useRef();
-  const input3Layout = useRef();
-  const input4Layout = useRef();
-  const input5Layout = useRef();
-  const input6Layout = useRef();
-  const input7Layout = useRef();
-  const input8Layout = useRef();
+  const input1Layout = useRef<number | null>(null);
+  const input2Layout = useRef<number | null>(null);
+  const input3Layout = useRef<number | null>(null);
+  const input4Layout = useRef<number | null>(null);
+  const input5Layout = useRef<number | null>(null);
+  const input6Layout = useRef<number | null>(null);
+  const input7Layout = useRef<number | null>(null);
+  const input8Layout = useRef<number | null>(null);
+
+  const formFields = [
+    { name: 'email', label: 'Email *', rules: { required: 'This field is required', validate: validateEmail } },
+    { name: 'firstName', label: 'First name *', rules: { required: 'This field is required', validate: validateFirstName } },
+    { name: 'lastName', label: 'Last name *', rules: { required: 'This field is required', validate: validateLastName } },
+    { name: 'phoneNumber', label: 'Phone number *', rules: { required: 'This field is required', validate: validatePhoneNumber } },
+    { name: 'city', label: 'City *', rules: { required: 'This field is required', validate: validateCity } },
+    { name: 'country', label: 'Country *', rules: { required: 'This field is required', validate: validateCountry }, setCountry: true },
+    { name: 'state', label: country === 'Ireland' ? 'County *' : 'State *', rules: { required: 'This field is required', validate: validateStateOrCounty } },
+    { name: 'postcode', label: country === 'Ireland' ? 'Eir Code' : 'Post Code', rules: { validate: validatePostOrEirCode } },
+  ];
+
 
   const handleSearch = () => {
     navigation.push('SearchProducts', { searchTerm });
   }
 
-  const validateEmail = (value) => {
-    if (value.includes('@')) return true;
-    return false;
-  };
-
-  const validatePhoneNumber = (value) => {
-    if (!value || value.length === 10) return true;
-    return false;
-  };
-
-  const validateCountry = (value) => {
-    if (validCountries.includes(value)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  const validateStateOrCounty = (value) => {
-    const selectedCountry = countryStateArray.countries.find(i => i.country === country);
-    if (selectedCountry && selectedCountry.states.includes(value)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  const validatePostOrEirCode = (value) => {
-    if (country === 'Ireland') {
-      if (value.length === 7 && typeof value[0] === 'string' && typeof value[3] === 'string') {
-        return true;
-      } else {
-        return false;
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('beforeRemove', (e: BeforeRemoveEvent) => {
+      if (scrollViewRef.current && scrollViewRef.current.scrollTo) {
+        scrollViewRef.current.scrollTo({ x: 0, y: 0, animated: false });
       }
-    } else {
-      if (value.length === 5 || value.length === 6 /* && condition to check for alphanumeric */) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  };
+    });
 
-  const validateCity = (value) => {
-    for (const country in countriesWithCities) {
-      if (countriesWithCities[country].includes(value)) {
-        return true;
-      }
-    }
-    return false;
-  };
-
-  const validateFirstName = (value) => {
-    if (value.length < 2) {
-      return false;
-    } else {
-      return true;
-    }
-  };
-
-  const validateLastName = (value) => {
-    if (value.length < 3) {
-      return false;
-    } else {
-      return true;
-    }
-  };
+    return unsubscribe;
+  }, [navigation]);
 
   return (
     <View style={{ flex: 1 }}>
@@ -185,218 +236,30 @@ const DeliveryAddress = ({ navigation }) => {
                 <Text style={styles.labelText}>Delivery Address</Text>
               </View>
 
-              <View
-                onLayout={event => {
-                  input1Layout.current = event.nativeEvent.layout.y;
-                }}
-              >
-                <Controller
-                  control={control}
-                  rules={{ required: 'This field is required', validate: validateEmail }}
-                  render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                      onBlur={onBlur}
-                      onChangeText={value => onChange(value)}
-                      value={value}
-                      label="Email *"
-                      ref={input1Ref}
-                      onFocus={() => scrollViewRef.current.scrollTo({ x: 0, y: input1Layout.current, animated: true })}
-                      style={styles.input}
-                    />
-                  )}
-                  name="email"
-                  defaultValue=""
-                />
-                {errors.email && <HelperText type="error">{errors.email.message}</HelperText>}
-              </View>
-
-              <View
-                onLayout={event => {
-                  input2Layout.current = event.nativeEvent.layout.y;
-                }}
-              >
-                <Controller
-                  control={control}
-                  rules={{ required: 'This field is required', validate: validateFirstName }}
-                  render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                      onBlur={onBlur}
-                      onChangeText={value => onChange(value)}
-                      value={value}
-                      label="First name *"
-                      ref={input2Ref}
-                      onFocus={() => scrollViewRef.current.scrollTo({ x: 0, y: input2Layout.current, animated: true })}
-                      style={styles.input}
-                    />
-                  )}
-                  name="firstName"
-                  defaultValue=""
-                />
-                {errors.firstName && <HelperText type="error">{errors.firstName.message}</HelperText>}
-              </View>
-
-              <View
-                onLayout={event => {
-                  input3Layout.current = event.nativeEvent.layout.y;
-                }}
-              >
-                <Controller
-                  control={control}
-                  rules={{ required: 'This field is required', validate: validateLastName }}
-                  render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                      onBlur={onBlur}
-                      onChangeText={value => onChange(value)}
-                      value={value}
-                      label="Last Name *"
-                      ref={input3Ref}
-                      onFocus={() => scrollViewRef.current.scrollTo({ x: 0, y: input3Layout.current, animated: true })}
-                      style={styles.input}
-                    />
-                  )}
-                  name="lastName"
-                  defaultValue=""
-                />
-                {errors.lastName && <HelperText type="error">{errors.lastName.message}</HelperText>}
-              </View>
-
-              <View
-                onLayout={event => {
-                  input4Layout.current = event.nativeEvent.layout.y;
-                }}
-              >
-                <Controller
-                  control={control}
-                  rules={{ required: 'This field is required', validate: validatePhoneNumber }}
-                  render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                      onBlur={onBlur}
-                      onChangeText={value => onChange(value)}
-                      value={value}
-                      label="Phone number *"
-                      ref={input4Ref}
-                      onFocus={() => scrollViewRef.current.scrollTo({ x: 0, y: input4Layout.current, animated: true })}
-                      style={styles.input}
-                    />
-                  )}
-                  name="phoneNumber"
-                  defaultValue=""
-                />
-                {errors.phoneNumber && <HelperText type="error">{errors.phoneNumber.message}</HelperText>}
-              </View>
-
-              <View
-                onLayout={event => {
-                  input5Layout.current = event.nativeEvent.layout.y;
-                }}
-              >
-                <Controller
-                  control={control}
-                  rules={{ required: 'This field is required', validate: validateCity }}
-                  render={({ field: { onChange, onBlur, value } }) => (
-                    <TextInput
-                      onBlur={onBlur}
-                      onChangeText={value => onChange(value)}
-                      value={value}
-                      label="City *"
-                      ref={input5Ref}
-                      onFocus={() => scrollViewRef.current.scrollTo({ x: 0, y: input5Layout.current, animated: true })}
-                      style={styles.input}
-                    />
-                  )}
-                  name="city"
-                  defaultValue=""
-                />
-                {errors.city && <HelperText type="error">{errors.city.message}</HelperText>}
-              </View>
-
-              <View
-              onLayout={event => {
-                input6Layout.current = event.nativeEvent.layout.y;
-              }}
-              >
-              <Controller
+              {formFields.map(field => (
+              <FormInput 
+                key={field.name}
                 control={control}
-                rules={{ required: 'This field is required' }}
-                render={({ field: { onChange, onBlur, value } }) => (
-                <TextInput
-                  onBlur={onBlur}
-                  onChangeText={value => {
-                      onChange(value);
-                      setCountry(value);
-                  }}
-                  value={value}
-                  label="Country *"
-                  ref={input6Ref}
-                  onFocus={() => scrollViewRef.current.scrollTo({ x: 0, y: input6Ref.current.offsetTop, animated: true })}
-                  style={styles.input}
-                />
-              )}
-                name="country"
-                defaultValue=""
+                name={field.name}
+                label={field.label}
+                errors={errors}
+                scrollViewRef={scrollViewRef}
+                rules={field.rules}
+                setCountry={field.setCountry ? setCountry : undefined}
               />
+            ))}
+
+              
+
+              <View style={styles.card}>
+                <View id="dropin-container" style={{ marginBottom: 20 }} />
+                <TouchableOpacity
+                  onPress={handleSubmit(onSubmit)}
+                  style={styles.button}
+                >
+                  <Text style={styles.buttonText}>Confirm and Pay</Text>
+                </TouchableOpacity>
               </View>
-              {errors.country && <HelperText type="error">{errors.country.message}</HelperText>}
-
-              <View
-              onLayout={event => {
-                input7Layout.current = event.nativeEvent.layout.y;
-              }}
-              >
-              <Controller
-              control={control}
-              rules={{ required: 'This field is required', validate: validateStateOrCounty }}
-              render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                onBlur={onBlur}
-                onChangeText={value => onChange(value)}
-                value={value}
-                label={country === 'Ireland' ? 'County *' : 'State *'}
-                ref={input7Ref}
-                onFocus={() => scrollViewRef.current.scrollTo({ x: 0, y: input7Ref.current.offsetTop, animated: true })}
-                style={styles.input}
-              />
-              )}
-              name="state"
-              defaultValue=""
-              />
-              </View>
-              {errors.state && <HelperText type="error">{errors.state.message}</HelperText>}
-
-
-              <View
-              onLayout={event => {
-                input8Layout.current = event.nativeEvent.layout.y;
-              }}
-              >
-              <Controller
-                control={control}
-                render={({ field: { onChange, onBlur, value } }) => (
-                <TextInput
-                onBlur={onBlur}
-                onChangeText={value => onChange(value)}
-                value={value}
-                label={country === 'Ireland' ? 'Eir Code' : 'Post Code'}
-                ref={input8Ref}
-                onFocus={() => scrollViewRef.current.scrollTo({ x: 0, y: input8Ref.current.offsetTop, animated: true })}
-                style={styles.input}
-                />
-                )}
-                name="postcode"
-                defaultValue=""
-                rules={{
-                validate: validatePostOrEirCode
-                }}
-              />
-              </View>
-              {errors.postcode && <HelperText type="error">{errors.postcode.message}</HelperText>}
-
-              <TouchableOpacity
-                style={styles.card}
-                onPress={handlePayment}
-              >
-                <Text style={styles.cardText}>Confirm and pay </Text>
-              </TouchableOpacity>
             </View>
           </ScrollView>
           <View style={styles.space}></View>
@@ -406,65 +269,71 @@ const DeliveryAddress = ({ navigation }) => {
   );
 };
 
-  const styles = StyleSheet.create({
-    label: {
-      flexDirection: 'row',
-      marginBottom: 20,
-      marginTop: 20,
-      alignItems: 'center',
-      alignContent: 'center',
-      justifyContent: 'center',
+const styles = StyleSheet.create({
+  label: {
+    flexDirection: 'row',
+    marginBottom: 20,
+    marginTop: 20,
+    alignItems: 'center',
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  labelText: {
+    fontSize: 24,
+  },
+  asterisk: {
+    fontSize: 16,
+    color: 'red',
+  },
+  fieldContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    flexGrow: 1,
+  },
+  space: {
+    marginTop: 150,
+  },
+  card: {
+    width: '90%', // Increase the width here
+    backgroundColor: '#FFFFFF',
+    borderRadius: 15,
+    padding: 20,
+    marginBottom: 20,
+    alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
     },
-    labelText: {
-      fontSize: 24,
-    },
-    asterisk: {
-      fontSize: 16,
-      color: 'red',
-    },
-    fieldContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginBottom: 10,
-      flexGrow: 1,
-    },
-    space: {
-      marginTop: 150,
-    },
-    card: {
-      width: '90%', // Increase the width here
-      backgroundColor: '#FFFFFF',
-      borderRadius: 15,
-      padding: 20,
-      marginBottom: 20,
-      alignItems: 'center',
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      alignSelf: 'center',
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5,
-      alignItems: 'center',
-    },
-    cardText: {
-      color: '#1F1F1F',
-      fontSize: 18,
-      fontWeight: 'bold',
-    },
-    container: {
-      justifyContent: 'center',
-      width: '100%',
-    },
-    input: {
-      width: '100%', // Add this style
-      padding: 10,
-      borderWidth: 1,
-      borderColor: '#ccc',
-      marginBottom: 10,
-    },
-  });
+    alignSelf: 'center',
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  button: {
+    backgroundColor: '#007AFF',
+    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    marginBottom: 10,
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  container: {
+    justifyContent: 'center',
+    width: '100%',
+  },
+  input: {
+    width: '100%', // Add this style
+    padding: 10,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    marginBottom: 10,
+  },
+});
 
 export default DeliveryAddress;

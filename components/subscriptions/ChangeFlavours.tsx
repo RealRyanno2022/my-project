@@ -6,6 +6,8 @@ import ShopFooter from '../shop/ShopFooter';
 import BrandBox from '../shop/BrandBox';
 import brandData from '../data/brandData';
 
+
+
 type ChangeFlavoursProps = {
   route: {
     params: {
@@ -20,8 +22,8 @@ const ChangeFlavours: React.FC<ChangeFlavoursProps> =  ({ route, navigation }) =
   const flavours = ['Cola0', 'Cola1', 'Cola2', 'Cola3'];
 
   const { brandName } = route.params;
-  const [varieties, setVarieties] = useState({});
-  const [selectedVarieties, setSelectedVarieties] = useState({});
+  const [varieties, setVarieties] = useState<BrandData[]>([]);
+  const [selectedVarieties, setSelectedVarieties] = useState<Record<string, number | undefined>>({});
 
   useEffect(() => {
     const dataAsArray = Object.entries(brandData).map(([id, product]) => ({ id, ...product }));
@@ -29,25 +31,27 @@ const ChangeFlavours: React.FC<ChangeFlavoursProps> =  ({ route, navigation }) =
     setVarieties(filteredData);
   }, [brandName]);
 
-  const handlePress = (id) => {
+  const handlePress = (id: string) => {
     setSelectedVarieties((prev) => {
       if (!prev[id]) {
         return { ...prev, [id]: 1 };
-      } else if (prev[id] < 4) {
-        return { ...prev, [id]: prev[id] + 1 };
+      } else if (prev[id]! < 4) {
+        return { ...prev, [id]: prev[id]! + 1 };
       } else {
         return prev;
       }
     });
   };
-
-  const handleDeselect = (id) => {
+  
+  const handleDeselect = (id: string) => {
     setSelectedVarieties((prev) => {
       if (prev[id] === 1) {
         const { [id]: _, ...rest } = prev;
         return rest;
+      } else if (prev[id] && prev[id]! > 1) {
+        return { ...prev, [id]: prev[id]! - 1 };
       } else {
-        return { ...prev, [id]: prev[id] - 1 };
+        return prev;
       }
     });
   };

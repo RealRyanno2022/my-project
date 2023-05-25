@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Linking } from 'react-native';
 
-const VerifyAge = ({ navigation }) => {
+type VerifyAgeProps = {
+  navigation: any;
+}
+
+
+const VerifyAge: React.FC<VerifyAgeProps> = ({ navigation }) => {
   const [isOver18, setIsOver18] = useState(false);
 
-  const handleVerification = (isOver18) => {
+  const handleVerification = (isOver18: boolean) => {
     if (isOver18) {
       navigation.navigate('PrivacyPolicy');
     } else {

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { View, Button, StyleSheet, Image } from 'react-native';
-import Carousel from 'react-native-snap-carousel'; // you need to install this
+import { View, Button, StyleSheet, Image, Text } from 'react-native';
+// import Carousel from 'react-native-snap-carousel'; // you need to install this
 import ShopHeader from '../shop/ShopHeader';
+import ShopFooter from '../shop/ShopFooter';
 
 type ManageSubscriptionProps = {
   navigation: any;
   user: any;
 }
 
-const ManageSubscription = ({ navigation, user }) => {
+const ManageSubscription: React.FC<ManageSubscriptionProps> = ({ navigation, user }) => {
     const [subscription, setSubscription] = useState(user.subscription);
     const [flavours, setFlavours] = useState(user.flavours);
 
@@ -34,25 +35,25 @@ const ManageSubscription = ({ navigation, user }) => {
 
 
 
-    const renderItem = ({item, index}) => {
-        return (
-            <View style={styles.slide}>
-                <Image source={{uri: item.image}} style={styles.image} />
-            </View>
-        );
-    }
+    // const renderItem = ({item: string, index: number}) => {
+    //     return (
+    //         <View style={styles.slide}>
+    //             <Image source={{uri: item.image}} style={styles.image} />
+    //         </View>
+    //     );
+    // }
 
     return (
       <View>
         <ShopHeader navigation={navigation} />
         <View style={styles.container}>
             <Text style={styles.title}>Manage Subscription</Text>
-            <Carousel
+            {/* <Carousel
                 data={flavours}
                 renderItem={renderItem}
                 sliderWidth={400}
                 itemWidth={200}
-            />
+            /> */}
 
             {subscription.type === 'monthly' && (
                 <Button title="Upgrade to yearly" onPress={() => navigation.navigate('UpgradeMembership')} />

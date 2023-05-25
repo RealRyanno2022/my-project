@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
+import { KeyboardAwareScrollView,KeyboardAwareScrollViewProps } from 'react-native-keyboard-aware-scroll-view';
 import {
   StyleSheet,
   Text,
@@ -10,6 +11,8 @@ import {
   Modal,
   ScrollView,
   Alert,
+  NativeSyntheticEvent,
+  TextInputFocusEventData,
 } from 'react-native';
 import { Platform } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
@@ -53,7 +56,7 @@ const SignUp: React.FC<SignUpProps> = ({ navigation }) => {
   const apiUrl =
   Platform.OS === 'android' ? 'http://10.0.2.2:5000' : 'http://localhost:5000';
 
-  const scrollViewRef = useRef<ScrollView | null>(null);
+  const scrollViewRef = useRef<KeyboardAwareScrollView | null>(null);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -154,22 +157,17 @@ const SignUp: React.FC<SignUpProps> = ({ navigation }) => {
     }
   }, [isEmailInvalid, isPasswordInvalid, isConfirmedPasswordInvalid]);
 
-  const handleInputFocus = (event) => {
-    event.persist();
+  const handleInputFocus = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
+    const { target } = event.nativeEvent;
   
-    if (event && event.nativeEvent && event.nativeEvent.target) {
-      setTimeout(() => {
-        scrollViewRef.current?.scrollTo({
-          y: event.nativeEvent.target.offsetTop,
-          animated: true,
-        });
-      }, 100);
+    if (target) {
+      scrollViewRef.current?.scrollToFocusedInput(target);
     }
   };
 
   const passwordRequirements = "Must contain at minimum 8 letters, 1 number, and 1 non-alphanumeric value (?, !, $)";
 
-  const handlePasswordChange = (password) => {
+  const handlePasswordChange = (password: string) => {
     if (password.length > 0) {
       setIsPasswordRequirementsVisible(true);
     } else {
@@ -178,7 +176,7 @@ const SignUp: React.FC<SignUpProps> = ({ navigation }) => {
     setPassword(password);
   };
 
-  const inputStyle = (isInvalid) => [
+  const inputStyle = (isInvalid: boolean) => [
     styles.input,
     isInvalid ? styles.inputInvalid : null,
   ];
@@ -188,7 +186,7 @@ const SignUp: React.FC<SignUpProps> = ({ navigation }) => {
 
     <View>
 
-    <ScrollView style={styles.scrollViewContainer} ref={scrollViewRef}>
+    <KeyboardAwareScrollView style={styles.scrollViewContainer} ref={scrollViewRef}>
 
       <ShopHeader navigation={navigation}  />
       <View style={styles.background}>
@@ -249,7 +247,7 @@ const SignUp: React.FC<SignUpProps> = ({ navigation }) => {
           <Text style={styles.loginText}>LOGIN WITH FACEBOOK</Text>
         </TouchableOpacity> */}
       </View>
-    </ScrollView>
+    </KeyboardAwareScrollView>
         <ShopFooter navigation={navigation} />
     </View>
   );

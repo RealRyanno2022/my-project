@@ -14,7 +14,7 @@ const VapeScreen: React.FC<VapeScreenProps> = ({ navigation }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleBrandPress = (brandName) => {
+  const handleBrandPress = (brandName: string) => {
     navigation.navigate('ChooseFlavours', { brandName });
   };
 

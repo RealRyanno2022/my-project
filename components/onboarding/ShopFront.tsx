@@ -4,10 +4,14 @@ import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
-const ShopFront = ({ navigation, props }) => {
+type ShopFrontProps = {
+  navigation: any;
+}
+
+const ShopFront: React.FC<ShopFrontProps> = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleBrandPress = (productType) => {
+  const handleBrandPress = (productType: string) => {
     if (productType === 'Disposables') {
       navigation.navigate('VapeScreen');
     }
@@ -16,7 +20,7 @@ const ShopFront = ({ navigation, props }) => {
     } 
   };
 
-  const { styles } = props.screenProps;
+  const { styles } = navigation.screenProps;
 
   return (
     <View style={{backgroundColor: styles.background}}>

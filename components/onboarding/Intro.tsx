@@ -1,7 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, Animated, ActivityIndicator, StyleSheet, Dimensions } from 'react-native';
 
-const Intro = ({ navigation }) => {
+type IntroProps = {
+  navigation: any;
+}
+
+
+const Intro: React.FC<IntroProps> = ({ navigation }) => {
   const scaleValue = useRef(new Animated.Value(0)).current;
   const scrollValue = useRef(new Animated.Value(Dimensions.get('window').width)).current;
   const [loadingVisible, setLoadingVisible] = useState(false);
