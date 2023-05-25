@@ -24,7 +24,7 @@ const SearchProducts: React.FC<SearchProductProps> = ({ brandData, navigation })
   const [results, setResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
 
-  const search = (searchText) => {
+  const search = (searchText: string) => {
     setSearchTerm(searchText);
     setHasSearched(true);
 
