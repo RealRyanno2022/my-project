@@ -1,19 +1,9 @@
-const { Pool } = require('pg');
+const admin = require('firebase-admin');
 
-const dbConfig = {
-  host: 'localhost',
-  port: 5432,
-  database: 'mydatabase',
-  user: 'myuser',
-  password: 'mypassword',
-};
-
-const pool = new Pool({
-  user: dbConfig.user,
-  host: dbConfig.host,
-  database: dbConfig.database,
-  password: dbConfig.password,
-  port: dbConfig.port,
+admin.initializeApp({
+  credential: admin.credential.applicationDefault()
 });
 
-module.exports = pool;
+const db = admin.firestore();
+
+module.exports = db;
