@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
-import BrandBox from '../shop/BrandBox';
+import BrandBox, { Product } from '../shop/BrandBox'; // Import the Product type from BrandBox
 
 type ConfirmationPageProps = {
   route: {
@@ -14,14 +14,6 @@ type ConfirmationPageProps = {
     };
   };
   navigation: any;
-};
-
-type Product = {
-  id: string;
-  name: string;
-  price?: number;
-  brand?: string;
-  image?: string;
 };
 
 const ConfirmationPage: React.FC<ConfirmationPageProps> = ({ route, navigation }) => {

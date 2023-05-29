@@ -114,9 +114,7 @@ const DeliveryAddress: React.FC<DeliveryAddressProps> = ({ navigation }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  function handleSubmit(onSubmit: string | number | ((data: UserData) => Promise<void>)) {
-    console.log('submit');
-  }
+  const { control, handleSubmit, formState: { errors } } = useForm<UserData>();
 
   const handleSaveUserInformation: SubmitHandlerType = async (data: UserData) => {
     try {
@@ -258,7 +256,7 @@ const DeliveryAddress: React.FC<DeliveryAddressProps> = ({ navigation }) => {
               <View style={styles.card}>
                 <View id="dropin-container" style={{ marginBottom: 20 }} />
                 <TouchableOpacity
-                  onPress={() => handleSubmit(onSubmit)}
+                  onPress={handleSubmit(onSubmit)} // Pass handleSubmit as the onPress handler
                   style={styles.button}
                 >
                   <Text style={styles.buttonText}>Confirm and Pay</Text>
