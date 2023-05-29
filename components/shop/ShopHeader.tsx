@@ -1,13 +1,11 @@
 import { View, Text } from 'react-native'
 import React, { useState } from 'react'
 import { TouchableOpacity, Appearance } from 'react-native';
-import { Header, Icon, SearchBar} from 'react-native-elements';
+import { Header, Icon, SearchBar } from 'react-native-elements';
 
 type ShopHeaderProps = {
   navigation: any;
 }
-
-
 
 const ShopHeader: React.FC<ShopHeaderProps> = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,7 +21,7 @@ const ShopHeader: React.FC<ShopHeaderProps> = ({ navigation }) => {
     setIsDarkMode(!isDarkMode);
   }
 
-  const handleSearchTextChange = (text) => {
+  const handleSearchTextChange = (text: string) => {
     setSearchTerm(text);
   }
 

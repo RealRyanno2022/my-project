@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 import BrandBox from '../shop/BrandBox';
-import brandData from '../data/brandData';
+import BrandData from '../data/brandData';
 
 
 
@@ -19,10 +19,10 @@ type ChangeFlavoursProps = {
 
 const ChangeFlavours: React.FC<ChangeFlavoursProps> =  ({ route, navigation }) => {
   const [selectedFlavours, setSelectedFlavours] = useState(['Cola0']);
-  const flavours = ['Cola0', 'Cola1', 'Cola2', 'Cola3'];
+  const flavours: string[] = ['Cola0', 'Cola1', 'Cola2', 'Cola3'];
 
   const { brandName } = route.params;
-  const [varieties, setVarieties] = useState<BrandData[]>([]);
+  const [varieties, setVarieties] = useState<brandData[]>([]);
   const [selectedVarieties, setSelectedVarieties] = useState<Record<string, number | undefined>>({});
 
   useEffect(() => {
