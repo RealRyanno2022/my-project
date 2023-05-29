@@ -66,7 +66,7 @@ type RootStackParamList = {
   NewPassword: undefined;
   SignUp: undefined;
   VerifyEmail: undefined;
-  ConfirmationPage: undefined;
+  ConfirmationPage: { orderID: string; orderDate: string; totalAmount: number };
   DeliveryAddress: undefined;
   BrandVarieties: undefined;
   ContinueShopping: undefined;
@@ -148,7 +148,11 @@ const App: React.FC = () => {
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="VerifyEmail" component={VerifyEmail} /> 
 
-      <Stack.Screen name="ConfirmationPage" component={ConfirmationPage} />
+      <Stack.Screen 
+        name="ConfirmationPage" 
+        component={ConfirmationPage}
+        initialParams={{ orderID: "defaultID", orderDate: "defaultDate", totalAmount: 0 }} 
+      />
       <Stack.Screen name="DeliveryAddress" component={DeliveryAddress} /> 
 
       <Stack.Screen name="BrandVarieties" component={BrandVarieties} />

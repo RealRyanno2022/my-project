@@ -10,7 +10,7 @@ type ManageSubscriptionProps = {
 }
 
 const ManageSubscription: React.FC<ManageSubscriptionProps> = ({ navigation, user }) => {
-    const [subscription, setSubscription] = useState(user.subscription);
+    const [isSubscribed, setIsSubscribed] = useState(user.subscription);
     const [flavours, setFlavours] = useState(user.flavours);
 
     const dummyUser = {
@@ -59,7 +59,10 @@ const ManageSubscription: React.FC<ManageSubscriptionProps> = ({ navigation, use
                 <Button title="Upgrade to yearly" onPress={() => navigation.navigate('UpgradeMembership')} />
             )}
             
-            <Button title="Cancel Membership" onPress={() => navigation.navigate('CancelMembership')} />
+            <Button
+              title="Cancel Membership"
+              onPress={() => navigation.navigate('CancelMembership', { isSubscribed, setIsSubscribed })}
+            />
             
             <Button title="Change Credit Card Information" onPress={() => navigation.navigate('ChangeCreditCard')} />
             

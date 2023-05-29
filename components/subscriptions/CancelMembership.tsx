@@ -5,15 +5,23 @@ import ShopFooter from '../shop/ShopFooter';
 
 type CancelMembershipProps = {
   navigation: any;
+  route: {
+    params: {
+      isSubscribed: boolean;
+      setIsSubscribed: React.Dispatch<React.SetStateAction<boolean>>;
+    };
+  };
+
 }
 
-const CancelMembership: React.FC<CancelMembershipProps> = ({ navigation }) => {
+const CancelMembership: React.FC<CancelMembershipProps> = ({ navigation, route }) => {
+  const { isSubscribed, setIsSubscribed } = route.params;
   const handleContinue = () => {
-    navigation.navigate('Dashboard');  // Replace with the actual route name
+    navigation.navigate('ShopFront');  // Replace with the actual route name
   };
 
   const handleCancel = () => {
-    navigation.navigate('ConfirmCancellation');  // Replace with the actual route name
+    navigation.navigate('CancelConfirm', { isSubscribed, setIsSubscribed });
   };
 
   return (
