@@ -46,7 +46,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ navigation }) => {
   const [shippingOption, setShippingOption] = useState('standard');
   const shippingCost = shippingOption === 'standard' ? 5.95 : 15.95;
 
-  const handleShippingButtonPress = (option) => {
+  const handleShippingButtonPress = (option: string) => {
     setShippingOption(option);
   };
 
@@ -58,10 +58,10 @@ const ProductPage: React.FC<ProductPageProps> = ({ navigation }) => {
   const isExpressShipping = shippingOption === 'express';
 
 
-  const renderStarRating = (rating) => {
-    const emptyStar = '../pictures/star1-removebg-preview.png';
-    const halfStar = '../pictures/star2-removebg-preview.png';
-    const fullStar = '../pictures/star3-removebg-preview.png';
+  const renderStarRating = (rating: number) => {
+    const emptyStar = require('../pictures/star1-removebg-preview.png');
+    const halfStar = require('../pictures/star2-removebg-preview.png');
+    const fullStar = require('../pictures/star3-removebg-preview.png');
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
@@ -319,11 +319,6 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 16,
-        color: 'white',
-        marginBottom: 10,
-      },
-      reviewCounter: {
-        fontSize: 14,
         color: 'white',
         marginBottom: 10,
       },

@@ -14,7 +14,11 @@ import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
 // import { Picker } from '@react-native-picker/picker';
 
-const JuiceProductPage = ({ navigation }) => {
+type JuiceProductPageProps = {
+  navigation: any;
+}
+
+const JuiceProductPage: React.FC<JuiceProductPageProps> = ({ navigation }) => {
     // dummy product
     
     const product = {
@@ -34,7 +38,7 @@ const JuiceProductPage = ({ navigation }) => {
   
     // Rest of the code...
   
-    const renderStarRating = (rating) => {
+    const renderStarRating = (rating: number) => {
       const emptyStar = require('../pictures/star1-removebg-preview.png');
       const halfStar = require('../pictures/star2-removebg-preview.png');
       const fullStar = require('../pictures/star3-removebg-preview.png');
@@ -69,7 +73,7 @@ const JuiceProductPage = ({ navigation }) => {
   const [shippingOption, setShippingOption] = useState('standard');
   const shippingCost = shippingOption === 'standard' ? 5.95 : 15.95;
 
-  const handleShippingButtonPress = (option) => {
+  const handleShippingButtonPress = (option: string) => {
     setShippingOption(option);
   };
 
@@ -84,7 +88,7 @@ const JuiceProductPage = ({ navigation }) => {
 
   const [mgOption, setMgOption] = useState('6mg'); // new state
 
-  const handleMgOptionButtonPress = (option) => {
+  const handleMgOptionButtonPress = (option: string) => {
     setMgOption(option);
   };
 

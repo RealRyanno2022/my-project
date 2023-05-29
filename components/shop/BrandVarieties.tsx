@@ -5,6 +5,23 @@ import brandData from '../data/brandData';
 import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
 
+type ProductType = {
+  id: string;
+  name: string;
+  price?: number;
+  brand?: string;
+  image?: string;
+};
+
+type BrandBoxProps = {
+  product: ProductType;
+  navigation: any;
+  selected: boolean;
+  quantity: number;
+  onSelect: () => void;
+  onDeselect: () => void;
+};
+
 type BrandVarietiesProps = {
   route: {
     params: {
@@ -16,19 +33,23 @@ type BrandVarietiesProps = {
 
 const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) => {
   const { brandName } = route.params;
-  const [varieties, setVarieties] = useState([]);
+  const [varieties, setVarieties] = useState<ProductType[]>([]);
 
   useEffect(() => {
-    console.log(route.params);
-    const dataAsArray = Object.entries(brandData).map(([id, product]) => ({ id, ...product }));
+    const dataAsArray = Object.entries(brandData).map(([id, product]) => ({ ...product, id }));
     const filteredData = dataAsArray.filter(product => product.brand === brandName);
-    console.log(filteredData);
     setVarieties(filteredData);
   }, [brandName]);
 
+  const handleSelect = () => {
+    console.log('Selected product');
+  };
+
+  const handleDeselect = () => {
+    console.log('Deselected product');
+  };
+
   return (
-
-
     <View style={styles.container}>
       <ShopHeader navigation={navigation} />
       <Text style={styles.title}>{brandName} Varieties</Text>
@@ -36,10 +57,17 @@ const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) =>
         data={varieties}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <BrandBox product={item} navigation={navigation} />
+          <BrandBox 
+            product={item as ProductType} 
+            navigation={navigation} 
+            selected={false}
+            quantity={0}
+            onSelect={handleSelect}
+            onDeselect={handleDeselect}
+          />
         )}
       />
-       <ShopFooter navigation={navigation}/>
+      <ShopFooter navigation={navigation}/>
     </View>
   );
 };

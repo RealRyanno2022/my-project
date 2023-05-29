@@ -10,6 +10,7 @@ type ManageSubscriptionProps = {
 }
 
 const ManageSubscription: React.FC<ManageSubscriptionProps> = ({ navigation, user }) => {
+  var [subscription, setSubscription] = useState({ type: "monthly" });
     const [isSubscribed, setIsSubscribed] = useState(user.subscription);
     const [flavours, setFlavours] = useState(user.flavours);
 

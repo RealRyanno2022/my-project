@@ -15,22 +15,25 @@ const colorSchemes = {
   },
 }
 
+type BrandDataItem = {
+  id: number;
+  name: string;
+  type: string;
+}
+
 type SearchProductProps = {
   navigation: any;
-  brandData: any[];
+  brandData: BrandDataItem[];
 }
 
 const SearchProducts: React.FC<SearchProductProps> = ({ brandData, navigation }) => {
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<BrandDataItem[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
 
   const search = (searchText: string) => {
-    setSearchTerm(searchText);
     setHasSearched(true);
 
-
-
-    let relevantBrands = [];
+    let relevantBrands: string[] = [];
     if (searchText.toLowerCase().includes('disposables')) {
       relevantBrands = ['Elfbar', 'Elfabar', 'IVGBar', 'LostMary', 'Jewel Mini'];
     } else if (searchText.toLowerCase().includes('juice')) {
@@ -46,7 +49,7 @@ const SearchProducts: React.FC<SearchProductProps> = ({ brandData, navigation })
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const [colorScheme, setColorScheme] = useState(Appearance.getColorScheme());
+  const [colorScheme, setColorScheme] = useState<"light" | "dark">(Appearance.getColorScheme());
 
   const toggleColorScheme = () => {
     const newColorScheme = colorScheme === 'light' ? 'dark' : 'light';
@@ -57,7 +60,7 @@ const SearchProducts: React.FC<SearchProductProps> = ({ brandData, navigation })
   useEffect(() => {
     AsyncStorage.getItem('colorScheme').then(storedColorScheme => {
       if (storedColorScheme) {
-        setColorScheme(storedColorScheme);
+        setColorScheme(storedColorScheme as "light" | "dark");
       }
     })
   }, [])
@@ -78,92 +81,43 @@ const SearchProducts: React.FC<SearchProductProps> = ({ brandData, navigation })
       rightComponent={{ 
         icon: 'search',
         color: '#fff',
-        onPress: search,
-      }}
-    />
-    <SearchBar
-      containerStyle={{ width: '100%'}}
-      lightTheme
-      searchIcon={{ size: 24 }}
-      onChangeText={setSearchTerm}
-      onClear={() => {setSearchTerm(''); setHasSearched(false);}} // clear the search term and reset hasSearched
-      placeholder='Search...'
-      value={searchTerm}
-    />
-      {results.length > 0 ? (
-        <FlatList
-          data={results}
-          renderItem={({ item }) => <Text>{item.name}</Text>}
-          keyExtractor={item => item.id.toString()}
-        />
-      ) : hasSearched && (
-        <Text>Can't find that item!</Text>
-      )}
-    </View>
-    <ShopFooter navigation={navigation}/>
-    </View>
+        onPress: () => search('') 
+    }}
+    containerStyle={{
+      backgroundColor: colorSchemes[colorScheme].header,
+      justifyContent: 'space-around',
+    }}
+  />
+  <SearchBar
+    placeholder="Search products..."
+    onChangeText={search}
+    value={searchTerm}
+    lightTheme={colorScheme === 'light'}
+    containerStyle={{backgroundColor: colorSchemes[colorScheme].background}}
+    inputContainerStyle={{backgroundColor: '#fff'}}
+    searchIcon={{name: 'search'}}
+    clearIcon={{name: 'clear'}}
+  />
+  {hasSearched && results.length === 0 && 
+    <Text>No results found for "{searchTerm}"</Text>
+  }
+  <FlatList
+    data={results}
+    keyExtractor={item => item.id.toString()}
+    renderItem={({ item }) => (
+      <Text>{item.name}</Text>
+    )}
+  />
+  <ShopFooter navigation={navigation} />
+</View>
+</View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F5F5F5',
-  },
-  header: {
-    paddingTop: 50,
-    paddingBottom: 30,
-    backgroundColor: '#D3D3D3',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    fontWeight: 'bold',
-    fontSize: 50,
-    color: '#1F1F1F',
-    fontFamily: 'Helvetica',
-  },
-  space: {
-    marginTop: 50,
-  },
-  smallText: {
-    fontSize: 20,
-    color: '#1F1F1F',
-    marginTop: 10,
-    fontFamily: 'Helvetica',
-  },
-  cardContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  card: {
-    width: '80%',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 15,
-    padding: 20,
-    marginBottom: 20,
-    alignItems: 'center',
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  cardText: {
-    color: '#1F1F1F',
-    marginTop: 10,
-    fontSize: 17,
-    fontWeight: 'bold',
-    fontFamily: 'Helvetica',
-  },
-  imageStyle: {
-    width: '100%',
-    height: 100,
-    resizeMode: 'contain',
-    marginBottom: 10,
+    flex: 1,
+    backgroundColor: '#F5FCFF',
   },
 });
 
