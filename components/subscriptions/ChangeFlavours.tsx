@@ -1,12 +1,19 @@
-
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 import BrandBox from '../shop/BrandBox';
-import BrandData from '../data/brandData';
+import BrandData from '../data/BrandData';
 
-
+// Assuming BrandData looks like { [id: string]: Product }
+type Product = {
+  id: string,
+  brand: string,
+  name: string,  // new
+  price: number, // new
+  image: string, // new
+  [key: string]: any, // You may remove this if there are no other properties in the Product type
+}
 
 type ChangeFlavoursProps = {
   route: {
@@ -22,11 +29,11 @@ const ChangeFlavours: React.FC<ChangeFlavoursProps> =  ({ route, navigation }) =
   const flavours: string[] = ['Cola0', 'Cola1', 'Cola2', 'Cola3'];
 
   const { brandName } = route.params;
-  const [varieties, setVarieties] = useState<brandData[]>([]);
+  const [varieties, setVarieties] = useState<Product[]>([]);
   const [selectedVarieties, setSelectedVarieties] = useState<Record<string, number | undefined>>({});
 
   useEffect(() => {
-    const dataAsArray = Object.entries(brandData).map(([id, product]) => ({ id, ...product }));
+    const dataAsArray = Object.entries(BrandData).map(([id, product]) => ({ ...(product as Product) }));
     const filteredData = dataAsArray.filter(product => product.brand === brandName);
     setVarieties(filteredData);
   }, [brandName]);
@@ -63,15 +70,16 @@ const ChangeFlavours: React.FC<ChangeFlavoursProps> =  ({ route, navigation }) =
         <Text style={styles.title}>Change Flavours</Text>
 
         <FlatList
-          data={flavours}
-          keyExtractor={(item) => item}
+          data={varieties} // Use varieties instead of flavours
+          keyExtractor={(item) => item.id} // item is Product now
           renderItem={({ item }) => (
             <BrandBox
+              navigation={navigation}
               product={item}
-              selected={selectedFlavours.includes(item)}
-              quantity={selectedFlavours.filter((flavour) => flavour === item).length}
-              onSelect={() => handlePress(item)}
-              onDeselect={() => handleDeselect(item)}
+              selected={selectedFlavours.includes(item.id)}
+              quantity={selectedFlavours.filter((flavour) => flavour === item.id).length}
+              onSelect={() => handlePress(item.id)}
+              onDeselect={() => handleDeselect(item.id)}
             />
           )}
         />

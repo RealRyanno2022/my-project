@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import ShopHeader from './ShopHeader';
-import brandData from '../data/brandData';
+import brandData from '../data/BrandData';
 import ShopFooter from './ShopFooter';
 
 type JuiceScreenProps = {
@@ -13,7 +13,7 @@ const JuiceScreen: React.FC<JuiceScreenProps> = ({ navigation }) => {
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleBrandPress = (brandName) => {
+  const handleBrandPress = (brandName: string) => {
     navigation.navigate('BrandVarieties', { brandName });
   };
 

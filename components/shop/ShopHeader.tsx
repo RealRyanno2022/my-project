@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, Platform } from 'react-native'
 import React, { useState } from 'react'
 import { TouchableOpacity, Appearance } from 'react-native';
 import { Header, Icon, SearchBar } from 'react-native-elements';
@@ -44,11 +44,12 @@ const ShopHeader: React.FC<ShopHeaderProps> = ({ navigation }) => {
         }}
       />
       <SearchBar
+        platform="default"  // Here is where we add platform
         containerStyle={{ width: '100%' }}
         lightTheme
         searchIcon={{ name: 'search', size: 24 }}
-        onChangeText={handleSearchTextChange} // Updated the prop to use the callback function
-        onClear={() => setSearchTerm('')} // clear the search term
+        onChangeText={handleSearchTextChange} 
+        onClear={() => setSearchTerm('')}
         placeholder="Search..."
         value={searchTerm}
       />

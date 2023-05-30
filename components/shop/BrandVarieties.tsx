@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import BrandBox from './BrandBox';
-import brandData from '../data/brandData';
+import brandData from '../data/BrandData';
 import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
 
 type ProductType = {
   id: string;
   name: string;
-  price?: number;
-  brand?: string;
-  image?: string;
+  price: number;
+  brand: string;
+  image: string;
 };
 
 type BrandBoxProps = {
@@ -54,19 +54,19 @@ const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) =>
       <ShopHeader navigation={navigation} />
       <Text style={styles.title}>{brandName} Varieties</Text>
       <FlatList 
-        data={varieties}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <BrandBox 
-            product={item as ProductType} 
-            navigation={navigation} 
-            selected={false}
-            quantity={0}
-            onSelect={handleSelect}
-            onDeselect={handleDeselect}
-          />
-        )}
-      />
+  data={varieties.map(item => ({ ...item, price: item.price || 0 }))}
+  keyExtractor={item => item.id}
+  renderItem={({ item }) => (
+    <BrandBox 
+      product={item as ProductType} 
+      navigation={navigation} 
+      selected={false}
+      quantity={0}
+      onSelect={handleSelect}
+      onDeselect={handleDeselect}
+    />
+  )}
+/>
       <ShopFooter navigation={navigation}/>
     </View>
   );

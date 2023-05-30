@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import { View, TextInput, TextInputProps } from 'react-native';
+import { View, TextInput, TextInputProps, StyleSheet } from 'react-native';
 import { Controller } from 'react-hook-form';
 import { HelperText } from 'react-native-paper';
-import styles from './styles'; // Update the import statement
+
 
 type FormInputProps = {
   control: any;
@@ -47,5 +47,15 @@ const FormInput: React.FC<FormInputProps> = ({ control, name, label, errors, scr
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    // replace with the styles you had in your styles file
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+  },
+});
+
 
 export default FormInput;

@@ -49,68 +49,51 @@ const SearchProducts: React.FC<SearchProductProps> = ({ brandData, navigation })
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const [colorScheme, setColorScheme] = useState<"light" | "dark">(Appearance.getColorScheme());
-
-  const toggleColorScheme = () => {
-    const newColorScheme = colorScheme === 'light' ? 'dark' : 'light';
-    setColorScheme(newColorScheme);
-    AsyncStorage.setItem('colorScheme', newColorScheme);
-  }
-
-  useEffect(() => {
-    AsyncStorage.getItem('colorScheme').then(storedColorScheme => {
-      if (storedColorScheme) {
-        setColorScheme(storedColorScheme as "light" | "dark");
-      }
-    })
-  }, [])
-
   return (
     <View>
       <View style={styles.container}>
-    <Header
-      leftComponent={{ 
-        icon: colorScheme === 'light' ? 'moon' : 'sun', 
-        color: '#fff',
-        onPress: () => navigation.navigate('AccountInfo') 
-      }}
-      centerComponent={{ 
-        text: 'Candii', 
-        style: { color: '#fff', fontSize: 20 } 
-      }}
-      rightComponent={{ 
-        icon: 'search',
-        color: '#fff',
-        onPress: () => search('') 
-    }}
-    containerStyle={{
-      backgroundColor: colorSchemes[colorScheme].header,
-      justifyContent: 'space-around',
-    }}
-  />
-  <SearchBar
-    placeholder="Search products..."
-    onChangeText={search}
-    value={searchTerm}
-    lightTheme={colorScheme === 'light'}
-    containerStyle={{backgroundColor: colorSchemes[colorScheme].background}}
-    inputContainerStyle={{backgroundColor: '#fff'}}
-    searchIcon={{name: 'search'}}
-    clearIcon={{name: 'clear'}}
-  />
-  {hasSearched && results.length === 0 && 
-    <Text>No results found for "{searchTerm}"</Text>
-  }
-  <FlatList
-    data={results}
-    keyExtractor={item => item.id.toString()}
-    renderItem={({ item }) => (
-      <Text>{item.name}</Text>
-    )}
-  />
-  <ShopFooter navigation={navigation} />
-</View>
-</View>
+        <Header
+          leftComponent={{ 
+            // icon: colorScheme === 'light' ? 'moon' : 'sun', 
+            color: '#fff',
+            onPress: () => navigation.navigate('AccountInfo') 
+          }}
+          centerComponent={{ 
+            text: 'Candii', 
+            style: { color: '#fff', fontSize: 20 } 
+          }}
+          rightComponent={{ 
+            icon: 'search',
+            color: '#fff',
+            onPress: () => search('') 
+        }}
+        containerStyle={{
+          // backgroundColor: colorSchemes[colorScheme].header,
+          justifyContent: 'space-around',
+        }}
+      />
+      <SearchBar
+        platform="default"  // Here is where we add platform
+        placeholder="Search products..."
+        onChangeText={search}
+        value={searchTerm}
+        inputContainerStyle={{backgroundColor: '#fff'}}
+        searchIcon={{name: 'search'}}
+        clearIcon={{name: 'clear'}}
+      />
+      {hasSearched && results.length === 0 && 
+        <Text>No results found for "{searchTerm}"</Text>
+      }
+      <FlatList
+        data={results}
+        keyExtractor={item => item.id.toString()}
+        renderItem={({ item }) => (
+          <Text>{item.name}</Text>
+        )}
+      />
+      <ShopFooter navigation={navigation} />
+    </View>
+    </View>
   );
 }
 
