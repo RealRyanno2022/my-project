@@ -17,15 +17,15 @@ const VapeScreen: React.FC<VapeScreenProps> = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleBrandPress = (brandName: string) => {
-    navigation.navigate('BrandVarieties', { brandName });
+    navigation.dispatch(StackActions.push('BrandVarieties', { brandName }));
   };
 
   const handleBackPress = () => {
-    navigation.navigate("ShopFront");
+    navigation.dispatch(StackActions.push("ShopFront"));
   }
 
   const handleSearch = () => {
-    navigation.push('SearchProducts', { searchTerm });
+    navigation.dispatch(StackActions.push('SearchProducts', { searchTerm }));
   }
 
   return (

@@ -34,7 +34,7 @@ const SearchProducts: React.FC<SearchProductProps> = ({ brandData, navigation })
   const [results, setResults] = useState<BrandDataItem[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
 
-  const search = (searchText: string) => {
+  const search = (searchText: string = '') => {
     setHasSearched(true);
 
     let relevantBrands: string[] = [];
@@ -60,7 +60,7 @@ const SearchProducts: React.FC<SearchProductProps> = ({ brandData, navigation })
           leftComponent={{ 
             // icon: colorScheme === 'light' ? 'moon' : 'sun', 
             color: '#fff',
-            onPress: () => navigation.navigate('AccountInfo') 
+            onPress: () => navigation.dispatch(StackActions.push(('AccountInfo'))) 
           }}
           centerComponent={{ 
             text: 'Candii', 
@@ -77,14 +77,26 @@ const SearchProducts: React.FC<SearchProductProps> = ({ brandData, navigation })
         }}
       />
       <SearchBar
-        platform="default"  // Here is where we add platform
-        placeholder="Search products..."
-        onChangeText={search}
-        value={searchTerm}
-        inputContainerStyle={{backgroundColor: '#fff'}}
-        searchIcon={{name: 'search'}}
-        clearIcon={{name: 'clear'}}
-      />
+          platform="default" // Here is where we add platform
+          placeholder="Search products..."
+          onChangeText={search}
+          value={searchTerm}
+          inputContainerStyle={{ backgroundColor: '#fff' }}
+          searchIcon={{ name: 'search' }}
+          clearIcon={{ name: 'clear' }}
+          onCancel={() => { } }
+          // Add these missing properties...
+          loadingProps={{}} // Customize or leave as an empty object
+          showLoading={false} // Update as needed
+          lightTheme={true} // Update as needed
+          round={false} // Update as needed
+          onClear={() => { } }
+          onFocus={() => { } }
+          onBlur={() => { } } 
+          cancelButtonTitle={''} 
+          cancelButtonProps={{}} 
+          showCancel={false} 
+        />
       {hasSearched && results.length === 0 && 
         <Text>No results found for "{searchTerm}"</Text>
       }

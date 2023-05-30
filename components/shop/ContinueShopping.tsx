@@ -1,21 +1,27 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 import CustomerBasket from '../account/CustomerBasket';
 import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
+import StackParamList from 'types';
+import { StackActions } from '@react-navigation/native';
 
-type NavigationType = NavigationProp<Record<string, object>, string, any, any, any>;
 
-const ContinueShopping = () => {
-  const navigation = useNavigation<NavigationType>();
+type ContinueShoppingProps = {
+  navigation: NavigationProp<StackParamList>;
+}
+
+
+const ContinueShopping: React.FC<ContinueShoppingProps> = ({ navigation }) => {
+
 
   const handleContinueShopping = () => {
-    navigation.navigate('BrandVarieties', { screen: 'BrandVarieties'}); // Navigate to the BrandVarieties page
+    navigation.dispatch(StackActions.push('BrandVarieties', { screen: 'BrandVarieties'})); // Navigate to the BrandVarieties page
   };
 
   const handleCheckout = () => {
-    navigation.navigate('LoginScreen', { screen: 'LoginScreen'}); // Navigate to the LoginScreen for checkout
+    navigation.dispatch(StackActions.push('LoginScreen', { screen: 'LoginScreen'})); // Navigate to the LoginScreen for checkout
   };
 
   return (

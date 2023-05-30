@@ -4,7 +4,20 @@ import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 import BrandBox from '../shop/BrandBox';
-import { Product } from '../../types/types';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
+
+type OrderedItem = {
+  id: string;
+  product: {
+    id: string;
+    name: string;
+    price: number;
+    brand: string;
+    image: string;
+  };
+};
 
 type ConfirmationPageProps = {
   route: {
@@ -14,17 +27,17 @@ type ConfirmationPageProps = {
       totalAmount: number;
     };
   };
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
 };
 
 const ConfirmationPage: React.FC<ConfirmationPageProps> = ({ route, navigation }) => {
   const { orderID, orderDate, totalAmount } = route.params;
 
   const handleContinueShopping = () => {
-    navigation.navigate('ShopFront');
+    navigation.dispatch(StackActions.push('ShopFront'));
   };
 
-  const renderOrderedItem = ({ item }: { item: { id: string; product: Product } }) => {
+  const renderOrderedItem = ({ item }: { item: OrderedItem }) => {
     const { product } = item;
     return (
       <BrandBox
@@ -38,7 +51,7 @@ const ConfirmationPage: React.FC<ConfirmationPageProps> = ({ route, navigation }
     );
   };
 
-  const orderedItems = [
+  const orderedItems: OrderedItem[] = [
     { id: '1', product: { id: '1', name: 'Product 1', price: 10, brand: 'Brand 1', image: 'image1.jpg' } },
     { id: '2', product: { id: '2', name: 'Product 2', price: 20, brand: 'Brand 2', image: 'image2.jpg' } },
     { id: '3', product: { id: '3', name: 'Product 3', price: 30, brand: 'Brand 3', image: 'image3.jpg' } },

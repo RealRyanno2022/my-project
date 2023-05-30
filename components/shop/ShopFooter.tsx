@@ -9,9 +9,8 @@ type ShopFooterProps = {
   navigation: NavigationProp<StackParamList>;
 }
 
-
 const ShopFooter: React.FC<ShopFooterProps> = ({ navigation }) => {
-  const [isSubscribed, setIsSubscibed] = useState(true);
+  const [isSubscribed, setIsSubscribed] = useState(true);
   const route = useRoute();
 
   const componentNames = ['BrandVarieties','JuiceProductPage','SearchProducts','ContinueShopping','ProductPage','ShopFront', 'VapeScreen', 'JuiceScreen'];
@@ -25,11 +24,12 @@ const ShopFooter: React.FC<ShopFooterProps> = ({ navigation }) => {
 
   const handleVapePress = () => {
     if(isSubscribed) {
-      navigation.navigate("ManageSubscription", { isSubscribed, setIsSubscibed})
+      navigation.dispatch(StackActions.push('ManageSubscription', { isSubscribed, setIsSubscribed}));
     } else {
-      navigation.navigate("SubSignUp", { isSubscribed, setIsSubscibed })
+      navigation.dispatch(StackActions.push("SubSignUp", { isSubscribed, setIsSubscribed }));
     }
   }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.footerContent}>
@@ -39,7 +39,7 @@ const ShopFooter: React.FC<ShopFooterProps> = ({ navigation }) => {
             style={[styles.icon, isShopComponent && styles.disabledIcon]}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('AccountInfo')} disabled={isAccountInfoComponent}>
+        <TouchableOpacity onPress={() => navigation.dispatch(StackActions.push('AccountInfo'))} disabled={isAccountInfoComponent}>
           <Image 
             source={require('../pictures/person-removebg-preview.png')} 
             style={[styles.icon, isAccountInfoComponent && styles.disabledIcon]} 
