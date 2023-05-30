@@ -2,9 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from './shop/ShopHeader';
+import StackParamList from '../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 type NotFoundScreenProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
 }
 
 const NotFoundScreen: React.FC<NotFoundScreenProps> = ({ navigation }) => {

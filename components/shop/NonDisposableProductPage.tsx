@@ -10,12 +10,15 @@ import {
 } from 'react-native';
 import Slider from '@react-native-community/slider';
 import ShopHeader from './ShopHeader';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 import ShopFooter from './ShopFooter';
 // import { Picker } from '@react-native-picker/picker';
 
 type NonDisposableProductPageProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList, "JuiceScreen">;
 }
 
 const NonDisposableProductPage: React.FC<NonDisposableProductPageProps> = ({ navigation }) => {

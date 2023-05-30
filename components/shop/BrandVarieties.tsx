@@ -4,6 +4,9 @@ import BrandBox from './BrandBox';
 import brandData from '../data/BrandData';
 import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 type ProductType = {
   id: string;
@@ -28,7 +31,7 @@ type BrandVarietiesProps = {
       brandName: string;
     };
   };
-  navigation: any; // Update the type for the navigation prop
+  navigation: NavigationProp<StackParamList>;
 };
 
 const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) => {

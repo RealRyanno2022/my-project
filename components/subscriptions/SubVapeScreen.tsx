@@ -5,9 +5,12 @@ import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 type VapeScreenProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
 }
 
 const VapeScreen: React.FC<VapeScreenProps> = ({ navigation }) => {
@@ -15,16 +18,16 @@ const VapeScreen: React.FC<VapeScreenProps> = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleBrandPress = (brandName: string) => {
-    navigation.navigate('ChooseFlavours', { brandName });
+    navigation.dispatch(StackActions.push('ChooseFlavours', { brandName }));
   };
 
   const handleBackPress = () => {
-    navigation.navigate("SubSignUp");
+    navigation.dispatch(StackActions.push(("SubSignUp")));
   }
 
   const handleSearch = () => {
-    navigation.push('SearchProducts', { searchTerm });
-  }
+    navigation.dispatch(StackActions.push('SearchProducts', { searchTerm }));
+}
 
   return (
     <View style={{flex: 1}}>

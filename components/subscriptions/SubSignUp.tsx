@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 type SubSignUpProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
 }
 
 const SubSignUp: React.FC<SubSignUpProps> = ({ navigation }) => {
@@ -47,13 +50,13 @@ const SubSignUp: React.FC<SubSignUpProps> = ({ navigation }) => {
             <Text style={styles.subscriptionOptionPrice}>€279.99/year</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.signUpButton} onPress={() => navigation.navigate("SubVapeScreen")}>
+        <TouchableOpacity style={styles.signUpButton} onPress={() => navigation.dispatch(StackActions.push("SubVapeScreen"))}>
           <Text style={styles.signUpButtonText}>Sign Up</Text>
         </TouchableOpacity>
         <View style={styles.subscriptionInfo}>
             <Text style={styles.subscriptionInfoHeader}>What do I get?</Text>
             <Text style={styles.subscriptionInfoDescription}>
-            Get a vape of your choice each week, hassle free!
+            Get a juice of your choice each week, hassle free!
             </Text>
         </View>
         <View style={styles.subscriptionInfo}>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import { StackParamList } from './types'; 
 import AccountInfo from './components/account/AccountInfo';
 import ProjectInfo from './components/account/ProjectInfo';
 import CustomerBasket from './components/account/CustomerBasket';
@@ -53,42 +53,18 @@ type ConfirmationPageProps = {
   totalAmount: number;
 };
 
-type StackParamList = {
-  AccountInfo: { userId: number };
-  CustomerBasket: undefined;
-  DeleteAccount: undefined;
-  ProjectInfo: undefined;
-  Queries: undefined;
-  Intro: undefined;
-  PrivacyPolicy: undefined;
-  ShopFront: undefined;
-  VerifyAge: undefined;
-  ForgotPassword: undefined;
-  LoginScreen: undefined;
-  NewPassword: undefined;
-  SignUp: undefined;
-  VerifyEmail: undefined;
-  ConfirmationPage: ConfirmationPageProps;
-  DeliveryAddress: undefined;
-  BrandVarieties: undefined;
-  ContinueShopping: undefined;
-  JuiceProductPage: undefined;
-  JuiceScreen: undefined;
-  ProductPage: undefined;
-  SearchProducts: undefined;
-  VapeScreen: undefined;
-  SubSignUp: undefined;
-  SubVapeScreen: undefined;
-  NotFoundScreen: undefined;
-  ChooseFlavours: undefined;
-  ManageSubscription: undefined;
-  CancelMembership: undefined;
-  ChangeAddress: undefined;
-  ChangeFlavours: undefined;
-  CancelConfirm: undefined;
-  NonDisposableScreen: undefined;
-  NonDisposableProductPage: undefined;
+type BrandVarietiesProps = {
+  brandId: number;
+  // Any other props needed
 };
+
+type SearchProductProps = {
+  searchQuery: string;
+  // Any other props needed
+};
+
+
+
 
 const App: React.FC = () => {
   const Stack = createStackNavigator<StackParamList>();

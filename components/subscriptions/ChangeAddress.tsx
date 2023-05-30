@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
-
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 type ChangeAddressProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
 }
 
 const ChangeAddress: React.FC<ChangeAddressProps> = ({ navigation }) => {
@@ -16,7 +18,7 @@ const ChangeAddress: React.FC<ChangeAddressProps> = ({ navigation }) => {
 
   const handleSubmit = () => {
     // Update user's address and navigate to next screen
-    navigation.navigate('ManageSubscription');
+    navigation.dispatch(StackActions.push("ManageSubscription"));
   };
 
   return (

@@ -4,6 +4,9 @@ import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 import BrandBox from '../shop/BrandBox';
 import BrandData from '../data/BrandData';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 // Assuming BrandData looks like { [id: string]: Product }
 type Product = {
@@ -21,7 +24,7 @@ type ChangeFlavoursProps = {
       brandName: string;
     };
   };
-  navigation: any; // Update the type for the navigation prop
+  navigation: NavigationProp<StackParamList>;
 };
 
 const ChangeFlavours: React.FC<ChangeFlavoursProps> =  ({ route, navigation }) => {
@@ -86,7 +89,7 @@ const ChangeFlavours: React.FC<ChangeFlavoursProps> =  ({ route, navigation }) =
 
         <TouchableOpacity
           style={styles.continueButton}
-          onPress={() => navigation.navigate('ManageSubscription', { selectedFlavours })}
+          onPress={() => navigation.dispatch(StackActions.push('ManageSubscription', { selectedFlavours }))}
         >
           <Text style={styles.continueText}>Continue</Text>
         </TouchableOpacity>

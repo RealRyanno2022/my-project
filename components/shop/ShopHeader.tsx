@@ -2,16 +2,19 @@ import { View, Text, Platform } from 'react-native'
 import React, { useState } from 'react'
 import { TouchableOpacity, Appearance } from 'react-native';
 import { Header, Icon, SearchBar } from 'react-native-elements';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 type ShopHeaderProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
 }
 
 const ShopHeader: React.FC<ShopHeaderProps> = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = () => {
-    navigation.push('SearchProducts', { searchTerm });
+    navigation.dispatch(StackActions.push('SearchProducts', { searchTerm }));
   }
 
   const deviceTheme = Appearance.getColorScheme(); // 'light' or 'dark'

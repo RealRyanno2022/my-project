@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader'
 import ShopFooter from '../shop/ShopFooter';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 type AccountInfoProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
 }
 
 

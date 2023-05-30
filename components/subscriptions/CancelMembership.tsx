@@ -2,9 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 type CancelMembershipProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
   route: {
     params: {
       isSubscribed: boolean;
@@ -17,11 +20,11 @@ type CancelMembershipProps = {
 const CancelMembership: React.FC<CancelMembershipProps> = ({ navigation, route }) => {
   const { isSubscribed, setIsSubscribed } = route.params;
   const handleContinue = () => {
-    navigation.navigate('ShopFront');  // Replace with the actual route name
+    navigation.dispatch(StackActions.push("ShopFront"));  // Replace with the actual route name
   };
 
   const handleCancel = () => {
-    navigation.navigate('CancelConfirm', { isSubscribed, setIsSubscribed });
+    navigation.dispatch(StackActions.push('CancelConfirm', { isSubscribed, setIsSubscribed }));
   };
 
   return (

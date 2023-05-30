@@ -3,9 +3,12 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView 
 import ShopHeader from './ShopHeader';
 import brandData from '../data/BrandData';
 import ShopFooter from './ShopFooter';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 type NonDisposableScreenProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
 }
 
 
@@ -22,8 +25,9 @@ const NonDisposableScreen: React.FC<NonDisposableScreenProps> = ({ navigation })
   }
 
   const handleSearch = () => {
-    navigation.push('SearchProducts', { searchTerm });
+    navigation.dispatch(StackActions.push('SearchProducts', { searchTerm }));
   }
+
 
   return (
     <View style={{flex: 1}}>

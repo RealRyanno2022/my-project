@@ -3,9 +3,12 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView 
 import ShopHeader from './ShopHeader';
 import brandData from '../data/BrandData';
 import ShopFooter from './ShopFooter';
+import { NavigationProp } from '@react-navigation/native';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
 
 type JuiceScreenProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList, "JuiceScreen">;
 }
 
 
@@ -14,7 +17,7 @@ const JuiceScreen: React.FC<JuiceScreenProps> = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleBrandPress = (brandName: string) => {
-    navigation.navigate('BrandVarieties', { brandName });
+    navigation.navigate('BrandVarieties', { brandName: brandName });
   };
 
   const handleBackPress = () => {
@@ -22,7 +25,7 @@ const JuiceScreen: React.FC<JuiceScreenProps> = ({ navigation }) => {
   }
 
   const handleSearch = () => {
-    navigation.push('SearchProducts', { searchTerm });
+    navigation.dispatch(StackActions.push('SearchProducts', { searchTerm }));
   }
 
   return (

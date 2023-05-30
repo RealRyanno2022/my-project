@@ -3,9 +3,12 @@ import { View, Button, StyleSheet, Image, Text } from 'react-native';
 // import Carousel from 'react-native-snap-carousel'; // you need to install this
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
+import StackParamList from '../../types/types';
+import { StackActions } from '@react-navigation/native';
+import { NavigationProp } from '@react-navigation/native';
 
 type ManageSubscriptionProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
   user: any;
 }
 
@@ -57,19 +60,19 @@ const ManageSubscription: React.FC<ManageSubscriptionProps> = ({ navigation, use
             /> */}
 
             {subscription.type === 'monthly' && (
-                <Button title="Upgrade to yearly" onPress={() => navigation.navigate('UpgradeMembership')} />
+                <Button title="Upgrade to yearly" onPress={() => navigation.dispatch(StackActions.push(('UpgradeMembership')))} />
             )}
             
             <Button
               title="Cancel Membership"
-              onPress={() => navigation.navigate('CancelMembership', { isSubscribed, setIsSubscribed })}
+              onPress={() => navigation.dispatch(StackActions.push('CancelMembership', { isSubscribed, setIsSubscribed }))}
             />
             
-            <Button title="Change Credit Card Information" onPress={() => navigation.navigate('ChangeCreditCard')} />
+            <Button title="Change Credit Card Information" onPress={() => navigation.dispatch(StackActions.push('ChangeCreditCard'))} />
             
-            <Button title="Change Address" onPress={() => navigation.navigate('ChangeAddress')} />
+            <Button title="Change Address" onPress={() => navigation.dispatch(StackActions.push('ChangeAddress'))} />
 
-            <Button title="Change Flavours" onPress={() => navigation.navigate('ChangeFlavours')} />
+            <Button title="Change Flavours" onPress={() => navigation.dispatch(StackActions.push('ChangeFlavours'))} />
         </View>
           <ShopFooter navigation={navigation} />
         </View>
