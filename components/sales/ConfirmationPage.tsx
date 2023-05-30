@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
-import BrandBox from '../shop/BrandBox'; // Import the Product type from BrandBox
+import BrandBox from '../shop/BrandBox';
 import { Product } from '../../types/types';
 
 type ConfirmationPageProps = {
@@ -26,15 +26,16 @@ const ConfirmationPage: React.FC<ConfirmationPageProps> = ({ route, navigation }
 
   const renderOrderedItem = ({ item }: { item: { id: string; product: Product } }) => {
     const { product } = item;
-    return(
-    <BrandBox
-    product={product}
-    navigation={navigation}
-    selected={false}
-    quantity={0}
-    onSelect={() => {}}
-    onDeselect={() => {}}
-  />);
+    return (
+      <BrandBox
+        product={product}
+        navigation={navigation}
+        selected={false}
+        quantity={0}
+        onSelect={() => {}}
+        onDeselect={() => {}}
+      />
+    );
   };
 
   const orderedItems = [
