@@ -27,6 +27,8 @@ import JuiceScreen from './components/shop/JuiceScreen';
 import ProductPage from './components/shop/ProductPage';
 import SearchProducts, { SearchProductProps } from './components/shop/SearchProducts';
 import VapeScreen from './components/shop/VapeScreen';
+import NonDisposableScreen from 'components/shop/NonDisposableScreen';
+import NonDisposableProductPage from 'components/shop/NonDisposableProductPage';
 
 import NotFoundScreen from './components/NotFoundScreen';
 
@@ -87,6 +89,8 @@ type StackParamList = {
   ChangeAddress: undefined;
   ChangeFlavours: ChangeFlavoursProps;
   CancelConfirm: CancelConfirmProps;
+  NonDisposableScreen: NonDisposableScreenProps;
+  NonDisposableProductPage: NonDisposableProductPageProps;
 };
 
 type BrandVarietiesProps = {
@@ -149,6 +153,8 @@ const App: React.FC = () => {
           <Stack.Screen name="ProductPage" component={ProductPage} />
           <Stack.Screen name="SearchProducts" component={SearchProducts} />
           <Stack.Screen name="VapeScreen" component={VapeScreen} />
+          <Stack.Screen name="NonDisposableScreen" component={NonDisposableScreen} />
+          <Stack.Screen name="NonDisposableProductPage" component={NonDisposableProductPage} />
 
           <Stack.Screen name="SubSignUp" component={SubSignUp} />
           <Stack.Screen name="SubVapeScreen" component={SubVapeScreen} />
