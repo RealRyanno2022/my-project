@@ -21,14 +21,14 @@ import VerifyEmail from './components/register/VerifyEmail';
 
 import DeliveryAddress from './components/sales/DeliveryAddress';
 
-import BrandVarieties, { BrandVarietiesProps } from './components/shop/BrandVarieties';
+import BrandVarieties from './components/shop/BrandVarieties';
 import JuiceProductPage from './components/shop/JuiceProductPage';
 import JuiceScreen from './components/shop/JuiceScreen';
 import ProductPage from './components/shop/ProductPage';
-import SearchProducts, { SearchProductProps } from './components/shop/SearchProducts';
+import SearchProducts from './components/shop/SearchProducts';
 import VapeScreen from './components/shop/VapeScreen';
-import NonDisposableScreen from 'components/shop/NonDisposableScreen';
-import NonDisposableProductPage from 'components/shop/NonDisposableProductPage';
+import NonDisposableScreen from './components/shop/NonDisposableScreen';
+import NonDisposableProductPage from './components/shop/NonDisposableProductPage';
 
 import NotFoundScreen from './components/NotFoundScreen';
 
@@ -36,13 +36,12 @@ import ContinueShopping from './components/shop/ContinueShopping';
 
 import SubSignUp from './components/subscriptions/SubSignUp';
 import SubVapeScreen from './components/subscriptions/SubVapeScreen';
-import ChooseFlavours, { ChooseFlavoursProps } from './components/subscriptions/ChooseFlavours';
-import ManageSubscription, { ManageSubscriptionProps } from './components/subscriptions/ManageSubscription';
+import ChooseFlavours from './components/subscriptions/ChooseFlavours';
+import ManageSubscription from './components/subscriptions/ManageSubscription';
 
 import ChangeAddress from './components/subscriptions/ChangeAddress';
-import CancelMembership, { CancelMembershipProps } from './components/subscriptions/CancelMembership';
-import ChangeFlavours, { ChangeFlavoursProps } from './components/subscriptions/ChangeFlavours';
-import CancelConfirm, { CancelConfirmProps } from './components/subscriptions/CancelConfirm';
+import CancelMembership from './components/subscriptions/CancelMembership';
+import CancelConfirm from './components/subscriptions/CancelConfirm';
 
 import { View, Appearance } from 'react-native';
 
@@ -53,8 +52,6 @@ type ConfirmationPageProps = {
   orderDate: string;
   totalAmount: number;
 };
-
-
 
 type StackParamList = {
   AccountInfo: { userId: number };
@@ -73,44 +70,33 @@ type StackParamList = {
   VerifyEmail: undefined;
   ConfirmationPage: ConfirmationPageProps;
   DeliveryAddress: undefined;
-  BrandVarieties: BrandVarietiesProps;
+  BrandVarieties: undefined;
   ContinueShopping: undefined;
   JuiceProductPage: undefined;
   JuiceScreen: undefined;
   ProductPage: undefined;
-  SearchProducts: SearchProductProps;
+  SearchProducts: undefined;
   VapeScreen: undefined;
   SubSignUp: undefined;
   SubVapeScreen: undefined;
   NotFoundScreen: undefined;
-  ChooseFlavours: ChooseFlavoursProps;
-  ManageSubscription: ManageSubscriptionProps;
-  CancelMembership: CancelMembershipProps;
+  ChooseFlavours: undefined;
+  ManageSubscription: undefined;
+  CancelMembership: undefined;
   ChangeAddress: undefined;
-  ChangeFlavours: ChangeFlavoursProps;
-  CancelConfirm: CancelConfirmProps;
-  NonDisposableScreen: NonDisposableScreenProps;
-  NonDisposableProductPage: NonDisposableProductPageProps;
-};
-
-type BrandVarietiesProps = {
-  route: {
-    params: {
-      brandName: string;
-    };
-  };
-  navigation: any; // Update the type for the navigation prop
+  ChangeFlavours: undefined;
+  CancelConfirm: undefined;
+  NonDisposableScreen: undefined;
+  NonDisposableProductPage: undefined;
 };
 
 const App: React.FC = () => {
   const Stack = createStackNavigator<StackParamList>();
 
   const WrappedConfirmationPage: React.FC = () => (
-    <ConfirmationPage
-      orderID="defaultID"
-      orderDate="defaultDate"
-      totalAmount={0}
-    />
+    <View>
+      {/* Placeholder content */}
+    </View>
   );
 
   const deviceTheme = Appearance.getColorScheme(); // 'light' or 'dark'
@@ -153,8 +139,14 @@ const App: React.FC = () => {
           <Stack.Screen name="ProductPage" component={ProductPage} />
           <Stack.Screen name="SearchProducts" component={SearchProducts} />
           <Stack.Screen name="VapeScreen" component={VapeScreen} />
-          <Stack.Screen name="NonDisposableScreen" component={NonDisposableScreen} />
-          <Stack.Screen name="NonDisposableProductPage" component={NonDisposableProductPage} />
+          <Stack.Screen
+            name="NonDisposableScreen"
+            component={NonDisposableScreen}
+          />
+          <Stack.Screen
+            name="NonDisposableProductPage"
+            component={NonDisposableProductPage}
+          />
 
           <Stack.Screen name="SubSignUp" component={SubSignUp} />
           <Stack.Screen name="SubVapeScreen" component={SubVapeScreen} />
@@ -172,7 +164,11 @@ const App: React.FC = () => {
           />
           <Stack.Screen name="ChangeAddress" component={ChangeAddress} />
           <Stack.Screen name="ChangeFlavours" component={ChangeFlavours} />
-          <Stack.Screen name="CancelConfirm" component={CancelConfirm} initialParams={{ isSubscribed }} />
+          <Stack.Screen
+            name="CancelConfirm"
+            component={CancelConfirm}
+            initialParams={{ isSubscribed }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
