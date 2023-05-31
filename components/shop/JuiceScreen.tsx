@@ -4,7 +4,7 @@ import ShopHeader from './ShopHeader';
 import brandData from '../data/BrandData';
 import ShopFooter from './ShopFooter';
 import { NavigationProp } from '@react-navigation/native';
-import StackParamList from '../../types/types';
+import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 
 type JuiceScreenProps = {

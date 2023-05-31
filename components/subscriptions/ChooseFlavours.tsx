@@ -4,7 +4,7 @@ import BrandBox from '../shop/BrandBox';
 import brandData from '../data/BrandData';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
-import StackParamList from '../../types/types';
+import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
 

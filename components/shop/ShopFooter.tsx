@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import StackParamList from '../../types/types';
+import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
 

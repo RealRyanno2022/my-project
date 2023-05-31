@@ -2,7 +2,7 @@ import { View, Text, Platform } from 'react-native'
 import React, { useState } from 'react'
 import { TouchableOpacity, Appearance } from 'react-native';
 import { Header, Icon, SearchBar } from 'react-native-elements';
-import StackParamList from '../../types/types';
+import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
 

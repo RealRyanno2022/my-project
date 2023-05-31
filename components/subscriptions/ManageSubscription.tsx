@@ -3,7 +3,7 @@ import { View, Button, StyleSheet, Image, Text } from 'react-native';
 // import Carousel from 'react-native-snap-carousel'; // you need to install this
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
-import StackParamList from '../../types/types';
+import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
 

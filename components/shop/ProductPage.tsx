@@ -12,7 +12,7 @@ import Slider from '@react-native-community/slider';
 import { Header, SearchBar, Icon } from 'react-native-elements';
 import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
-import StackParamList from '../../types/types';
+import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
 

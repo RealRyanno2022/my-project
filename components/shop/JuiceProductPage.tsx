@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Slider from '@react-native-community/slider';
 import ShopHeader from './ShopHeader';
-import StackParamList from '../../types/types';
+import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
 

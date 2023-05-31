@@ -2,39 +2,38 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import ShopHeader from '../shop/ShopHeader'
 import ShopFooter from '../shop/ShopFooter';
-import StackParamList from '../../types/types';
-import { StackActions } from '@react-navigation/native';
-import { NavigationProp } from '@react-navigation/native';
+import { StackParamList } from '../../types/types';
+import { StackActions, NavigationProp } from '@react-navigation/native';
 
 type AccountInfoProps = {
   navigation: NavigationProp<StackParamList>;
 }
 
-
 const AccountInfo: React.FC<AccountInfoProps> = ({ navigation }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Add state to track whether user is signed in
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleSignOut = () => {
     // Handle sign out logic here
-    navigation.navigate("ShopFront")
+    navigation.navigate("ShopFront");
     setIsLoggedIn(false); // Set isLoggedIn to false when user signs out
   };
 
   const handleSignIn = () => {
     // Handle sign in logic here
-    navigation.navigate("LoginScreen")
+    navigation.navigate("LoginScreen");
     // setIsLoggedIn(true); // Set isLoggedIn to true when user signs in
   };
 
   const handleSignUp = () => {
     // Handle sign up logic here
-    navigation.navigate("SignUp")
+    navigation.navigate("SignUp");
   };
 
-  const [searchTerm, setSearchTerm] = useState('');
-
   const handleSearch = () => {
-    navigation.push('SearchProducts', { searchTerm });
+    navigation.dispatch(
+      StackActions.push('SearchProducts', { searchTerm: searchTerm })
+    );
   }
 
   return (

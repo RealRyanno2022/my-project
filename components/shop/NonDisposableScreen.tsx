@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView 
 import ShopHeader from './ShopHeader';
 import brandData from '../data/BrandData';
 import ShopFooter from './ShopFooter';
-import StackParamList from '../../types/types';
+import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
 

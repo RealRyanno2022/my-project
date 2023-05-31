@@ -3,7 +3,7 @@ import { View, TextInput, Text, FlatList, StyleSheet, Appearance } from 'react-n
 import { Header, SearchBar, Icon } from 'react-native-elements'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ShopFooter from './ShopFooter';
-import StackParamList from '../../types/types';
+import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
 

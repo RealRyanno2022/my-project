@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
-import StackParamList from '../../types/types';
+import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 import { NavigationProp } from '@react-navigation/native';
 

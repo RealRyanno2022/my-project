@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StackParamList } from './types'; 
 import AccountInfo from './components/account/AccountInfo';
 import ProjectInfo from './components/account/ProjectInfo';
 import CustomerBasket from './components/account/CustomerBasket';
 import Queries from './components/account/Queries';
 import DeleteAccount from './components/account/DeleteAccount';
+import { BrandVarietiesProps, StackParamList } from './types/types';
 
 import Intro from './components/onboarding/Intro';
 import PrivacyPolicy from './components/onboarding/PrivacyPolicy';
@@ -47,21 +47,7 @@ import { View, Appearance } from 'react-native';
 
 import { lightStyles, darkStyles } from './styles.js';
 
-type ConfirmationPageProps = {
-  orderID: string;
-  orderDate: string;
-  totalAmount: number;
-};
 
-type BrandVarietiesProps = {
-  brandId: number;
-  // Any other props needed
-};
-
-type SearchProductProps = {
-  searchQuery: string;
-  // Any other props needed
-};
 
 
 
@@ -108,12 +94,12 @@ const App: React.FC = () => {
           />
           <Stack.Screen name="DeliveryAddress" component={DeliveryAddress} />
 
-          <Stack.Screen name="BrandVarieties" component={BrandVarieties} />
+          <Stack.Screen name="BrandVarieties" component={BrandVarieties as any} />
           <Stack.Screen name="ContinueShopping" component={ContinueShopping} />
           <Stack.Screen name="JuiceProductPage" component={JuiceProductPage} />
           <Stack.Screen name="JuiceScreen" component={JuiceScreen} />
           <Stack.Screen name="ProductPage" component={ProductPage} />
-          <Stack.Screen name="SearchProducts" component={SearchProducts} />
+          <Stack.Screen name="SearchProducts" component={SearchProducts as any} />
           <Stack.Screen name="VapeScreen" component={VapeScreen} />
           <Stack.Screen
             name="NonDisposableScreen"
@@ -128,22 +114,22 @@ const App: React.FC = () => {
           <Stack.Screen name="SubVapeScreen" component={SubVapeScreen} />
 
           <Stack.Screen name="NotFoundScreen" component={NotFoundScreen} />
-          <Stack.Screen name="ChooseFlavours" component={ChooseFlavours} />
-          <Stack.Screen
+          <Stack.Screen name="ChooseFlavours" component={ChooseFlavours as any} />
+          <Stack.Screen 
             name="ManageSubscription"
-            component={ManageSubscription}
+            component={ManageSubscription as any}
           />
 
           <Stack.Screen
             name="CancelMembership"
-            component={CancelMembership}
+            component={CancelMembership as any}
           />
           <Stack.Screen name="ChangeAddress" component={ChangeAddress} />
-          <Stack.Screen name="ChangeFlavours" component={ChangeFlavours} />
+          {/* <Stack.Screen name="ChangeFlavours" component={ChangeFlavours as any} /> */}
           <Stack.Screen
             name="CancelConfirm"
-            component={CancelConfirm}
-            initialParams={{ isSubscribed }}
+            component={CancelConfirm as any}
+
           />
         </Stack.Navigator>
       </NavigationContainer>

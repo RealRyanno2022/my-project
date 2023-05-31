@@ -1,4 +1,14 @@
-type StackParamList = {
+import { NavigationProp } from "@react-navigation/native";
+
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+export type BrandVarietiesProps = {
+  route: RouteProp<StackParamList, 'BrandVarieties'>;
+  navigation: StackNavigationProp<StackParamList, 'BrandVarieties'>;
+};
+
+export type StackParamList = {
   AccountInfo: { userId: number };
   CustomerBasket: undefined;
   DeleteAccount: undefined;
@@ -15,9 +25,7 @@ type StackParamList = {
   VerifyEmail: undefined;
   ConfirmationPage: undefined;
   DeliveryAddress: undefined;
-  BrandVarieties: {
-    brandName: string;
-  }
+  BrandVarieties: BrandVarietiesProps;
   ContinueShopping: undefined;
   JuiceProductPage: undefined;
   JuiceScreen: undefined;
@@ -37,4 +45,3 @@ type StackParamList = {
   NonDisposableProductPage: undefined;
 };
 
-  export default StackParamList;

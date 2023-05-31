@@ -4,9 +4,9 @@ import BrandBox from './BrandBox';
 import brandData from '../data/BrandData';
 import ShopHeader from './ShopHeader';
 import ShopFooter from './ShopFooter';
-import StackParamList from '../../types/types';
-import { StackActions } from '@react-navigation/native';
-import { NavigationProp } from '@react-navigation/native';
+import { StackParamList } from '../../types/types';
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 type ProductType = {
   id: string;
@@ -26,22 +26,23 @@ type BrandBoxProps = {
 };
 
 type BrandVarietiesProps = {
-  route: {
-    params: {
-      brandName: string;
-    };
-  };
-  navigation: NavigationProp<StackParamList>;
+  route: RouteProp<StackParamList, 'BrandVarieties'>;
+  navigation: StackNavigationProp<StackParamList, 'BrandVarieties'>;
 };
 
 const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) => {
   const { brandName } = route.params;
+
+  if (!brandName) {
+    return <View><Text>No Brand Name Provided</Text></View>;
+  }
+
   const [varieties, setVarieties] = useState<ProductType[]>([]);
 
   useEffect(() => {
     const dataAsArray = Object.entries(brandData).map(([id, product]) => ({ ...product, id }));
     const filteredData = dataAsArray.filter(product => product.brand === brandName);
-    setVarieties(filteredData);
+    setVarieties(filteredData as ProductType[]);
   }, [brandName]);
 
   const handleSelect = () => {
@@ -57,19 +58,19 @@ const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) =>
       <ShopHeader navigation={navigation} />
       <Text style={styles.title}>{brandName} Varieties</Text>
       <FlatList 
-  data={varieties.map(item => ({ ...item, price: item.price || 0 }))}
-  keyExtractor={item => item.id}
-  renderItem={({ item }) => (
-    <BrandBox 
-      product={item as ProductType} 
-      navigation={navigation} 
-      selected={false}
-      quantity={0}
-      onSelect={handleSelect}
-      onDeselect={handleDeselect}
-    />
-  )}
-/>
+        data={varieties.map(item => ({ ...item, price: item.price || 0 }))}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => (
+          <BrandBox 
+            product={item} 
+            navigation={navigation} 
+            selected={false}
+            quantity={0}
+            onSelect={handleSelect}
+            onDeselect={handleDeselect}
+          />
+        )}
+      />
       <ShopFooter navigation={navigation}/>
     </View>
   );
@@ -89,10 +90,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
-  },
-  listContainer: {
-    paddingHorizontal: 20,
-    paddingBottom: 20,
   },
 });
 
