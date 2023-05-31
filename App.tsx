@@ -43,14 +43,40 @@ import ChangeAddress from './components/subscriptions/ChangeAddress';
 import CancelMembership from './components/subscriptions/CancelMembership';
 import CancelConfirm from './components/subscriptions/CancelConfirm';
 
-import { View, Appearance } from 'react-native';
+import { View, Appearance, Text } from 'react-native';
 
 import { lightStyles, darkStyles } from './styles.js';
 
+interface Props {
+  children: React.ReactNode;
+}
 
 
+class ErrorBoundary extends React.Component<Props> {
+  state = {
+    hasError: false,
+    error: null,
+  };
 
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
 
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error('An error occurred:', error);
+    console.error('Error info:', errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <View>
+        <Text>Error encountered</Text>
+        </View>;
+    }
+
+    return this.props.children;
+  }
+}
 
 const App: React.FC = () => {
   const Stack = createStackNavigator<StackParamList>();
@@ -68,6 +94,7 @@ const App: React.FC = () => {
   const styles = isDarkMode ? darkStyles : lightStyles;
 
   return (
+    <ErrorBoundary>
     <View style={{ backgroundColor: styles.background }}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Intro">
@@ -134,7 +161,12 @@ const App: React.FC = () => {
         </Stack.Navigator>
       </NavigationContainer>
     </View>
-  );
-};
+    </ErrorBoundary>
+
+ 
+  )
+}
+
+
 
 export default App;
