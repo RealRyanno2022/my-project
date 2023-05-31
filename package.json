@@ -22,7 +22,7 @@
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "braintree": "^3.15.0",
-    "braintree-web": "^3.93.0",
+    "braintree-web": "^3.94.0",
     "braintree-web-drop-in": "^1.37.0",
     "cors": "^2.8.5",
     "emailjs-com": "^3.2.0",

@@ -20,5 +20,8 @@
     "metro.config.js",
     "jest.config.js"
   ],
+  "include": [
+    "typings/*.d.ts"
+  ],
   "extends": "expo/tsconfig.base"
 }
