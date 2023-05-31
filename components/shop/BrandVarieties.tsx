@@ -35,13 +35,14 @@ type BrandData = {
   [id: string]: Product;
 };
 
+
 const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) => {
   const { brandName } = route.params;
 
   const [varieties, setVarieties] = useState<Product[]>([]);
 
   useEffect(() => {
-    const filteredData = Object.values(brandData).filter((product) => product.brand === brandName);
+    const filteredData = Object.values(brandData).filter((product) => (product as Product).brand === brandName);
     setVarieties(filteredData as Product[]);
   }, [brandName]);
 
