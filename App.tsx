@@ -87,6 +87,7 @@ const App: React.FC = () => {
     </View>
   );
 
+  console.log("It's gucci!")
   const deviceTheme = Appearance.getColorScheme(); // 'light' or 'dark'
   const [isDarkMode, setIsDarkMode] = useState(deviceTheme === 'dark');
   const [isSubscribed, setIsSubscribed] = useState(true);
