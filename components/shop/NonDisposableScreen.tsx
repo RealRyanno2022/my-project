@@ -17,11 +17,11 @@ const NonDisposableScreen: React.FC<NonDisposableScreenProps> = ({ navigation })
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleBrandPress = (brandName: string) => {
-    navigation.navigate('BrandVarieties', { brandName });
+    navigation.dispatch(StackActions.push('BrandVarieties', { brandName }));
   };
 
   const handleBackPress = () => {
-    navigation.navigate("ShopFront");
+    navigation.dispatch(StackActions.push(("ShopFront")));
   }
 
   const handleSearch = () => {

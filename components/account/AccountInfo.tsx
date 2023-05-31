@@ -53,10 +53,10 @@ const AccountInfo: React.FC<AccountInfoProps> = ({ navigation }) => {
             <TouchableOpacity style={styles.card} onPress={handleSignOut}>
               <Text style={styles.cardText}>Sign Out</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('DeleteAccount')}>
+            <TouchableOpacity style={styles.card} onPress={() => navigation.dispatch(StackActions.push(('DeleteAccount')))}>
               <Text style={styles.cardText}>Delete Account</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('ChangePassword')}>
+            <TouchableOpacity style={styles.card} onPress={() => navigation.dispatch(StackActions.push(('ChangePassword')))}>
               <Text style={styles.cardText}>Change Password</Text>
             </TouchableOpacity>
           </>

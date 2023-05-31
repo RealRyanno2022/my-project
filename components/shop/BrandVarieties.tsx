@@ -8,7 +8,7 @@ import { StackParamList } from '../../types/types';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
-type ProductType = {
+type Product = {
   id: string;
   name: string;
   price: number;
@@ -17,7 +17,7 @@ type ProductType = {
 };
 
 type BrandBoxProps = {
-  product: ProductType;
+  product: Product;
   navigation: any;
   selected: boolean;
   quantity: number;
@@ -28,21 +28,21 @@ type BrandBoxProps = {
 type BrandVarietiesProps = {
   route: RouteProp<StackParamList, 'BrandVarieties'>;
   navigation: StackNavigationProp<StackParamList, 'BrandVarieties'>;
+  brandName: string;
+};
+
+type BrandData = {
+  [id: string]: Product;
 };
 
 const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) => {
   const { brandName } = route.params;
 
-  if (!brandName) {
-    return <View><Text>No Brand Name Provided</Text></View>;
-  }
-
-  const [varieties, setVarieties] = useState<ProductType[]>([]);
+  const [varieties, setVarieties] = useState<Product[]>([]);
 
   useEffect(() => {
-    const dataAsArray = Object.entries(brandData).map(([id, product]) => ({ ...product, id }));
-    const filteredData = dataAsArray.filter(product => product.brand === brandName);
-    setVarieties(filteredData as ProductType[]);
+    const filteredData = Object.values(brandData).filter((product) => product.brand === brandName);
+    setVarieties(filteredData as Product[]);
   }, [brandName]);
 
   const handleSelect = () => {
@@ -58,7 +58,7 @@ const BrandVarieties: React.FC<BrandVarietiesProps> = ({ route, navigation }) =>
       <ShopHeader navigation={navigation} />
       <Text style={styles.title}>{brandName} Varieties</Text>
       <FlatList 
-        data={varieties.map(item => ({ ...item, price: item.price || 0 }))}
+        data={varieties}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <BrandBox 

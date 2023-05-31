@@ -7,22 +7,28 @@ import { NavigationProp } from '@react-navigation/native';
 import { StackParamList } from '../../types/types';
 import { StackActions } from '@react-navigation/native';
 
+type ProductType = {
+  id: string;
+  name: string;
+  price: number;
+  brand?: string; // Make brand property optional
+  image: string;
+};
+
 type JuiceScreenProps = {
   navigation: NavigationProp<StackParamList, "JuiceScreen">;
 }
 
-
 const JuiceScreen: React.FC<JuiceScreenProps> = ({ navigation }) => {
-
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleBrandPress = (brandName: string) => {
-    navigation.navigate('BrandVarieties', { brandName: brandName });
+    navigation.dispatch(StackActions.push('BrandVarieties', { brandName }));
   };
-
+  
   const handleBackPress = () => {
-    navigation.navigate("ShopFront");
-  }
+    navigation.dispatch(StackActions.push('ShopFront'));
+  };
 
   const handleSearch = () => {
     navigation.dispatch(StackActions.push('SearchProducts', { searchTerm }));

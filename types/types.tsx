@@ -6,6 +6,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 export type BrandVarietiesProps = {
   route: RouteProp<StackParamList, 'BrandVarieties'>;
   navigation: StackNavigationProp<StackParamList, 'BrandVarieties'>;
+  brandName: string;
 };
 
 export type StackParamList = {
@@ -44,4 +45,3 @@ export type StackParamList = {
   NonDisposableScreen: undefined;
   NonDisposableProductPage: undefined;
 };
-
