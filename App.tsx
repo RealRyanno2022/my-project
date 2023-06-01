@@ -34,6 +34,8 @@ import NotFoundScreen from './components/NotFoundScreen';
 
 import ContinueShopping from './components/shop/ContinueShopping';
 
+// hello!
+
 import SubSignUp from './components/subscriptions/SubSignUp';
 import SubVapeScreen from './components/subscriptions/SubVapeScreen';
 import ChooseFlavours from './components/subscriptions/ChooseFlavours';
