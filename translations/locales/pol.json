@@ -51,7 +51,7 @@ export default {
     "totalPrice": "Całkowita cena: ",
     "addToCart": "Dodaj do koszyka",
     "standardShipping": "Standardowa wysyłka",
-    "noResultsFor": 'Brak wyników dla "',
+    "noResultsFor": "Brak wyników dla ",
     "searchPlaceholder": "Szukaj",
     "brands": ["Elfa Bar", "Jewel Mini", "Lost Mary", "Elf Bar", "IVG Bar"],
   
