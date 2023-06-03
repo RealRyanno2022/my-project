@@ -1,3 +1,1 @@
-declare module 'applepayjs' {
-    
-}
+declare module 'applepayjs';
