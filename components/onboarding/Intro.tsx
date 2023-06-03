@@ -41,7 +41,7 @@ const Intro: React.FC<IntroProps> = ({ navigation }) => {
     }, 4000);
 
     setTimeout(() => {
-      navigation.navigate('VerifyAge');
+      navigation.navigate('LanguageSelect');
     }, 100);
   }, []);
 
