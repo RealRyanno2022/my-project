@@ -105,74 +105,74 @@ export default {
     "invalidEmailError": "Neteisingas el. paštas: Nėra @",
     "invalidPasswordError": "Neteisingas slaptažodis",
     "passwordsMismatchError": "Slaptažodžiai nesutampa",
-"passwordPolicy": "Turi turėti mažiausiai 8 raidžių, 1 skaičių ir 1 nealfanumerinį simbolį (?, !, $)",
-"signUpUsernameLabel": "Vartotojo vardas",
-"signUpEmailLabel": "El. paštas",
-"signUpPasswordLabel": "Slaptažodis",
-"signUpConfirmPasswordLabel": "Patvirtinti slaptažodį",
-"signUpPrompt": "Registruotis",
+    "passwordPolicy": "Turi turėti mažiausiai 8 raidžių, 1 skaičių ir 1 nealfanumerinį simbolį (?, !, $)",
+    "signUpUsernameLabel": "Vartotojo vardas",
+    "signUpEmailLabel": "El. paštas",
+    "signUpPasswordLabel": "Slaptažodis",
+    "signUpConfirmPasswordLabel": "Patvirtinti slaptažodį",
+    "signUpPrompt": "Registruotis",
 
-"verifyEmailMessage": "12 skaitmenų kodas buvo išsiųstas į jūsų el. pašto adresą. Įveskite jį čia, kad patvirtintumėte savo el. paštą:",
-"verifyButton": "PATVIRTINTI",
-"sendCodeButton": "SIŲSTI KODĄ",
-"goBackButton": "Grįžti atgal",
+    "verifyEmailMessage": "12 skaitmenų kodas buvo išsiųstas į jūsų el. pašto adresą. Įveskite jį čia, kad patvirtintumėte savo el. paštą:",
+    "verifyButton": "PATVIRTINTI",
+    "sendCodeButton": "SIŲSTI KODĄ",
+    "goBackButton": "Grįžti atgal",
 
-"introBrand": "Candii",
-"introSubText": "Vienkartiniai e-cigaretės ir e-skystis",
+    "introBrand": "Candii",
+    "introSubText": "Vienkartiniai e-cigaretės ir e-skystis",
 
-"privacyPolicy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at rutrum ipsum. Cras pharetra vulputate mattis.",
-"privacyPolicyAcceptance": "Aš perskaičiau ir sutinku su Privatumo politika",
+    "privacyPolicy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at rutrum ipsum. Cras pharetra vulputate mattis.",
+    "privacyPolicyAcceptance": "Aš perskaičiau ir sutinku su Privatumo politika",
 
-"disposables": "Vienkartinės",
-"juice": "Skystis",
+    "disposables": "Vienkartinės",
+    "juice": "Skystis",
 
-"ageVerification": "Amžiaus patvirtinimas",
-"yesOver18": "Taip, man yra daugiau nei 18 metų",
-"noUnder18": "Ne, man yra iki 18 metų",
+    "ageVerification": "Amžiaus patvirtinimas",
+    "yesOver18": "Taip, man yra daugiau nei 18 metų",
+    "noUnder18": "Ne, man yra iki 18 metų",
 
-"usernameDisplay": "Jūsų vartotojo vardas yra ",
-"emailDisplay": "Jūsų el. pašto adresas yra ",
-"backButton": "Atgal",
-"projectButton": "Projektas",
-"signOutButton": "Atsijungti",
-"deleteAccountButton": "Ištrinti paskyrą",
-"changePasswordButton": "Keisti slaptažodį",
-"logInButton": "Prisijungti",
-"signUpButton": "Registruotis",
+    "usernameDisplay": "Jūsų vartotojo vardas yra ",
+    "emailDisplay": "Jūsų el. pašto adresas yra ",
+    "backButton": "Atgal",
+    "projectButton": "Projektas",
+    "signOutButton": "Atsijungti",
+    "deleteAccountButton": "Ištrinti paskyrą",
+    "changePasswordButton": "Keisti slaptažodį",
+    "logInButton": "Prisijungti",
+    "signUpButton": "Registruotis",
 
-"changePasswordCard": "Keisti slaptažodį",
-"oldPasswordPlaceholder": "Senas slaptažodis",
-"newPasswordPlaceholder": "Naujas slaptažodis",
-"confirmNewPasswordPlaceholder": "Patvirtinti naują slaptažodį",
+    "changePasswordCard": "Keisti slaptažodį",
+    "oldPasswordPlaceholder": "Senas slaptažodis",
+    "newPasswordPlaceholder": "Naujas slaptažodis",
+    "confirmNewPasswordPlaceholder": "Patvirtinti naują slaptažodį",
 
-"deleteAccountPrompt": "Ar tikrai norite ištrinti savo paskyrą? Šis veiksmas negrįžtamai",
-"deleteAccountWarning": "Tai ištrins jūsų pirkimų istoriją, jūsų paskyros ir krepšelio įrašus",
-"confirmDeleteButton": "Ištrinti paskyrą",
+    "deleteAccountPrompt": "Ar tikrai norite ištrinti savo paskyrą? Šis veiksmas negrįžtamai",
+    "deleteAccountWarning": "Tai ištrins jūsų pirkimų istoriją, jūsų paskyros ir krepšelio įrašus",
+    "confirmDeleteButton": "Ištrinti paskyrą",
 
-"projectCard": "Projektas",
-"projectFeatures": [
-"Sukurta naudojant React Native, Daniel Ryan, 2023 m.",
-"Savybės:",
-"- Braintree SDK mokėjimams",
-"- Pilnas paskyros kūrimo sistema su PostgreSQL",
-"- Node ir Express serveris",
-"- Pilnas elektroninės prekybos vartotojo sąsaja"
-],
+    "projectCard": "Projektas",
+    "projectFeatures": [
+    "Sukurta naudojant React Native, Daniel Ryan, 2023 m.",
+    "Savybės:",
+    "- Braintree SDK mokėjimams",
+    "- Pilnas paskyros kūrimo sistema su PostgreSQL",
+    "- Node ir Express serveris",
+    "- Pilnas elektroninės prekybos vartotojo sąsaja"
+    ],
 
-"haveAQuery": "Turite klausimą? Drąsiai paklauskite!",
+    "haveAQuery": "Turite klausimą? Drąsiai paklauskite!",
 
-"faq": [
-{
-"question": "Ar siunčiate užsienyje?",
-"answer": "Taip, mes siunčiame į įvairias šalis, bet tai gali būti brangiau",
-},
-{
-"question": "Mano užsakymas buvo pažeistas. Ar galiu gauti grąžinimą?",
-"answer": "Žinoma! Susisiekite su mumis per viršuje esantį formą",
-},
-{
-"question": "Ar ketinate siūlyti naujus e-cigaretės variantus?",
-"answer": "Žinoma! Pasidalinkite savo pasiūlymais per mūsų formą!",
-},
-]
+    "faq": [
+    {
+    "question": "Ar siunčiate užsienyje?",
+    "answer": "Taip, mes siunčiame į įvairias šalis, bet tai gali būti brangiau",
+    },
+    {
+    "question": "Mano užsakymas buvo pažeistas. Ar galiu gauti grąžinimą?",
+    "answer": "Žinoma! Susisiekite su mumis per viršuje esantį formą",
+    },
+    {
+    "question": "Ar ketinate siūlyti naujus e-cigaretės variantus?",
+    "answer": "Žinoma! Pasidalinkite savo pasiūlymais per mūsų formą!",
+    },
+    ]
 }
