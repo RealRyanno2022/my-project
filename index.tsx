@@ -9,7 +9,6 @@ import polTranslation from './translations/locales/pol.json';
 import cnTranslation from './translations/locales/cn.json';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
 import I18nProvider from './I18nProvider';
 
@@ -27,9 +26,10 @@ i18n
     },
   });
 
-ReactDOM.render(
+const AppWithI18n = () => (
   <I18nProvider>
     <App />
-  </I18nProvider>,
-  document.getElementById('root')
+  </I18nProvider>
 );
+
+export default AppWithI18n;

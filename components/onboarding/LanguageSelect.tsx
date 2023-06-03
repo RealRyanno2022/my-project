@@ -18,7 +18,7 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({ navigation }) => {
   };
 
   const languageData = [
-    { language: 'English', flag: require('../pictures/ritish-flag.png') },
+    { language: 'English', flag: require('../pictures/british-flag.png') },
     { language: 'Irish', flag: require('../pictures/irish-flag.png') },
     { language: 'Chinese', flag: require('../pictures/chinese-flag.png') },
     { language: 'Lithuanian', flag: require('../pictures/lithuanian-flag.png') },
