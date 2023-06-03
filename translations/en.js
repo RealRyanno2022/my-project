@@ -1,174 +1,178 @@
+export default {
+  "welcome": "Welcome to our app!",
+  "signUp": "Sign Up",
+  "signIn": "Sign In",
+  "notFound": "404 Not Found",
+  "notFoundSub": "The page you are looking for does not exist",
+  "cancelSubscription": "Cancelling your subscription",
+  "subscriptionCancelled": "Your subscription has been cancelled",
+  "continueButtonText": "Continue",
+  "confirmCancel": "Are you sure?",
+  "memberValue": "We value you as a member and we would love to continue serving you with our vast range of flavours and convenient delivery. Remember, you enjoy free shipping as part of your membership!",
+  "cancelAssurance": "We understand if you need to cancel, and assure you that you can do so at any time",
+  "continueMembership": "Continue Membership",
+  "cancelMembership": "Cancel Membership",
+  "cityPlaceholder": "City",
+  "postcodePlaceholder": "Postcode",
+  "statePlaceholder": "State",
+  "countryPlaceholder": "Country",
+  "submitLabel": "Submit",
+  "changeFlavours": "Change Flavours",
+  "flavours": ["Kinship", "BMG", "Hale", "Slushie", "Yeti", "IVG Salt", "Elfiq"],
+  "brandVarieties": "Varieties",
+  "manageSubscription": "Manage Subscription",
+  "upgradeToYearly": "Upgrade to yearly",
+  "cancelMembershipButton": "Cancel Membership",
+  "changeCreditCard": "Change Credit Card Information",
+  "changeAddress": "Change Address",
+  "changeFlavoursButton": "Change Flavours",
+  "tryVapePass": "Try our Vape Pass!",
+  "getDiscountedVape": "Get a discounted vape every week!",
+  "chooseSubscription": "Choose a Subscription",
+  "monthly": "Monthly",
+  "monthlyPrice": "€29.99/month",
+  "yearly": "Yearly",
+  "yearlyPrice": "€279.99/year",
+  "signUpButton": "Sign Up",
+  "getBenefits": "What do I get?",
+  "getBenefitsDescription": "Get a juice of your choice each week, hassle free!",
+  "whyVapePass": "Why Vape Pass?",
+  "whyVapePassDescription": "Save a fortune on shipping and have your flavours delivered automatically. You can cancel your subscription at any time",
+  "changeFlavoursQuestion": "Can I change flavours?",
+  "changeFlavoursAnswer": "Of course! You can change your flavours at any time",
+  "varietiesQuestion": "What varieties are there?",
+  "varietiesAnswer": "We offer all of our disposable vape varieties and will allow a similar pass for e-juice in the future",
+  "goBack": "Go Back",
+  "continueShoppingQuestion": "The item was added to your cart! Continue shopping or checkout now?",
+  "continueShopping": "Continue Shopping",
+  "checkout": "Checkout",
+  "expressShipping": "Express Shipping",
+  "deliveryCharge": "Delivery Charge: ",
+  "totalPrice": "Total Price: ",
+  "addToCart": "Add to Cart",
+  "standardShipping": "Standard Shipping",
+  "noResultsFor": 'No results found for "',
+  "searchPlaceholder": "Search",
+  "brands": ["Elfa Bar", "Jewel Mini", "Lost Mary", "Elf Bar", "IVG Bar"],
 
-export default
-{
-    "welcome": "Welcome to our app!",
-    "signUp": "Sign Up",
-    "signIn": "Sign In"
+  "orderConfirmation": "Order Confirmation",
+  "yourOrderId": "Your Order ID: ",
+  "orderDate": "Order Date: ",
+  "totalAmount": "Total Amount: ",
+  "itemsOrdered": "Items Ordered: ",
+  "orderSuccess": "Your order has been placed successfully! You will receive an email confirmation shortly",
+
+  "deliveryAddressLabel": "Delivery Address",
+  "confirmAndPay": "Confirm and Pay",
+  "emailLabel": "Email *",
+  "firstNameLabel": "First name *",
+  "lastNameLabel": "Last name *",
+  "phoneNumberLabel": "Phone number *",
+  "cityLabel": "City *",
+  "countryLabel": "Country *",
+  "stateLabelDefault": "State *",
+  "stateLabelIreland": "County *",
+  "postcodeLabelDefault": "Post Code",
+  "postcodeLabelIreland": "Eir Code",
+
+  "resetPassword": "Reset Password",
+  "resetPasswordInstructions": "Enter your email and enter the code to reset your password",
+  "enterYourEmail": "Enter your email",
+  "enterTheCode": "Enter the code",
+  "submitLabel": "Submit",
+  "generateCode": "Generate code",
+  "boomLabel": "Boom",
+
+  "noSuchUser": "No such user exists",
+  "invalidUsernamePassword": "Invalid username or password",
+  "loginSuccessful": "Login successful!",
+  "usernamePlaceholder": "Username",
+  "passwordPlaceholder": "Password",
+  "loginButton": "LOGIN",
+  "signUpButton": "SIGN UP",
+  "forgotPasswordButton": "FORGOT PASSWORD?",
+  "continueAsGuest": "CONTINUE AS GUEST",
+
+  "passwordMismatch": "Passwords do not match!",
+  "enterNewPassword": "Enter your new password",
+  "confirmNewPassword": "Confirm your new password",
+
+  "accountCreationSuccess": "Account created successfully!",
+  "accountCreationError": "Failed to create account",
+  "emptyFieldsError": "Please fill in all your ",
+  "tooLongError": "Error: Username/Password is too long",
+  "confirmPasswordError": "You must confirm your password",
+  "invalidEmailError": "Invalid email: No @",
+  "invalidPasswordError": "Invalid password",
+  "passwordsMismatchError": "Passwords do not match",
+  "passwordPolicy": "Must contain at minimum 8 letters, 1 number, and 1 non-alphanumeric value (?, !, $)",
+  "signUpUsernameLabel": "Username",
+  "signUpEmailLabel": "Email",
+  "signUpPasswordLabel": "Password",
+  "signUpConfirmPasswordLabel": "Confirm Password",
+  "signUpPrompt": "Sign up",
+
+  "verifyEmailMessage": "A 12-digit code has been sent to your email address Type it in to verify your email here:",
+  "verifyButton": "VERIFY",
+  "sendCodeButton": "SEND CODE",
+  "goBackButton": "Go back",
+
+  "introBrand": "Candii",
+  "introSubText": "Disposable e-cigarettes and e-juice",
+
+  "privacyPolicy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Morbi at rutrum ipsum Cras pharetra vulputate mattis",
+  "privacyPolicyAcceptance": "I have read and accepted the Privacy Policy",
+
+  "disposables": "Disposables",
+  "juice": "Juice",
+
+  "ageVerification": "Age Verification",
+  "yesOver18": "Yes, I'm over 18",
+  "noUnder18": "No, I'm under 18",
+
+  "usernameDisplay": "Your username is ",
+  "emailDisplay": "Your email address is ",
+  "backButton": "Back",
+  "projectButton": "Project",
+  "signOutButton": "Sign Out",
+  "deleteAccountButton": "Delete Account",
+  "changePasswordButton": "Change Password",
+  "logInButton": "Log In",
+  "signUpButton": "Sign Up",
+
+  "changePasswordCard": "Change Password",
+  "oldPasswordPlaceholder": "Old password",
+  "newPasswordPlaceholder": "New password",
+  "confirmNewPasswordPlaceholder": "Confirm new password",
+
+  "deleteAccountPrompt": "Are you sure you want to delete your account? This action is irreversible",
+  "deleteAccountWarning": "This will delete your purchase history, record of your account and basket",
+  "confirmDeleteButton": "Delete Account",
+
+  "projectCard": "Project",
+  "projectFeatures": [
+      "Developed in React Native by Daniel Ryan, 2023",
+      "Features:",
+      "- Braintree SDK for payments",
+      "- Full account creation system with PostgreSQL",
+      "- Node and Express backend",
+      "- Full E-Commerce UI"
+  ],
+
+  "haveAQuery": "Have a query? Feel free to ask us!",
+
+  "faq": [
+      {
+          "question": "Do you ship abroad?",
+          "answer": "Yes, we ship to different countries, but it may be more expensive",
+      },
+      {
+          "question": "My order was damaged Can I get a refund?",
+          "answer": "Of course! Contact us through the form above",
+      },
+      {
+          "question": "Will you offer new varieties of e-cigarette??",
+          "answer": "Certainly Please suggest some through our form!",
+      },
+  ]
 }
-
-
-// NotFoundScreen
-
-<Text style={styles.title}>404 Not Found</Text>
-      <Text style={styles.subtitle}>The page you are looking for does not exist.</Text>
-
-
-// CancelConfirm
-
-{isSubscribed ? 'Cancelling your subscription...' : 'Your subscription has been cancelled.'}
-
-<Text style={styles.buttonText}>Continue</Text>
-
-// CancelMembership
-
-<Text style={styles.title}>Are you sure?</Text>
-      <Text style={styles.text}>
-        We value you as a member and we would love to continue serving you with our vast range of flavours and convenient delivery. 
-        Remember, you enjoy free shipping as part of your membership!
-      </Text>
-
-      <Text style={styles.text}>
-        We understand if you need to cancel, and assure you that you can do so at any time.
-      </Text>
-
-      <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
-        <Text style={styles.continueText}>Continue Membership</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.cancelButton} onPress={handleCancel}>
-        <Text style={styles.cancelText}>Cancel Membership</Text>
-
-// CancelMembershipScreen
-
-<View style={styles.card}>
-        <View style={styles.fieldContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="City"
-            value={city}
-            onChangeText={setCity}
-          />
-        </View>
-
-        <View style={styles.fieldContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Postcode"
-            value={postcode}
-            onChangeText={setPostcode}
-          />
-        </View>
-
-        <View style={styles.fieldContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="State"
-            value={state}
-            onChangeText={setState}
-          />
-        </View>
-
-        <View style={styles.fieldContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Country"
-            value={country}
-            onChangeText={setCountry}
-          />
-        </View>
-
-        <TouchableOpacity style={styles.label} onPress={handleSubmit}>
-          <Text style={styles.labelText}>Continue</Text>
-
-/</TouchableOpacity>
-//</View>
-//ChangeFlavours
-<Text style={styles.title}>Change Flavours</Text>
-<Text style={styles.continueText}>Continue</Text>
-
-
-//ChooseFlavours
-<Text style={styles.title}>{brandName} Varieties</Text>
-<Text style={styles.continueText}>Continue</Text>
-
- // managesubscription
- 
- <Text style={styles.title}>Manage Subscription</Text>
- 
- </TouchableOpacity>
-
-{subscription.type === 'monthly' && (
-    <Button title="Upgrade to yearly" onPress={() => navigation.dispatch(StackActions.push(('UpgradeMembership')))} />
-)}
-
-<Button
-  title="Cancel Membership"
-  onPress={() => navigation.dispatch(StackActions.push('CancelMembership', { isSubscribed, setIsSubscribed }))}
-/>
-
-<Button title="Change Credit Card Information" onPress={() => navigation.dispatch(StackActions.push('ChangeCreditCard'))} />
-
-<Button title="Change Address" onPress={() => navigation.dispatch(StackActions.push('ChangeAddress'))} />
-
-<Button title="Change Flavours" onPress={() => navigation.dispatch(StackActions.push('ChangeFlavours'))} />
-
-SUBSIGNUP
-
-<View style={styles.content}>
-<Text style={styles.title}>Try our Vape Pass!</Text>
-<Text style={styles.title}>Get a discounted vape every week!</Text>
-<Text style={styles.title}></Text>
-<Image source={require('../pictures/subs.jpg')} style={styles.image} />
-<Text style={styles.subtitle}>Choose a Subscription</Text>
-<View style={styles.subscriptionOptions}>
-  <TouchableOpacity
-    style={[
-      styles.subscriptionOption,
-      subscriptionType === 'monthly' && styles.selectedSubscription,
-    ]}
-    onPress={() => handleSubscriptionTypeChange('monthly')}
-  >
-    <Text style={styles.subscriptionOptionText}>Monthly</Text>
-    <Text style={styles.subscriptionOptionPrice}>€29.99/month</Text>
-  </TouchableOpacity>
-  <TouchableOpacity
-    style={[
-      styles.subscriptionOption,
-      subscriptionType === 'yearly' && styles.selectedSubscription,
-    ]}
-    onPress={() => handleSubscriptionTypeChange('yearly')}
-  >
-    <Text style={styles.subscriptionOptionText}>Yearly</Text>
-    <Text style={styles.subscriptionOptionPrice}>€279.99/year</Text>
-  </TouchableOpacity>
-</View>
-<TouchableOpacity style={styles.signUpButton} onPress={() => navigation.dispatch(StackActions.push("SubVapeScreen"))}>
-  <Text style={styles.signUpButtonText}>Sign Up</Text>
-</TouchableOpacity>
-<View style={styles.subscriptionInfo}>
-    <Text style={styles.subscriptionInfoHeader}>What do I get?</Text>
-    <Text style={styles.subscriptionInfoDescription}>
-    Get a juice of your choice each week, hassle free!
-    </Text>
-</View>
-<View style={styles.subscriptionInfo}>
-    <Text style={styles.subscriptionInfoHeader}>Why Vape Pass?</Text>
-    <Text style={styles.subscriptionInfoDescription}>
-    Save a fortune on shipping and have your flavours delivered automatically. You can cancel your subscription at any time.
-    </Text>
-</View>
-<View style={styles.subscriptionInfo}>
-    <Text style={styles.subscriptionInfoHeader}>Can I change flavours?</Text>
-    <Text style={styles.subscriptionInfoDescription}>
-    Of course! You can change your flavours at any time.
-    </Text>
-</View>
-<View style={styles.subscriptionInfo}>
-    <Text style={styles.subscriptionInfoHeader}>What varieties are there?</Text>
-    <Text style={styles.subscriptionInfoDescription}>
-    We offer all of our disposable vape varieties and will allow a similiar pass for e-juice in the future.
-    </Text>
-
-SUBVAPESCREEN 
-
-<Text style={styles.cardText}>Go Back</Text>

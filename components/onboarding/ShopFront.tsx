@@ -5,7 +5,7 @@ import ShopHeader from '../shop/ShopHeader';
 import ShopFooter from '../shop/ShopFooter';
 
 type ShopFrontProps = {
-  navigation: any;
+  navigation: NavigationProp<StackParamList>;
 }
 
 const ShopFront: React.FC<ShopFrontProps> = ({ navigation }) => {

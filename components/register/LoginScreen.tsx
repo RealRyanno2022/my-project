@@ -103,7 +103,6 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ navigation }) => {
     <ShopHeader navigation={navigation}  />
     <View style={styles.container}>
       <TouchableOpacity style={styles.nextBtn} onPress={() => navigation.navigate('NewPassword')}>
-        <Text style={styles.nextText}>NEXT</Text>
       </TouchableOpacity>
       <Text style={styles.logo}>Candii</Text>
       <Text style={styles.smallText}>Login</Text>
