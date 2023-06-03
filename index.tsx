@@ -8,18 +8,10 @@ import ireTranslation from './translations/locales/ire.json';
 import polTranslation from './translations/locales/pol.json';
 import cnTranslation from './translations/locales/cn.json';
 
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import I18nProvider from '../components/I18nProvider';
-
-ReactDOM.render(
-  <I18nProvider>
-    <App />
-  </I18nProvider>,
-  document.getElementById('root')
-);
+import I18nProvider from './I18nProvider';
 
 i18n
   .use(initReactI18next)
@@ -35,8 +27,9 @@ i18n
     },
   });
 
-
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
+ReactDOM.render(
+  <I18nProvider>
+    <App />
+  </I18nProvider>,
+  document.getElementById('root')
+);
