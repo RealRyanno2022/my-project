@@ -8,6 +8,7 @@ import Queries from './components/account/Queries';
 import DeleteAccount from './components/account/DeleteAccount';
 import { BrandVarietiesProps, StackParamList } from './types/types';
 
+import LanguageSelect from './components/onboarding/LanguageSelect';
 import Intro from './components/onboarding/Intro';
 import PrivacyPolicy from './components/onboarding/PrivacyPolicy';
 import ShopFront from './components/onboarding/ShopFront';
@@ -115,6 +116,8 @@ const App: React.FC = () => {
           <Stack.Screen name="NewPassword" component={NewPassword} />
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="VerifyEmail" component={VerifyEmail} />
+
+          <Stack.Screen name="LanguageSelect" component={LanguageSelect} />
 
           <Stack.Screen
             name="ConfirmationPage"

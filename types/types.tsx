@@ -15,6 +15,7 @@ export type StackParamList = {
   DeleteAccount: undefined;
   ProjectInfo: undefined;
   Queries: undefined;
+  LanguageSelect: undefined;
   Intro: undefined;
   PrivacyPolicy: undefined;
   ShopFront: undefined;
